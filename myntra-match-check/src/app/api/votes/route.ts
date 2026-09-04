@@ -34,13 +34,18 @@ export async function POST(req: Request) {
 }
 
 export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const token = searchParams.get("token");
+  try {
+    const { searchParams } = new URL(req.url);
+    const token = searchParams.get("token");
 
-  if (!token) {
-    return NextResponse.json({ error: "Token required" }, { status: 400 });
+    if (!token) {
+      return NextResponse.json({ error: "Token required" }, { status: 400 });
+    }
+
+    const votes = await votesStore.getByToken(token);
+    return NextResponse.json({ votes });
+  } catch (error: any) {
+    console.error("Error fetching votes:", error);
+    return NextResponse.json({ error: error.message || "Internal error" }, { status: 500 });
   }
-
-  const votes = await votesStore.getByToken(token);
-  return NextResponse.json({ votes });
 }
