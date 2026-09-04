@@ -1,16 +1,15 @@
 import { Vote } from "../../data/types";
+import { redis } from "./redis";
 
 class VotesStore {
-  private store: Map<string, Vote[]> = new Map();
-
   async getByToken(token: string): Promise<Vote[]> {
-    return this.store.get(token) || [];
+    const votes = await redis.lrange(`votes:${token}`, 0, -1);
+    return votes as Vote[];
   }
 
   async addVote(token: string, vote: Vote): Promise<void> {
-    const votes = this.store.get(token) || [];
-    votes.push(vote);
-    this.store.set(token, votes);
+    await redis.rpush(`votes:${token}`, vote);
+    await redis.expire(`votes:${token}`, 24 * 60 * 60); 
   }
 }
 

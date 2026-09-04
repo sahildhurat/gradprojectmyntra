@@ -1,21 +1,15 @@
 import { Check } from "../../data/types";
+import { redis } from "./redis";
 
-// In-memory store for development/MVP purposes.
-// In production, this would be backed by Vercel KV or a similar Redis store.
 class ChecksStore {
-  private store: Map<string, Check> = new Map();
-
   async get(checkId: string): Promise<Check | null> {
-    return this.store.get(checkId) || null;
+    const data = await redis.get(`check:${checkId}`);
+    return data as Check | null;
   }
 
   async set(checkId: string, check: Check): Promise<void> {
-    this.store.set(checkId, check);
-    
-    // Simple mock TTL: delete after 24 hours
-    setTimeout(() => {
-      this.store.delete(checkId);
-    }, 24 * 60 * 60 * 1000);
+    // Save with a 24-hour expiry (in seconds)
+    await redis.set(`check:${checkId}`, check, { ex: 24 * 60 * 60 });
   }
 }
 

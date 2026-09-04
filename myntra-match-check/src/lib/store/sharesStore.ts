@@ -1,19 +1,15 @@
 import { Share } from "../../data/types";
+import { redis } from "./redis";
 
 class SharesStore {
-  private store: Map<string, Share> = new Map();
-
   async get(token: string): Promise<Share | null> {
-    return this.store.get(token) || null;
+    const data = await redis.get(`share:${token}`);
+    return data as Share | null;
   }
 
   async set(token: string, share: Share): Promise<void> {
-    this.store.set(token, share);
-    
-    // Automatically delete after expiration (24h)
-    setTimeout(() => {
-      this.store.delete(token);
-    }, new Date(share.expiresAt).getTime() - Date.now());
+    const ttlSeconds = Math.max(1, Math.floor((new Date(share.expiresAt).getTime() - Date.now()) / 1000));
+    await redis.set(`share:${token}`, share, { ex: ttlSeconds });
   }
 }
 
