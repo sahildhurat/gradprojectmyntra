@@ -54,7 +54,6 @@ export default function ResultScreen() {
   if (!product || !check || !check.assessment) return null;
 
   const assessment = check.assessment;
-  const matchScore = 86; // Mock score since it's not in the AI schema
   const cpw = Math.round(product.price / check.expectedWears);
 
   const handleDecision = () => {
@@ -92,23 +91,8 @@ export default function ResultScreen() {
 
 
           <section className="px-4 py-6">
-            <div className="relative overflow-hidden bg-surface-container rounded-3xl p-6 shadow-md border border-white/5">
-              <div className="absolute -right-12 -top-12 w-44 h-44 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-              <div className="relative flex flex-col items-center justify-center gap-4 text-center">
-                <div className="relative w-32 h-32 shrink-0 flex items-center justify-center">
-                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                    <circle className="text-surface-container-highest" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" strokeWidth="8"></circle>
-                    <circle className={matchScore > 75 ? "text-tertiary" : "text-secondary"} cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" strokeDasharray="251.2" strokeDashoffset={251.2 - (251.2 * matchScore) / 100} strokeLinecap="round" strokeWidth="8.5"></circle>
-                  </svg>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="font-headline-lg text-[40px] text-on-surface font-bold tracking-tighter">{matchScore}</span>
-                  </div>
-                </div>
-                <div>
-                  <h2 className="font-title-md text-[20px] text-on-surface tracking-tight font-bold">{matchScore > 75 ? 'Strong Match' : 'Moderate Match'}</h2>
-                  <p className="font-body-sm text-[14px] text-on-surface-variant mt-1">Calibrated for <span className="text-on-surface font-semibold">{check.occasion}</span></p>
-                </div>
-              </div>
+            <div className="relative overflow-hidden bg-surface-container rounded-3xl p-6 shadow-md border border-white/5 text-center">
+              <span className="font-body-md text-on-surface">Checked for: {check.occasion} · {check.expectedWears} expected wears</span>
             </div>
           </section>
 
@@ -117,16 +101,16 @@ export default function ResultScreen() {
             <section className="px-4 pt-4 pb-2">
               <div className="bg-surface-container rounded-3xl p-5 shadow-sm border border-white/5">
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="material-symbols-outlined text-tertiary text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>verified_user</span>
+                  <span className="material-symbols-outlined text-on-surface text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>verified_user</span>
                   <h3 className="font-title-md text-[18px] text-on-surface font-bold">Trust & Verification</h3>
                 </div>
                 <div className="space-y-3">
                   {check.trustBlock.items.map((item: any, idx: number) => (
                     <div key={idx} className="flex items-start gap-3">
-                      <span className={`material-symbols-outlined text-[18px] shrink-0 mt-0.5 ${item.type === 'verification' ? 'text-tertiary' : 'text-on-surface-variant'}`}>
+                      <span className={`material-symbols-outlined text-[18px] shrink-0 mt-0.5 text-on-surface`}>
                         {item.icon === 'check' ? 'check_circle' : 'shield'}
                       </span>
-                      <p className={`font-body-md text-[15px] leading-relaxed ${item.type === 'verification' ? 'text-tertiary font-medium' : 'text-on-surface'}`}>
+                      <p className={`font-body-md text-[15px] leading-relaxed text-on-surface`}>
                         {item.text}
                       </p>
                     </div>
@@ -139,8 +123,8 @@ export default function ResultScreen() {
           {/* Match Reasons */}
           <section className="px-4 pt-6">
             <div className="flex items-center gap-2 mb-4">
-              <span className="material-symbols-outlined text-tertiary text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>spark</span>
-              <h3 className="font-title-md text-[18px] text-on-surface font-bold">Why it works</h3>
+              <span className="material-symbols-outlined text-on-surface text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>spark</span>
+              <h3 className="font-title-md text-[18px] text-on-surface font-bold">Why it could work for you</h3>
             </div>
             <div className="space-y-4">
               {assessment.match_reasons?.map((reason: any, idx: number) => (
@@ -149,8 +133,8 @@ export default function ResultScreen() {
                   onClick={() => reason.evidence_ids?.length && setActiveDrawer({ type: 'reason', data: reason })}
                   className="flex items-start gap-3 cursor-pointer group"
                 >
-                  <span className="material-symbols-outlined text-tertiary text-[20px] shrink-0 mt-0.5">check_circle</span>
-                  <p className="font-body-md text-[15px] text-on-surface leading-relaxed group-hover:text-tertiary transition-colors">{reason.statement}</p>
+                  <span className="material-symbols-outlined text-on-surface text-[20px] shrink-0 mt-0.5">check_circle</span>
+                  <p className="font-body-md text-[15px] text-on-surface leading-relaxed group-hover:text-on-surface-variant transition-colors">{reason.statement}</p>
                 </div>
               ))}
             </div>
@@ -160,7 +144,7 @@ export default function ResultScreen() {
           {assessment.considerations && assessment.considerations.length > 0 && (
             <section className="px-4 pt-8">
               <div className="flex items-center gap-2 mb-4">
-                <span className="material-symbols-outlined text-secondary text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>warning</span>
+                <span className="material-symbols-outlined text-on-surface text-[20px]">radio_button_unchecked</span>
                 <h3 className="font-title-md text-[18px] text-on-surface font-bold">Things to consider</h3>
               </div>
               <div className="space-y-4">
@@ -170,10 +154,31 @@ export default function ResultScreen() {
                     onClick={() => cons.evidence_ids?.length && setActiveDrawer({ type: 'consideration', data: cons })}
                     className="flex items-start gap-3 cursor-pointer group"
                   >
-                    <span className="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">info</span>
+                    <span className="material-symbols-outlined text-on-surface text-[20px] shrink-0 mt-0.5">radio_button_unchecked</span>
                     <div>
-                      <p className="font-body-md text-[15px] text-on-surface leading-relaxed font-medium group-hover:text-secondary transition-colors">{cons.condition}</p>
+                      <p className="font-body-md text-[15px] text-on-surface leading-relaxed font-medium group-hover:text-on-surface-variant transition-colors">{cons.condition}</p>
                       <p className="font-body-sm text-[13px] text-on-surface-variant mt-1">{cons.implication}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Unknowns (What remains unclear) */}
+          {assessment.unknowns && assessment.unknowns.length > 0 && (
+            <section className="px-4 pt-8">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="material-symbols-outlined text-on-surface-variant text-[20px]">help_outline</span>
+                <h3 className="font-title-md text-[18px] text-on-surface-variant font-bold">What remains unclear</h3>
+              </div>
+              <div className="space-y-4">
+                {assessment.unknowns.map((unk: any, idx: number) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-on-surface-variant text-[20px] shrink-0 mt-0.5">help_outline</span>
+                    <div>
+                      <p className="font-body-md text-[15px] text-on-surface-variant leading-relaxed font-medium">{unk.statement}</p>
+                      <p className="font-body-sm text-[13px] text-on-surface-variant/80 mt-1">{unk.missing_information}</p>
                     </div>
                   </div>
                 ))}
@@ -202,13 +207,13 @@ export default function ResultScreen() {
           {/* Decision Question */}
           <section className="px-4 pt-6 pb-4">
             <div className="bg-surface-container-low rounded-3xl p-4 text-center shadow-sm">
-              <span className="font-label-sm text-label-sm uppercase tracking-wider text-primary">Hesitation Check</span>
+              <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface">Hesitation Check</span>
               <h4 className="font-title-md text-title-md text-on-surface mt-1">Would this purchase feel worth it?</h4>
               <div className="grid grid-cols-3 gap-2 mt-4">
                 {[
-                  { id: 'yes', icon: 'sentiment_satisfied', label: 'Yes', color: 'text-tertiary' },
-                  { id: 'notsure', icon: 'sentiment_neutral', label: 'Unsure', color: 'text-secondary' },
-                  { id: 'no', icon: 'sentiment_dissatisfied', label: 'No', color: 'text-primary' }
+                  { id: 'yes', icon: 'sentiment_satisfied', label: 'Yes', color: 'text-on-surface' },
+                  { id: 'notsure', icon: 'sentiment_neutral', label: 'Unsure', color: 'text-on-surface' },
+                  { id: 'no', icon: 'sentiment_dissatisfied', label: 'No', color: 'text-on-surface' }
                 ].map(f => (
                   <button 
                     key={f.id}

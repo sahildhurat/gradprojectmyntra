@@ -43,6 +43,7 @@ export default function DecisionScreen() {
     alert('Item added to cart!');
     router.push('/');
   };
+  const handleShareClick = () => {
     setShowQuestionModal(true);
   };
 

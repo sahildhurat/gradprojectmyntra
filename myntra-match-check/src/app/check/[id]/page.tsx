@@ -26,16 +26,6 @@ export default function ContextFlowScreen() {
   if (!product) return null;
 
   const cpw = Math.round(product.price / wears);
-  let badgeClass = "bg-tertiary-container/20 text-tertiary";
-  let badgeText = "Great value";
-  
-  if (cpw > 500) {
-    badgeClass = "bg-error-container/20 text-error";
-    badgeText = "High cost per wear";
-  } else if (cpw > 200) {
-    badgeClass = "bg-secondary-container/20 text-secondary";
-    badgeText = "Moderate value";
-  }
 
   const handleGenerate = async () => {
     setIsGenerating(true);
@@ -77,10 +67,10 @@ export default function ContextFlowScreen() {
   ];
 
   const hesitationsList = [
-    { id: "Worth the price?", icon: "monetization_on", desc: "Compare fabric durability, brand premium, and resale value against similar marketplace sets." },
-    { id: "Will it fit my body type?", icon: "straighten", desc: "Evaluate bust and waist stretch tolerance based on reviews from customers with matching profiles." },
-    { id: "Can I trust fabric & seller?", icon: "verified_user", desc: "Verify verified buyer photos, color bleeding risk, and real embroidery stitch density." },
-    { id: "Will I wear it more than once?", icon: "checkroom", desc: "Scan your synced wardrobe to generate restyling combinations with bottoms and dupattas you own." }
+    { id: "Worth the price?", icon: "monetization_on" },
+    { id: "Will it fit my body type?", icon: "straighten" },
+    { id: "Can I trust fabric & seller?", icon: "verified_user" },
+    { id: "Will I wear it more than once?", icon: "checkroom" }
   ];
 
   return (
@@ -205,17 +195,12 @@ export default function ContextFlowScreen() {
               
               <div className="p-4 rounded-xl bg-surface-container-low flex flex-col gap-2 shadow-inner border border-black/20">
                 <div className="flex items-center justify-between">
-                  <span className="font-label-md text-label-md text-on-surface-variant">True Cost Per Wear (CPW)</span>
-                  <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wider font-bold ${badgeClass}`}>
-                    <span className="material-symbols-outlined text-[14px]">verified</span>
-                    <span>{badgeText}</span>
-                  </span>
+                  <span className="font-label-md text-label-md text-on-surface-variant">Cost per wear</span>
                 </div>
                 <div className="flex items-baseline gap-2 mt-1">
                   <span className="font-headline-md text-[28px] text-on-surface font-bold tracking-tight">₹{cpw.toLocaleString('en-IN')}</span>
-                  <span className="font-body-sm text-body-sm text-on-surface-variant font-medium">/ planned wear</span>
+                  <span className="font-body-sm text-body-sm text-on-surface-variant font-medium">per wear at {wears} wears</span>
                 </div>
-                <p className="font-body-sm text-[13px] text-outline mt-1 font-medium">₹{product.price.toLocaleString('en-IN')} original cart cost ÷ {wears} anticipated wears</p>
               </div>
             </div>
           </section>
@@ -240,9 +225,8 @@ export default function ContextFlowScreen() {
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 transition-colors ${isActive ? 'bg-primary text-on-primary' : 'bg-surface-container-highest text-transparent border border-white/10'}`}>
                       <span className="material-symbols-outlined text-[16px]">check</span>
                     </div>
-                    <div className="flex flex-col flex-1">
+                    <div className="flex flex-col flex-1 justify-center">
                       <span className={`font-title-md text-title-md ${isActive ? 'text-primary font-bold' : 'text-on-surface'}`}>{opt.id}</span>
-                      <p className="font-body-sm text-[13px] leading-relaxed text-on-surface-variant/80 mt-1.5">{opt.desc}</p>
                     </div>
                     <span className={`material-symbols-outlined text-[24px] ${isActive ? 'text-primary/60' : 'text-outline/40'}`}>{opt.icon}</span>
                   </label>
