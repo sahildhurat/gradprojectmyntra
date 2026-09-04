@@ -76,7 +76,13 @@ export default function ResultScreen() {
             </button>
             <h1 className="font-title-md text-title-md text-on-surface tracking-tight">Diagnostic Detail</h1>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            {assessment.isFallback && (
+              <div className="inline-flex items-center gap-1 bg-surface-variant/50 border border-outline-variant/30 px-2.5 py-1 rounded-full">
+                <span className="material-symbols-outlined text-on-surface-variant text-[12px]">offline_bolt</span>
+                <span className="font-label-sm text-[10px] text-on-surface-variant tracking-wider uppercase font-bold">Cached</span>
+              </div>
+            )}
             <div className="inline-flex items-center gap-1 bg-primary-container/15 px-3 py-1 rounded-full">
               <span className="material-symbols-outlined text-primary text-[14px]">auto_awesome</span>
               <span className="font-label-sm text-label-sm text-primary tracking-wider uppercase">AI Match</span>
@@ -131,9 +137,9 @@ export default function ResultScreen() {
                 <div 
                   key={idx} 
                   onClick={() => reason.evidence_ids?.length && setActiveDrawer({ type: 'reason', data: reason })}
-                  className="flex items-start gap-3 cursor-pointer group"
+                  className="flex items-start gap-3 cursor-pointer group bg-[#1A1A1D] border border-[#26262B] p-4 rounded-xl"
                 >
-                  <span className="material-symbols-outlined text-on-surface text-[20px] shrink-0 mt-0.5">check_circle</span>
+                  <span className="material-symbols-outlined text-[#9A9A9F] text-[20px] shrink-0 mt-0.5">add</span>
                   <p className="font-body-md text-[15px] text-on-surface leading-relaxed group-hover:text-on-surface-variant transition-colors">{reason.statement}</p>
                 </div>
               ))}
@@ -152,9 +158,9 @@ export default function ResultScreen() {
                   <div 
                     key={idx} 
                     onClick={() => cons.evidence_ids?.length && setActiveDrawer({ type: 'consideration', data: cons })}
-                    className="flex items-start gap-3 cursor-pointer group"
+                    className="flex items-start gap-3 cursor-pointer group bg-[#1A1A1D] border border-[#26262B] p-4 rounded-xl"
                   >
-                    <span className="material-symbols-outlined text-on-surface text-[20px] shrink-0 mt-0.5">radio_button_unchecked</span>
+                    <span className="material-symbols-outlined text-[#9A9A9F] text-[20px] shrink-0 mt-0.5">radio_button_unchecked</span>
                     <div>
                       <p className="font-body-md text-[15px] text-on-surface leading-relaxed font-medium group-hover:text-on-surface-variant transition-colors">{cons.condition}</p>
                       <p className="font-body-sm text-[13px] text-on-surface-variant mt-1">{cons.implication}</p>
@@ -236,10 +242,10 @@ export default function ResultScreen() {
               </button>
               <button 
                 onClick={handleDecision}
-                className="flex-1 h-12 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_0_24px_-2px_rgba(255,79,116,0.4)] hover:brightness-110 active:scale-[0.98] transition-all"
+                className="flex-1 h-12 rounded-full bg-[#FF3E6C] text-white font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_0_24px_-2px_rgba(255,62,108,0.4)] hover:brightness-110 active:scale-[0.98] transition-all"
               >
                 <span>Continue to my decision</span>
-                <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                <span className="material-symbols-outlined text-white text-[20px]">arrow_forward</span>
               </button>
             </div>
           </div>

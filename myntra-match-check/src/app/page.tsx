@@ -44,28 +44,26 @@ export default function WishlistScreen() {
       <header className="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
         <div className="bg-surface-container-lowest/90 px-4 py-1 flex items-center justify-center">
           <div className="inline-flex items-center gap-2 bg-secondary-container/20 px-3 py-1 rounded-full">
-            <span className="material-symbols-outlined text-secondary text-[14px]">info</span>
+            <span className="material-symbols-outlined text-[#9A9A9F] text-[14px]">info</span>
             <span className="font-label-sm text-label-sm text-secondary tracking-wide uppercase">Illustrative product and review data — built for prototype testing.</span>
           </div>
         </div>
         <div className="h-16 px-4 flex items-center justify-between gap-3">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <span className="font-headline-md text-headline-md text-primary-container tracking-tighter uppercase font-bold">M</span>
-              <div className="h-4 w-[1px] bg-outline-variant/40"></div>
-              <span className="font-title-md text-title-md text-on-surface tracking-tight">Discovery Hub</span>
+              <span className="font-headline-md text-headline-md tracking-tighter uppercase font-bold text-on-surface">MATCH CHECK</span>
             </div>
-            <div className="inline-flex items-center gap-1 bg-primary-container/15 px-3 py-1 rounded-full">
-              <span className="material-symbols-outlined text-primary text-[14px]">auto_awesome</span>
-              <span className="font-label-sm text-label-sm text-primary tracking-wider uppercase">Match Check</span>
+            <div className="inline-flex items-center gap-1 bg-[#222226] border border-[#F2F2F2] px-3 py-1 rounded-full">
+              <span className="material-symbols-outlined text-[#F2F2F2] text-[14px]">auto_awesome</span>
+              <span className="font-label-sm text-label-sm text-[#F2F2F2] tracking-wider uppercase">Match Check</span>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <button aria-label="Notifications" className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors">
-              <span className="material-symbols-outlined text-[22px]">notifications</span>
+              <span className="material-symbols-outlined text-[#9A9A9F] text-[22px]">notifications</span>
             </button>
-            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-              <span className="material-symbols-outlined text-on-primary text-[18px]">person</span>
+            <div className="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center border border-[#9A9A9F]">
+              <span className="material-symbols-outlined text-[#9A9A9F] text-[18px]">person</span>
             </div>
           </div>
         </div>
@@ -109,7 +107,7 @@ export default function WishlistScreen() {
                 <button 
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`filter-btn shrink-0 min-h-[44px] px-5 rounded-full font-label-md text-label-md flex items-center justify-center transition-all ${activeCategory === cat ? 'bg-primary-container/20 text-primary shadow-sm' : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest'}`}
+                  className={`filter-btn shrink-0 min-h-[44px] px-5 rounded-full font-label-md text-label-md flex items-center justify-center transition-all ${activeCategory === cat ? 'bg-[#222226] text-[#F2F2F2] border border-[#F2F2F2]' : 'bg-surface-container-high text-on-surface-variant border border-transparent hover:bg-surface-container-highest'}`}
                 >
                   {cat === "All" ? "All Items" : cat.charAt(0).toUpperCase() + cat.slice(1)}
                 </button>
@@ -125,8 +123,8 @@ export default function WishlistScreen() {
                   <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-90"></div>
                   
-                  <button aria-label="Favorite item" className="absolute top-space-sm right-space-sm w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest/70 backdrop-blur-md flex items-center justify-center text-primary transition-transform active:scale-95 shadow-md">
-                    <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
+                  <button aria-label="Favorite item" className="absolute top-space-sm right-space-sm w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest/70 backdrop-blur-md flex items-center justify-center transition-transform active:scale-95 shadow-md">
+                    <span className="material-symbols-outlined text-[#9A9A9F] text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
                   </button>
                 </div>
                 
@@ -147,7 +145,7 @@ export default function WishlistScreen() {
                   <div className="flex items-center gap-2">
                     <div className="inline-flex items-center gap-1 bg-tertiary-container/20 px-2 py-1 rounded-xl">
                       <span className="font-label-sm text-label-sm text-tertiary font-bold">{product.rating}</span>
-                      <span className="material-symbols-outlined text-tertiary text-[12px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                      <span className="material-symbols-outlined text-[#9A9A9F] text-[12px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
                     </div>
                     <span className="font-body-sm text-body-sm text-outline-variant">·</span>
                     <span className="font-body-sm text-body-sm text-on-surface-variant">{product.ratingCount} reviews</span>
@@ -155,9 +153,9 @@ export default function WishlistScreen() {
                   
                   <button 
                     onClick={() => handleCheckClick(product.id)}
-                    className="match-check-btn w-full min-h-[48px] mt-2 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(255,79,116,0.35)] hover:shadow-[0_0_28px_rgba(255,79,116,0.55)] transition-all active:scale-[0.98]"
+                    className="match-check-btn w-full min-h-[48px] mt-2 rounded-full bg-[#FF3E6C] text-white font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(255,62,108,0.35)] hover:shadow-[0_0_28px_rgba(255,62,108,0.55)] transition-all active:scale-[0.98]"
                   >
-                    <span className="material-symbols-outlined text-[18px]">auto_awesome</span>
+                    <span className="material-symbols-outlined text-white text-[18px]">auto_awesome</span>
                     <span>Check if it&apos;s right for me</span>
                   </button>
                 </div>
@@ -170,19 +168,19 @@ export default function WishlistScreen() {
       <nav className="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-4px_16px_rgba(0,0,0,0.4)]">
         <div className="flex items-center justify-around h-16 px-4">
           <a className="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-2 text-on-surface-variant transition-colors" href="#">
-            <span className="material-symbols-outlined text-[24px]">explore</span>
+            <span className="material-symbols-outlined text-[#9A9A9F] text-[24px]">explore</span>
             <span className="font-label-sm text-label-sm mt-1">Discover</span>
           </a>
           <a aria-current="page" className="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-2 transition-colors text-primary font-bold" href="#">
-            <span className="material-symbols-outlined text-[24px]">auto_awesome</span>
-            <span className="font-label-sm text-label-sm mt-1">Check</span>
+            <span className="material-symbols-outlined text-[#FF3E6C] text-[24px]">auto_awesome</span>
+            <span className="font-label-sm text-label-sm mt-1 text-[#FF3E6C]">Check</span>
           </a>
           <a className="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-2 text-on-surface-variant transition-colors" href="#">
-            <span className="material-symbols-outlined text-[24px]">checkroom</span>
+            <span className="material-symbols-outlined text-[#9A9A9F] text-[24px]">checkroom</span>
             <span className="font-label-sm text-label-sm mt-1">Closet</span>
           </a>
           <a className="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-2 text-on-surface-variant transition-colors" href="#">
-            <span className="material-symbols-outlined text-[24px]">shopping_bag</span>
+            <span className="material-symbols-outlined text-[#9A9A9F] text-[24px]">shopping_bag</span>
             <span className="font-label-sm text-label-sm mt-1">Bag</span>
           </a>
         </div>

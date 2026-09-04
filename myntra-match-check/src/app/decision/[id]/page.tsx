@@ -40,8 +40,7 @@ export default function DecisionScreen() {
   const handleBuy = () => {
     trackEvent('decision_buy', product.id, { checkId });
     markProductResolved(product.id);
-    alert('Item added to cart!');
-    router.push('/');
+    router.push('/confirm');
   };
   const handleShareClick = () => {
     setShowQuestionModal(true);
@@ -91,9 +90,7 @@ export default function DecisionScreen() {
               <span className="material-symbols-outlined text-[24px]">arrow_back</span>
             </button>
             <div className="flex items-center gap-2">
-              <span className="font-headline-md text-headline-md text-primary-container tracking-tighter uppercase font-bold">M</span>
-              <div className="h-4 w-[1px] bg-outline-variant/40"></div>
-              <span className="font-title-md text-title-md text-on-surface tracking-tight">Decision</span>
+              <span className="font-headline-md text-headline-md tracking-tighter uppercase font-bold text-on-surface">MATCH CHECK</span>
             </div>
           </div>
         </div>
@@ -120,8 +117,8 @@ export default function DecisionScreen() {
             <button onClick={handleBuy} className="group relative w-full text-left rounded-lg bg-primary-container p-4 transition-all duration-200 active:scale-[0.98] shadow-[0_0_28px_-4px_rgba(255,79,116,0.4)] flex items-center justify-between overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
               <div className="flex items-center gap-4 z-10">
-                <div className="w-12 h-12 rounded-full bg-on-primary-container/20 flex items-center justify-center flex-shrink-0 text-white shadow-inner">
-                  <span className="material-symbols-outlined text-[26px]" style={{ fontVariationSettings: "'FILL' 1" }}>shopping_bag</span>
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 text-white shadow-inner">
+                  <span className="material-symbols-outlined text-white text-[26px]" style={{ fontVariationSettings: "'FILL' 1" }}>shopping_bag</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-title-md text-title-md text-white font-bold flex items-center gap-2">
@@ -139,17 +136,17 @@ export default function DecisionScreen() {
             {/* Ask Inner Circle */}
             <button onClick={handleShareClick} disabled={isSharing} className={`group relative w-full text-left rounded-lg bg-surface-container-high p-4 transition-all duration-200 shadow-md flex items-center justify-between overflow-hidden backdrop-blur-xl ${isSharing ? 'opacity-80' : 'active:scale-[0.98]'}`}>
               <div className="flex items-center gap-4 z-10">
-                <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0 text-secondary shadow-sm">
+                <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0 shadow-sm">
                   {isSharing ? (
-                    <span className="material-symbols-outlined text-[24px] animate-spin">progress_activity</span>
+                    <span className="material-symbols-outlined text-[#9A9A9F] text-[24px] animate-spin">progress_activity</span>
                   ) : (
-                    <span className="material-symbols-outlined text-[24px]">diversity_1</span>
+                    <span className="material-symbols-outlined text-[#9A9A9F] text-[24px]">diversity_1</span>
                   )}
                 </div>
                 <div className="flex flex-col">
                   <span className="font-title-md text-title-md text-on-surface font-semibold flex items-center gap-2">
                     {isSharing ? 'Generating Link...' : 'Ask my Inner Circle'}
-                    {!isSharing && <span className="material-symbols-outlined text-on-surface-variant text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>}
+                    {!isSharing && <span className="material-symbols-outlined text-[#9A9A9F] text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>}
                   </span>
                   <span className="font-body-sm text-body-sm text-on-surface-variant">Get instant feedback from friends</span>
                 </div>
@@ -160,20 +157,20 @@ export default function DecisionScreen() {
             <button onClick={handleDismiss} className="group relative w-full text-left rounded-lg bg-surface-container-low p-4 transition-all duration-200 active:scale-[0.98] flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant">
-                  <span className="material-symbols-outlined text-[24px]">bookmark_add</span>
+                  <span className="material-symbols-outlined text-[#9A9A9F] text-[24px]">bookmark_add</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-title-md text-title-md text-on-surface font-medium">Not right for me</span>
                   <span className="font-body-sm text-body-sm text-on-surface-variant">Save insights & return to wishlist</span>
                 </div>
               </div>
-              <span className="material-symbols-outlined text-outline-variant text-[20px] transition-transform group-hover:rotate-45">close</span>
+              <span className="material-symbols-outlined text-[#9A9A9F] text-[20px] transition-transform group-hover:rotate-45">close</span>
             </button>
           </div>
 
           <div className="rounded-xl bg-surface-container-lowest/80 p-4 flex items-center gap-3 shadow-inner mt-3">
             <div className="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center flex-shrink-0">
-              <span className="material-symbols-outlined text-secondary text-[18px]">psychology</span>
+              <span className="material-symbols-outlined text-[#9A9A9F] text-[18px]">psychology</span>
             </div>
             <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
               <span className="text-on-surface font-semibold">12,400 shoppers</span> found clarity before checkout this week using Match Check diagnostics.
@@ -202,17 +199,17 @@ export default function DecisionScreen() {
             </p>
             
             <textarea
-              className="w-full h-24 p-4 rounded-xl bg-surface-container-low border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md text-on-surface resize-none mb-6"
+              className="w-full h-24 p-4 rounded-xl bg-surface-container-low border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md text-on-surface resize-none mb-3"
               value={shopperQuestion}
               onChange={(e) => setShopperQuestion(e.target.value)}
-              placeholder="e.g. Will this look good for a summer wedding?"
+              placeholder="e.g. Will this waistcoat look good with my navy trousers?"
             />
             
             <button 
               onClick={handleConfirmShare}
-              className="w-full h-12 rounded-full bg-primary text-on-primary font-title-md font-bold text-[16px] flex items-center justify-center gap-2 active:scale-[0.98] transition-transform shadow-md"
+              className="w-full h-12 rounded-full bg-[#FF3E6C] text-white font-title-md font-bold text-[16px] flex items-center justify-center gap-2 active:scale-[0.98] transition-transform shadow-md"
             >
-              <span className="material-symbols-outlined text-[20px]">send</span>
+              <span className="material-symbols-outlined text-white text-[20px]">send</span>
               Generate Share Link
             </button>
           </div>

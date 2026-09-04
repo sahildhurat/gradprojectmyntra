@@ -1,0 +1,196 @@
+<!DOCTYPE html><html class="h-full bg-[#0D0D0F]" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Help a friend decide</title>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bgDark: '#0D0D0F',
+            cardBg: '#161619',
+            cardElevated: '#1A1A1D',
+            innerBox: '#141416',
+            borderSubtle: '#26262B',
+            borderMuted: '#2E2E35',
+            borderActive: '#3E3E48',
+            accentCoral: '#FF3E6C',
+            textLight: '#F2F2F2',
+            textMuted: '#9A9A9F',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Font: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Custom Typography & Layout Adjustments -->
+<style data-purpose="custom-styling">
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #0D0D0F;
+      color: #F2F2F2;
+    }
+    textarea:focus, input:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col items-center justify-start p-4 pb-12 selection:bg-[#FF3E6C]/20">
+<!-- Mobile Viewport Container (~390px wide target) -->
+<main class="w-full max-w-[390px] mx-auto flex flex-col gap-5 pt-3">
+<!-- BEGIN: TopContext -->
+<header class="flex items-center justify-between px-1 text-[13px] text-textMuted" data-purpose="top-context">
+<div class="flex items-center gap-2">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-accentCoral/80"></span>
+<span class="">Someone is deciding on this</span>
+</div>
+<span class="text-xs text-textMuted/70 font-normal">Link expires in 24h</span>
+</header>
+<!-- END: TopContext -->
+<!-- BEGIN: SharedProductCard -->
+<article class="bg-cardBg border border-borderMuted rounded-2xl overflow-hidden shadow-2xl transition-all" data-purpose="shared-product-card">
+<!-- Product Image with Context Badge -->
+<div class="relative w-full aspect-[4/3] bg-black/40 overflow-hidden">
+<img alt="Raw Mango Raw Silk Lapel Waistcoat" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida/AEtjO1V9DqQQCfF8VvYX_KvWOZJL3bsKo5wVsdqs2F5Mh-cYcTbAA8KoJovA5P_T_h2GGO0q4jLDr-xRPWj49b_-6EGAhviYyxK9Gk1Id8TcxLEW306PPfxgpDn-pdG99q70AUMzJoKcwoBA3HtRfFUz-0TMFJKxup1bi2d9UbWfHHq0v6VviHJHXWDNsb6iuK8xv7SU8DcXtX2MlxCPUA5d5mStNSZYSMol0fuw5A2upTtIhoHZ2KA4yxYZdgw">
+<!-- Purpose / Occasion Badge Overlay -->
+<div class="absolute bottom-3 left-3 bg-[#0D0D0F]/85 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 shadow-sm flex items-center">
+<span class="text-[11px] font-medium tracking-wide text-textLight block">For: Wedding Gala</span>
+</div>
+</div>
+<!-- Item Meta & Inset Shopper Query -->
+<div class="p-4 flex flex-col gap-3.5">
+<!-- Brand & Product Title -->
+<div>
+<span class="text-[11px] font-bold tracking-widest uppercase text-textMuted block mb-0.5">Raw Mango</span>
+<h1 class="text-[18px] font-bold text-textLight leading-snug">Raw Silk Lapel Waistcoat</h1>
+</div>
+<!-- Price & Cost Metric -->
+<div class="flex items-baseline gap-2.5 text-sm border-b border-borderSubtle/60 pb-3">
+<span class="text-textLight font-semibold text-base">₹3,450</span>
+<span class="text-textMuted text-xs font-normal">· &nbsp;₹2,250 per wear at 4 wears</span>
+</div>
+<!-- Optional Sizing/Fit Note -->
+<div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-innerBox/60 border border-borderSubtle/50 text-xs text-textMuted leading-relaxed">
+<svg class="w-4 h-4 text-textMuted/80 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle></svg>
+<span class="">If between sizes, a reviewer reports tailoring may be needed.</span>
+</div>
+<!-- Shopper's Personal Question -->
+<blockquote class="relative p-3.5 rounded-xl bg-cardElevated border border-borderSubtle pl-4 border-l-2 border-l-accentCoral">
+<p class="text-[13px] italic leading-relaxed text-textLight/90">
+            “I’m considering this for a wedding at about ₹2,250 per wear. I’m unsure about the fit. What do you think?”
+          </p>
+</blockquote>
+</div>
+</article>
+<!-- END: SharedProductCard -->
+<!-- BEGIN: DecisionSection -->
+<section class="mt-1 flex flex-col gap-4" data-purpose="voting-interface">
+<!-- Section Header -->
+<div>
+<h2 class="text-[17px] font-semibold text-textLight tracking-tight">Does this work for them?</h2>
+<p class="text-xs text-textMuted mt-0.5">Judged for their specific occasion and expected wear.</p>
+</div>
+<!-- Voting Options Group (Strictly context & use focused, zero quality ratings) -->
+<fieldset class="flex flex-col gap-2.5" data-purpose="voting-options" id="decision-options">
+<legend class="sr-only">Choose your advice for the shopper</legend>
+<!-- Option 1: Works for you (Pre-selected as interactive sample state) -->
+<label class="relative flex items-center justify-between py-3.5 px-4 rounded-xl bg-[#18181C] border border-[#3A3A42] cursor-pointer transition-all active:scale-[0.99] select-none hover:bg-[#1E1E23]">
+<span class="text-sm font-medium text-textLight">Works for you</span>
+<input checked="" class="sr-only peer" name="verdict" type="radio" value="works">
+<div class="w-4 h-4 rounded-full border border-[#4E4E58] peer-checked:border-accentCoral peer-checked:bg-accentCoral flex items-center justify-center transition-colors">
+<div class="w-1.5 h-1.5 rounded-full bg-white opacity-0 peer-checked:opacity-100"></div>
+</div>
+</label>
+<!-- Option 2: Only if… -->
+<label class="relative flex items-center justify-between py-3.5 px-4 rounded-xl bg-[#18181C] border border-[#2A2A30] cursor-pointer transition-all active:scale-[0.99] select-none hover:bg-[#1E1E23]">
+<span class="text-sm font-medium text-textLight/90">Only if…</span>
+<input class="sr-only peer" name="verdict" type="radio" value="conditional">
+<div class="w-4 h-4 rounded-full border border-[#4E4E58] peer-checked:border-accentCoral peer-checked:bg-accentCoral flex items-center justify-center transition-colors">
+<div class="w-1.5 h-1.5 rounded-full bg-white opacity-0 peer-checked:opacity-100"></div>
+</div>
+</label>
+<!-- Option 3: Not for this use -->
+<label class="relative flex items-center justify-between py-3.5 px-4 rounded-xl bg-[#18181C] border border-[#2A2A30] cursor-pointer transition-all active:scale-[0.99] select-none hover:bg-[#1E1E23]">
+<span class="text-sm font-medium text-textLight/90">Not for this use</span>
+<input class="sr-only peer" name="verdict" type="radio" value="not_for_use">
+<div class="w-4 h-4 rounded-full border border-[#4E4E58] peer-checked:border-accentCoral peer-checked:bg-accentCoral flex items-center justify-center transition-colors">
+<div class="w-1.5 h-1.5 rounded-full bg-white opacity-0 peer-checked:opacity-100"></div>
+</div>
+</label>
+<!-- Option 4: I'm not sure -->
+<label class="relative flex items-center justify-between py-3.5 px-4 rounded-xl bg-[#18181C] border border-[#2A2A30] cursor-pointer transition-all active:scale-[0.99] select-none hover:bg-[#1E1E23]">
+<span class="text-sm font-medium text-textLight/90">I'm not sure</span>
+<input class="sr-only peer" name="verdict" type="radio" value="unsure">
+<div class="w-4 h-4 rounded-full border border-[#4E4E58] peer-checked:border-accentCoral peer-checked:bg-accentCoral flex items-center justify-center transition-colors">
+<div class="w-1.5 h-1.5 rounded-full bg-white opacity-0 peer-checked:opacity-100"></div>
+</div>
+</label>
+</fieldset>
+<!-- Optional Reasoning / Commentary -->
+<div class="mt-1" data-purpose="reasoning-input">
+<label class="sr-only" for="feedback">Optional reason or guidance</label>
+<textarea class="w-full bg-innerBox border border-borderSubtle rounded-xl p-3.5 text-[13px] text-textLight placeholder:text-textMuted focus:border-borderActive focus:ring-0 resize-none transition-colors" id="feedback" placeholder="Tell them why (optional)" rows="3"></textarea>
+</div>
+<!-- Action CTA & Privacy Reassurance -->
+<div class="flex flex-col gap-3 mt-1" data-purpose="submit-container">
+<button class="w-full py-4 rounded-xl bg-accentCoral text-white font-medium text-[15px] shadow-lg shadow-accentCoral/20 hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center" id="submit-btn" type="button">
+          Send my answer
+        </button>
+<!-- Privacy Microcopy -->
+<p class="text-[12px] text-textMuted text-center leading-normal px-2">
+          Your response is sent privately to the shopper. No account needed.
+        </p>
+</div>
+</section>
+<!-- END: DecisionSection -->
+</main>
+<!-- BEGIN: Interactive Logic -->
+<script data-purpose="ui-selection-handler">
+    document.addEventListener('DOMContentLoaded', () => {
+      const optionLabels = document.querySelectorAll('#decision-options label');
+      
+      optionLabels.forEach(label => {
+        const input = label.querySelector('input[type="radio"]');
+        
+        label.addEventListener('click', () => {
+          // Reset borders
+          optionLabels.forEach(l => {
+            l.classList.remove('border-[#3A3A42]', 'bg-[#1E1E23]');
+            l.classList.add('border-[#2A2A30]', 'bg-[#18181C]');
+          });
+          
+          // Highlight selected
+          label.classList.remove('border-[#2A2A30]', 'bg-[#18181C]');
+          label.classList.add('border-[#3A3A42]', 'bg-[#1E1E23]');
+        });
+      });
+
+      // Submit feedback button state animation
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.addEventListener('click', () => {
+        submitBtn.innerText = 'Answer sent';
+        submitBtn.classList.add('opacity-90');
+        setTimeout(() => {
+          submitBtn.innerText = 'Send my answer';
+          submitBtn.classList.remove('opacity-90');
+        }, 2200);
+      });
+    });
+  </script>
+<!-- END: Interactive Logic -->
+
+
+
+
+</body></html>

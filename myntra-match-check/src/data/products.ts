@@ -75,9 +75,9 @@ export const products: Product[] = [
   },
   {
     id: "prod_lehenga_01",
-    name: "Heavy Embroidered Zari Lehenga Choli",
-    brand: "Mitera",
-    category: "lehenga",
+    name: "Raw Silk Lapel Waistcoat",
+    brand: "Raw Mango",
+    category: "waistcoat",
     price: 8999,
     originalPrice: 12999,
     imageUrl: "/images/products/lehenga_01.webp",
@@ -85,14 +85,14 @@ export const products: Product[] = [
     ratingCount: 45,
     savedDaysAgo: 12,
     attributes: [
-      { id: "pa_1", name: "Material", value: "Art Silk with heavy Zari work" },
-      { id: "pa_2", name: "Weight", value: "2.5 kg" },
+      { id: "pa_1", name: "Material", value: "Raw Silk" },
+      { id: "pa_2", name: "Fit", value: "Tailored Slim Fit" },
       { id: "pa_3", name: "Care", value: "Dry clean only" }
     ],
     evidence: [
-      { id: "ev_leh01_r1", type: "review", content: "Wore this to my sister's wedding. Looked stunning but it is VERY heavy.", rating: 4, source: "Verified Purchase" },
-      { id: "ev_leh01_r2", type: "review", content: "The embroidery is beautiful but the inner lining is slightly scratchy.", rating: 3, source: "Verified Purchase" },
-      { id: "ev_leh01_pa1", type: "product_attribute", content: "Highly intricate zari and sequin embroidery intended for bridal/festive occasions." }
+      { id: "ev_wst01_r1", type: "review", content: "Wore this to a wedding. Looked stunning but the armholes run a bit tight.", rating: 4, source: "Verified Purchase" },
+      { id: "ev_wst01_r2", type: "review", content: "The silk has a beautiful texture but the inner lining is slightly scratchy.", rating: 3, source: "Verified Purchase" },
+      { id: "ev_wst01_pa1", type: "product_attribute", content: "Asymmetrical lapel geometry tailored for a modern festive look." }
     ],
     verification: {
       brandAuthorised: false,

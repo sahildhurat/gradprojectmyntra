@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decision Support - Final Decision</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0d0d0f;
+      color: #f2f2f2;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-[#0d0d0f] text-[#f2f2f2] min-h-screen flex justify-center py-6 px-4 sm:px-6">
+
+  <!-- Mobile / Phone centered canvas container matching previous screens -->
+  <main class="w-full max-w-[420px] mx-auto flex flex-col min-h-[820px] bg-[#0d0d0f] relative">
+
+    <!-- Top Navigation / Header -->
+    <div>
+      <header class="flex items-center justify-between py-3 mb-4 border-b border-[#1f1f24]">
+        <button type="button" class="text-[#9a9a9f] hover:text-[#f2f2f2] p-1.5 -ml-1.5 transition-colors" aria-label="Go back">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <div class="text-center">
+          <span class="text-[11px] font-medium tracking-wider text-[#9a9a9f] uppercase block">Decision Support · Final Step</span>
+          <h1 class="text-sm font-semibold text-[#f2f2f2]">Your Decision</h1>
+        </div>
+        <div class="w-6"></div> <!-- spacer for balance -->
+      </header>
+
+      <!-- Compact Product Summary Bar -->
+      <section class="bg-[#1a1a1d] border border-[#26262b] rounded-xl p-3 flex items-center gap-3.5 mb-8" aria-label="Product summary">
+        <!-- Thumbnail -->
+        <div class="w-14 h-14 rounded-lg bg-[#242429] border border-[#2e2e36] flex items-center justify-center flex-shrink-0 overflow-hidden text-[#6d6d75]">
+          <svg class="w-6 h-6 stroke-current opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <!-- Info -->
+        <div class="flex-1 min-w-0">
+          <div class="text-[10px] tracking-wider uppercase font-semibold text-[#9a9a9f] truncate">Raw Mango</div>
+          <div class="text-sm font-medium text-[#f2f2f2] truncate mt-0.5">
+            Raw Silk Lapel Waistcoat
+          </div>
+          <div class="text-xs font-semibold text-[#d4d4d8] mt-1">
+            ₹3,450 <span class="text-[10px] font-normal text-[#9a9a9f]">· ₹2,250/wear (4 wears)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Question Block: Has your main doubt been resolved? -->
+      <section class="space-y-4" aria-labelledby="doubt-resolved-heading">
+        <h2 id="doubt-resolved-heading" class="text-base sm:text-lg font-semibold text-[#f2f2f2] tracking-tight">
+          Has your main doubt been resolved?
+        </h2>
+
+        <!-- Three neutral pill options side by side -->
+        <div class="grid grid-cols-3 gap-2.5" role="group" aria-label="Doubt resolution options">
+          <button type="button" class="py-3 px-3 rounded-xl border border-[#2e2e36] bg-[#161619] hover:bg-[#202024] hover:border-[#3d3d46] text-sm font-medium text-[#f2f2f2] text-center transition-colors focus:outline-none focus:ring-1 focus:ring-[#ff3e6c]">
+            Yes
+          </button>
+          <button type="button" class="py-3 px-3 rounded-xl border border-[#3d3d46] bg-[#222227] text-sm font-medium text-[#f2f2f2] text-center transition-colors focus:outline-none focus:ring-1 focus:ring-[#ff3e6c]">
+            Partly
+          </button>
+          <button type="button" class="py-3 px-3 rounded-xl border border-[#2e2e36] bg-[#161619] hover:bg-[#202024] hover:border-[#3d3d46] text-sm font-medium text-[#f2f2f2] text-center transition-colors focus:outline-none focus:ring-1 focus:ring-[#ff3e6c]">
+            No
+          </button>
+        </div>
+
+        <p class="text-xs text-[#71717a] pt-1 leading-relaxed">
+          Initial hesitation noted: <span class="text-[#a1a1aa]">"Will it fit? (blouse bust tailoring reported)"</span>
+        </p>
+      </section>
+    </div>
+
+    <!-- Generous vertical spacing before action buttons -->
+    
+
+    <!-- Action Buttons: 4 stacked full-width buttons in descending visual weight -->
+    <section class="w-full space-y-3 pb-4 mt-8" aria-label="Decision actions">
+      
+      <!-- Button 1: "Buy this" — filled coral -->
+      <button type="button" class="w-full py-3.5 px-4 bg-[#ff3e6c] hover:bg-[#e0345d] active:bg-[#c92c51] text-white font-semibold text-sm rounded-xl text-center shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#ff3e6c] focus:ring-offset-2 focus:ring-offset-[#0d0d0f] flex items-center justify-center gap-2">
+        <span class="">Buy this</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </button>
+
+      <!-- Button 2: "Ask my Inner Circle" — outlined, off-white border -->
+      <button type="button" class="w-full py-3.5 px-4 bg-transparent hover:bg-[#1f1f24] active:bg-[#27272e] border border-[#f2f2f2] text-[#f2f2f2] font-semibold text-sm rounded-xl text-center transition-colors focus:outline-none focus:ring-1 focus:ring-[#f2f2f2] flex items-center justify-center gap-2">
+        <svg class="w-4 h-4 text-[#d4d4d8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+        </svg>
+        <span class="">Ask my Inner Circle</span>
+      </button>
+
+      <!-- Button 3: "Keep for later" — plain text button, off-white -->
+      <button type="button" class="w-full py-3 px-4 bg-transparent hover:bg-[#161619] active:bg-[#1e1e22] text-[#f2f2f2] font-medium text-sm rounded-xl text-center transition-colors focus:outline-none">
+        Keep for later
+      </button>
+
+      <!-- Button 4: "Not right for me — remove" — plain text button, mid grey -->
+      <button type="button" class="w-full py-2.5 px-4 bg-transparent hover:text-[#d4d4d8] text-[#9a9a9f] font-normal text-sm rounded-xl text-center transition-colors focus:outline-none">
+        Not right for me — remove
+      </button>
+
+    </section>
+
+  </main>
+
+
+
+
+
+</body></html>

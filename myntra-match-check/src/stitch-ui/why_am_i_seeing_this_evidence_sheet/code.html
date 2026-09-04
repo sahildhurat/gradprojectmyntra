@@ -1,0 +1,357 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Match Check Result</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            app: {
+              bg: '#0D0D0F',
+              surface: '#1A1A1D',
+              surfaceSubtle: '#141416',
+              border: '#26262B',
+              textPrimary: '#F2F2F2',
+              textSecondary: '#9A9A9F',
+              coral: '#FF3E6C',
+            }
+          },
+          borderRadius: {
+            'card': '14px',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0D0D0F;
+      color: #F2F2F2;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-[#0D0D0F] text-[#F2F2F2] min-h-screen flex justify-center selection:bg-[#FF3E6C]/30 selection:text-white pb-12">
+<main class="w-full max-w-[430px] min-h-screen bg-[#0D0D0F] flex flex-col border-x border-[#26262B]/60 shadow-2xl relative">
+<!-- Top Navigation / Status Header -->
+<header class="px-5 pt-5 pb-3.5 flex items-center justify-between border-b border-[#26262B]">
+<div class="flex items-center gap-3">
+<button aria-label="Go back" class="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-[#9A9A9F] hover:text-[#F2F2F2] hover:bg-[#1A1A1D] transition-colors" type="button">
+<svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<div>
+<span class="text-[11px] font-semibold tracking-wider text-[#9A9A9F] uppercase block">DECISION SUPPORT · MATCH CHECK</span>
+<h1 class="text-[18px] font-bold text-[#F2F2F2] leading-tight">Evaluation Dossier</h1>
+</div>
+</div>
+<button aria-label="Reference options" class="w-10 h-10 rounded-full flex items-center justify-center text-[#9A9A9F] hover:text-[#F2F2F2] hover:bg-[#1A1A1D] transition-colors" type="button">
+<svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M3 6h18M7 12h10m-7 6h4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</header>
+<!-- Content Area -->
+<div class="flex-1 px-4 pt-4 pb-28 space-y-5 overflow-y-auto">
+<!-- Compact Product Summary Bar -->
+<section class="bg-[#1A1A1D] border border-[#26262B] rounded-card p-3 flex items-center gap-3.5 shadow-sm">
+<div class="w-14 h-14 rounded-lg bg-[#26262B] flex-shrink-0 flex items-center justify-center border border-[#34343B] overflow-hidden text-[#9A9A9F]">
+<svg class="w-6 h-6 stroke-[#9A9A9F]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+<path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex-1 min-w-0">
+<div class="text-[11px] font-semibold text-[#9A9A9F] uppercase tracking-wider">RAW MANGO</div>
+<div class="text-[14px] font-semibold text-[#F2F2F2] truncate mt-0.5">Raw Silk Lapel Waistcoat</div>
+<div class="text-[13px] font-medium text-[#9A9A9F] mt-0.5">₹3,450 <span class="text-[11px] font-normal text-[#9A9A9F]/80">· MRP Inclusive of taxes</span></div>
+</div>
+</section>
+<!-- Quiet Context Line (Strictly Neutral: No score, no ring, no percentage, no verdict) -->
+<div class="px-2 py-1 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-[#9A9A9F]/60"></span>
+<p class="text-[13px] font-medium text-[#9A9A9F]">
+          Checked for: <span class="text-[#F2F2F2]">Wedding Gala</span> · <span class="text-[#F2F2F2]">4 expected wears</span>
+</p>
+</div>
+<!-- Section 1: Trust & Verification Card -->
+<section class="bg-[#1A1A1D] border border-[#26262B] rounded-card p-4 shadow-sm">
+<!-- Header -->
+<div class="flex items-center gap-2 pb-3.5 border-b border-[#26262B]/80">
+<!-- Small outline shield icon -->
+<svg aria-hidden="true" class="w-[18px] h-[18px] text-[#9A9A9F] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<h2 class="text-[15px] font-bold text-[#F2F2F2] tracking-tight">Trust &amp; Verification</h2>
+</div>
+<!-- Four Rows: calm background reassurance, grey outline check icons -->
+<ul class="divide-y divide-[#26262B]/60 pt-1">
+<li class="py-3 flex items-start gap-3">
+<svg aria-hidden="true" class="w-4 h-4 text-[#9A9A9F] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[13.5px] leading-snug text-[#F2F2F2]">Brand-authorised seller</span>
+</li>
+<li class="py-3 flex items-start gap-3">
+<svg aria-hidden="true" class="w-4 h-4 text-[#9A9A9F] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[13.5px] leading-snug text-[#F2F2F2]">82% of reviews from verified purchases</span>
+</li>
+<li class="py-3 flex items-start gap-3">
+<svg aria-hidden="true" class="w-4 h-4 text-[#9A9A9F] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[13.5px] leading-snug text-[#F2F2F2]">Style code matches brand catalogue</span>
+</li>
+<li class="py-3 flex items-start gap-3">
+<svg aria-hidden="true" class="w-4 h-4 text-[#9A9A9F] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[13.5px] leading-snug text-[#F2F2F2]">14-day returns with refund protection</span>
+</li>
+</ul>
+</section>
+<!-- Section 2: Why it could work for you -->
+<section class="space-y-3 pt-1">
+<div class="px-1 flex items-center justify-between">
+<h2 class="text-[16px] font-bold text-[#F2F2F2] tracking-tight">Why it could work for you</h2>
+<span class="text-[12px] font-medium text-[#9A9A9F]">3 parameters</span>
+</div>
+<div class="space-y-2.5">
+<!-- Item 1 -->
+<div class="bg-[#1A1A1D] border border-[#26262B] rounded-card p-4 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-5 h-5 rounded-full border border-[#9A9A9F]/40 flex items-center justify-center text-[#9A9A9F] flex-shrink-0 mt-0.5">
+<svg aria-hidden="true" class="w-3 h-3 text-[#9A9A9F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex-1 space-y-2">
+<p class="text-[15px] font-medium text-[#F2F2F2] leading-relaxed">
+                  Reviewers report the embroidery photographs well under indoor lighting.
+                </p>
+<div>
+<a class="text-[12px] text-[#9A9A9F] underline underline-offset-4 decoration-[#9A9A9F]/60 hover:text-[#F2F2F2] transition-colors" href="#">
+                    Why am I seeing this?
+                  </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-[#1A1A1D] border border-[#26262B] rounded-card p-4 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-5 h-5 rounded-full border border-[#9A9A9F]/40 flex items-center justify-center text-[#9A9A9F] flex-shrink-0 mt-0.5">
+<svg aria-hidden="true" class="w-3 h-3 text-[#9A9A9F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex-1 space-y-2">
+<p class="text-[15px] font-medium text-[#F2F2F2] leading-relaxed">
+                  The drawstring waist adjusts across a 26–34in range.
+                </p>
+<div>
+<a class="text-[12px] text-[#9A9A9F] underline underline-offset-4 decoration-[#9A9A9F]/60 hover:text-[#F2F2F2] transition-colors" href="#">
+                    Why am I seeing this?
+                  </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-[#1A1A1D] border border-[#26262B] rounded-card p-4 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-5 h-5 rounded-full border border-[#9A9A9F]/40 flex items-center justify-center text-[#9A9A9F] flex-shrink-0 mt-0.5">
+<svg aria-hidden="true" class="w-3 h-3 text-[#9A9A9F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex-1 space-y-2">
+<p class="text-[15px] font-medium text-[#F2F2F2] leading-relaxed">
+                  At 4 expected wears, this comes to ₹2,250 per wear.
+                </p>
+<div>
+<a class="text-[12px] text-[#9A9A9F] underline underline-offset-4 decoration-[#9A9A9F]/60 hover:text-[#F2F2F2] transition-colors" href="#">
+                    Why am I seeing this?
+                  </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Balanced Perspective Link / Secondary Spec Trigger -->
+<!-- Section 3: Things to consider -->
+<section class="space-y-3 pt-2">
+<div class="px-1 flex items-center justify-between">
+<h2 class="text-[16px] font-bold text-[#F2F2F2] tracking-tight">Things to consider</h2>
+<span class="text-[12px] font-medium text-[#9A9A9F]">3 parameters</span>
+</div>
+<div class="space-y-2.5">
+<!-- Item 1 -->
+<div class="bg-[#1A1A1D] border border-[#26262B] rounded-card p-4 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-5 h-5 rounded-full border border-[#9A9A9F]/40 flex items-center justify-center text-[#9A9A9F] flex-shrink-0 mt-0.5">
+<svg aria-hidden="true" class="w-3 h-3 text-[#9A9A9F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+</svg>
+</div>
+<div class="flex-1 space-y-2">
+<p class="text-[15px] font-medium text-[#F2F2F2] leading-relaxed">
+            If low-maintenance matters to you, note this is dry clean only.
+          </p>
+<div>
+<a class="text-[12px] text-[#9A9A9F] underline underline-offset-4 decoration-[#9A9A9F]/60 hover:text-[#F2F2F2] transition-colors" href="#">
+              Why am I seeing this?
+            </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-[#1A1A1D] border border-[#26262B] rounded-card p-4 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-5 h-5 rounded-full border border-[#9A9A9F]/40 flex items-center justify-center text-[#9A9A9F] flex-shrink-0 mt-0.5">
+<svg aria-hidden="true" class="w-3 h-3 text-[#9A9A9F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+</svg>
+</div>
+<div class="flex-1 space-y-2">
+<p class="text-[15px] font-medium text-[#F2F2F2] leading-relaxed">
+            If you are between sizes, a reviewer reports the blouse needs tailoring.
+          </p>
+<div>
+<a class="text-[12px] text-[#9A9A9F] underline underline-offset-4 decoration-[#9A9A9F]/60 hover:text-[#F2F2F2] transition-colors" href="#">
+              Why am I seeing this?
+            </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-[#1A1A1D] border border-[#26262B] rounded-card p-4 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-5 h-5 rounded-full border border-[#9A9A9F]/40 flex items-center justify-center text-[#9A9A9F] flex-shrink-0 mt-0.5">
+<svg aria-hidden="true" class="w-3 h-3 text-[#9A9A9F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+</svg>
+</div>
+<div class="flex-1 space-y-2">
+<p class="text-[15px] font-medium text-[#F2F2F2] leading-relaxed">
+            At 4 expected wears, this comes to ₹2,250 per wear.
+          </p>
+<div>
+<a class="text-[12px] text-[#9A9A9F] underline underline-offset-4 decoration-[#9A9A9F]/60 hover:text-[#F2F2F2] transition-colors" href="#">
+              Why am I seeing this?
+            </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: What remains unclear -->
+<section class="space-y-3 pt-2">
+<div class="px-1">
+<h2 class="text-[16px] font-bold text-[#F2F2F2] tracking-tight">What remains unclear</h2>
+</div>
+<div class="space-y-2.5">
+<!-- Item 1 -->
+<div class="bg-[#141416] border border-[#26262B]/80 rounded-card p-4 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-5 h-5 rounded-full border border-[#9A9A9F]/30 flex items-center justify-center text-[#9A9A9F]/80 flex-shrink-0 mt-0.5">
+<svg aria-hidden="true" class="w-3 h-3 text-[#9A9A9F]/80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18h.01" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<p class="text-[14px] font-normal text-[#9A9A9F] leading-relaxed">
+          There isn't consistent evidence about how the fabric performs after repeated wear.
+        </p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-[#141416] border border-[#26262B]/80 rounded-card p-4 shadow-sm">
+<div class="flex items-start gap-3">
+<div class="w-5 h-5 rounded-full border border-[#9A9A9F]/30 flex items-center justify-center text-[#9A9A9F]/80 flex-shrink-0 mt-0.5">
+<svg aria-hidden="true" class="w-3 h-3 text-[#9A9A9F]/80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18h.01" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<p class="text-[14px] font-normal text-[#9A9A9F] leading-relaxed">
+          Available reviews don't clearly address long-term durability.
+        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Cost per wear -->
+<section class="space-y-3 pt-2 pb-2">
+<div class="px-1">
+<h2 class="text-[16px] font-bold text-[#F2F2F2] tracking-tight">Cost per wear</h2>
+</div>
+<div class="bg-[#1A1A1D] border border-[#26262B] rounded-card p-4 shadow-sm space-y-4">
+<!-- Prominent Display -->
+<div class="flex items-baseline justify-between">
+<div>
+<div class="text-[22px] font-bold text-[#F2F2F2] tracking-tight">₹2,250 <span class="text-[13px] font-normal text-[#9A9A9F]">/ wear</span></div>
+<div class="text-[12px] text-[#9A9A9F] mt-0.5">at 4 wears</div>
+</div>
+<div class="text-[14px] font-semibold text-[#F2F2F2] bg-[#26262B] px-2.5 py-1 rounded-full border border-[#34343B]">
+        4 wears
+      </div>
+</div>
+<!-- Slider -->
+<div class="space-y-1.5">
+<input class="w-full h-1.5 bg-[#26262B] rounded-lg appearance-none cursor-pointer accent-[#FF3E6C]" max="30" min="1" type="range" value="4">
+<div class="flex justify-between text-[11px] text-[#9A9A9F] px-0.5">
+<span class="">1 wear</span>
+<span class="">15 wears</span>
+<span class="">30+ wears</span>
+</div>
+</div>
+<!-- Reference note -->
+<p class="text-[12px] text-[#9A9A9F] italic leading-normal border-b border-[#26262B]/80 pb-3">
+      Occasion wear is typically worn 2–5 times.
+    </p>
+<!-- Reflection Question & Neutral Pill Buttons -->
+<div class="space-y-2.5 pt-1">
+<p class="text-[13.5px] font-medium text-[#F2F2F2]">
+        Would this feel worth it at ₹2,250 per wear?
+      </p>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-2 px-3 rounded-full border border-[#26262B] bg-[#26262B]/60 text-[#F2F2F2] text-[13px] font-medium hover:bg-[#26262B] transition-colors text-center focus:outline-none" type="button">
+          Yes
+        </button>
+<button class="py-2 px-3 rounded-full border border-[#26262B] bg-[#26262B]/60 text-[#F2F2F2] text-[13px] font-medium hover:bg-[#26262B] transition-colors text-center focus:outline-none" type="button">
+          Not sure
+        </button>
+<button class="py-2 px-3 rounded-full border border-[#26262B] bg-[#26262B]/60 text-[#F2F2F2] text-[13px] font-medium hover:bg-[#26262B] transition-colors text-center focus:outline-none" type="button">
+          No
+        </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Bottom Primary Action -->
+<footer class="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto p-4 bg-[#0D0D0F]/95 backdrop-blur-md border-t border-[#26262B] z-20">
+<button class="w-full h-12 rounded-[12px] bg-[#FF3E6C] text-white font-semibold text-[15px] flex items-center justify-center gap-2 hover:bg-[#e6355f] active:scale-[0.99] transition-all shadow-lg shadow-[#FF3E6C]/20 focus:outline-none focus:ring-2 focus:ring-[#FF3E6C]/50" type="button"><span class="">Continue to my decision</span>
+<svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg></button>
+</footer>
+<div class="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-300"><div class="w-full max-w-[430px] bg-[#161618] border-t border-x border-[#26262B] rounded-t-3xl p-5 shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto"><div class="w-10 h-1 rounded-full bg-white/20 mx-auto mb-3"></div><div class="space-y-1.5 pb-2 border-b border-[#26262B]"><h3 class="text-[18px] font-semibold text-[#F2F2F2]">Why am I seeing this?</h3><p class="text-[15px] font-medium text-[#F2F2F2] pt-1 leading-snug">“The drawstring waist adjusts across a 26–34in range.”</p></div><div class="space-y-3 pt-1"><div class="bg-[#1D1D21] border border-[#2A2A2F] rounded-lg p-4"><div class="text-xs font-semibold text-[#8E8E93] tracking-wider uppercase mb-1.5">Size Chart</div><p class="text-[14px] text-[#E1E1E6] leading-relaxed font-normal">Shoulder measurement 16–18in across sizes.</p></div><div class="bg-[#1D1D21] border border-[#2A2A2F] rounded-lg p-4"><div class="text-xs font-semibold text-[#8E8E93] tracking-wider uppercase mb-1.5">Reviewer Report</div><p class="text-[14px] text-[#E1E1E6] leading-relaxed font-normal">Verified purchase: shoulders sit close, sized up.</p></div><div class="bg-[#1D1D21] border border-[#2A2A2F] rounded-lg p-4"><div class="text-xs font-semibold text-[#8E8E93] tracking-wider uppercase mb-1.5">Your Input</div><p class="text-[14px] text-[#E1E1E6] leading-relaxed font-normal">You said this is for a wedding, worn about 4 times.</p></div></div><div class="pt-2 pb-1"><button class="w-full text-[#8E8E93] hover:text-white text-sm font-medium py-3 text-center cursor-pointer block underline decoration-[#8E8E93]/40 underline-offset-4 bg-transparent border-0" type="button">Close</button></div></div></div></main>
+
+
+</body></html>

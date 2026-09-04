@@ -14,19 +14,22 @@ const FALLBACK_ASSESSMENT: Assessment = {
     { statement: "Detailed fit analysis", missing_information: "Live AI generation timed out." }
   ],
   question_to_resolve: "Does this look like it could work for you?",
-  evidence_completeness: "low"
+  evidence_completeness: "low",
+  isFallback: true
 };
 
 export async function generateAssessment(product: Product, context: Partial<Check>): Promise<Assessment> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    console.warn("GEMINI_API_KEY is not set. Returning fallback assessment.");
+    console.error("CRITICAL: GEMINI_API_KEY is missing from environment variables.");
     return product.fallbackAssessment || FALLBACK_ASSESSMENT;
   }
 
+  console.log("DEBUG: Using GEMINI_API_KEY starting with:", apiKey.substring(0, 4));
+
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash-latest",
+    model: "gemini-1.5-flash",
     systemInstruction: SYSTEM_PROMPT,
     generationConfig: {
       temperature: 0.2, // Low temperature for high factual adherence
@@ -49,7 +52,9 @@ export async function generateAssessment(product: Product, context: Partial<Chec
     return evidenceGuard(rawAssessment, product);
     
   } catch (error: any) {
-    console.error("AI Assessment failed or timed out:", error.message);
+    console.error("CRITICAL AI FAILURE. Reason:", error.name, error.message);
+    if (error.status) console.error("Status code:", error.status);
+    console.error("Stack trace:", error.stack);
     // Return cached fallback or generic fallback
     return product.fallbackAssessment || FALLBACK_ASSESSMENT;
   }

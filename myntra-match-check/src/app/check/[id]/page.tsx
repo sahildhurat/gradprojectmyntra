@@ -79,12 +79,10 @@ export default function ContextFlowScreen() {
         <div className="h-16 px-4 flex items-center justify-between gap-2">
           <div className="flex items-center gap-3">
             <button onClick={() => router.back()} className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors">
-              <span className="material-symbols-outlined text-[24px]">arrow_back</span>
+              <span className="material-symbols-outlined text-[#9A9A9F] text-[24px]">arrow_back</span>
             </button>
             <div className="flex items-center gap-1">
-              <span className="font-headline-md text-[22px] text-primary-container tracking-tighter uppercase font-bold">M</span>
-              <div className="h-4 w-[1px] bg-outline-variant/40"></div>
-              <span className="font-title-md text-[16px] text-on-surface tracking-tight">Match Studio</span>
+              <span className="font-headline-md text-[22px] tracking-tighter uppercase font-bold text-on-surface">MATCH CHECK</span>
             </div>
           </div>
         </div>
@@ -114,8 +112,8 @@ export default function ContextFlowScreen() {
               </div>
               <div className="flex flex-col min-w-0 flex-1">
                 <div className="inline-flex items-center gap-1">
-                  <span className="font-label-sm text-[10px] text-tertiary uppercase tracking-wider font-bold">Selected for Audit</span>
-                  <span className="w-1 h-1 rounded-full bg-tertiary"></span>
+                  <span className="font-label-sm text-[10px] text-[#9A9A9F] uppercase tracking-wider font-bold">Selected for Audit</span>
+                  <span className="w-1 h-1 rounded-full bg-[#9A9A9F]"></span>
                   <span className="font-label-sm text-[10px] text-on-surface-variant uppercase font-bold">In Bag</span>
                 </div>
                 <h2 className="font-title-md text-[16px] text-on-surface truncate mt-1">{product.name}</h2>
@@ -136,7 +134,7 @@ export default function ContextFlowScreen() {
           <section className="flex flex-col mb-8">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <span className="w-6 h-6 rounded-full bg-primary-container/20 text-primary flex items-center justify-center font-label-sm text-label-sm font-bold">1</span>
+                <span className="w-6 h-6 rounded-full bg-surface-container-high text-[#9A9A9F] flex items-center justify-center font-label-sm text-label-sm font-bold">1</span>
                 <h3 className="font-title-md text-title-md text-on-surface">Target Occasion</h3>
               </div>
             </div>
@@ -147,16 +145,16 @@ export default function ContextFlowScreen() {
                   <button 
                     key={opt.label}
                     onClick={() => setOccasion(opt.label)}
-                    className={`flex items-center gap-2 p-3 rounded-xl text-left transition-all ${isActive ? 'bg-primary/15 shadow-[0_0_16px_rgba(255,79,116,0.35)] ring-1 ring-primary/30' : 'bg-surface-container hover:bg-surface-bright'}`}
+                    className={`flex items-center gap-2 p-3 rounded-xl text-left transition-all ${isActive ? 'bg-[#222226] border border-[#F2F2F2]' : 'bg-surface-container hover:bg-surface-bright border border-transparent'}`}
                   >
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${isActive ? 'bg-primary-container text-on-primary-container shadow-sm' : 'bg-surface-container-highest text-on-surface-variant'}`}>
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${isActive ? 'bg-[#F2F2F2] text-[#222226]' : 'bg-surface-container-highest text-[#9A9A9F]'}`}>
                       <span className="material-symbols-outlined text-[20px]">{opt.icon}</span>
                     </div>
                     <div className="flex flex-col flex-1">
-                      <span className={`font-label-md text-[13px] ${isActive ? 'text-primary font-bold' : 'text-on-surface'}`}>{opt.label}</span>
-                      {isActive && <span className="text-[10px] text-primary/80 uppercase tracking-wider font-bold mt-0.5">Active context</span>}
+                      <span className={`font-label-md text-[13px] ${isActive ? 'text-[#F2F2F2] font-bold' : 'text-on-surface'}`}>{opt.label}</span>
+                      {isActive && <span className="text-[10px] text-[#F2F2F2]/80 uppercase tracking-wider font-bold mt-0.5">Active context</span>}
                     </div>
-                    {isActive && <span className="material-symbols-outlined text-primary text-[20px]">check_circle</span>}
+                    {isActive && <span className="material-symbols-outlined text-[#F2F2F2] text-[20px]">check_circle</span>}
                   </button>
                 )
               })}
@@ -167,15 +165,14 @@ export default function ContextFlowScreen() {
           <section className="flex flex-col mb-8">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <span className="w-6 h-6 rounded-full bg-primary-container/20 text-primary flex items-center justify-center font-label-sm text-label-sm font-bold">2</span>
+                <span className="w-6 h-6 rounded-full bg-surface-container-high text-[#9A9A9F] flex items-center justify-center font-label-sm text-label-sm font-bold">2</span>
                 <h3 className="font-title-md text-title-md text-on-surface">Realistic Lifespan Wears</h3>
               </div>
-              <span className="font-label-sm text-label-sm text-secondary bg-secondary-container/20 px-3 py-1 rounded-full uppercase tracking-wider font-bold">Utility Ratio</span>
             </div>
             <div className="bg-surface-container rounded-2xl p-5 shadow-sm border border-white/5">
               <div className="flex items-center justify-between mb-6">
                 <span className="font-body-sm text-body-sm text-on-surface-variant">Estimated usage over 18 mos:</span>
-                <span className="font-headline-sm text-[20px] text-primary font-bold tracking-tight">{wears} {wears === 1 ? 'wear' : 'wears'}</span>
+                <span className="font-headline-sm text-[20px] text-on-surface font-bold tracking-tight">{wears} {wears === 1 ? 'wear' : 'wears'}</span>
               </div>
               <div className="relative w-full py-4 flex items-center">
                 <input 
@@ -209,7 +206,7 @@ export default function ContextFlowScreen() {
           <section className="flex flex-col mb-12">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <span className="w-6 h-6 rounded-full bg-primary-container/20 text-primary flex items-center justify-center font-label-sm text-label-sm font-bold">3</span>
+                <span className="w-6 h-6 rounded-full bg-surface-container-high text-[#9A9A9F] flex items-center justify-center font-label-sm text-label-sm font-bold">3</span>
                 <h3 className="font-title-md text-title-md text-on-surface">What's holding you back?</h3>
               </div>
             </div>
@@ -220,15 +217,15 @@ export default function ContextFlowScreen() {
                   <label 
                     key={opt.id}
                     onClick={() => setHesitation(opt.id)}
-                    className={`cursor-pointer p-4 rounded-2xl flex items-start gap-4 transition-all border ${isActive ? 'bg-primary/10 border-primary/30 shadow-[0_4px_20px_rgba(255,79,116,0.15)]' : 'bg-surface-container border-transparent hover:bg-surface-bright'}`}
+                    className={`cursor-pointer p-4 rounded-2xl flex items-start gap-4 transition-all border ${isActive ? 'bg-[#222226] border-[#F2F2F2]' : 'bg-surface-container border-transparent hover:bg-surface-bright'}`}
                   >
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 transition-colors ${isActive ? 'bg-primary text-on-primary' : 'bg-surface-container-highest text-transparent border border-white/10'}`}>
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 transition-colors ${isActive ? 'bg-[#F2F2F2] text-[#222226]' : 'bg-surface-container-highest text-transparent border border-white/10'}`}>
                       <span className="material-symbols-outlined text-[16px]">check</span>
                     </div>
                     <div className="flex flex-col flex-1 justify-center">
-                      <span className={`font-title-md text-title-md ${isActive ? 'text-primary font-bold' : 'text-on-surface'}`}>{opt.id}</span>
+                      <span className={`font-title-md text-title-md ${isActive ? 'text-[#F2F2F2] font-bold' : 'text-on-surface'}`}>{opt.id}</span>
                     </div>
-                    <span className={`material-symbols-outlined text-[24px] ${isActive ? 'text-primary/60' : 'text-outline/40'}`}>{opt.icon}</span>
+                    <span className={`material-symbols-outlined text-[24px] ${isActive ? 'text-[#F2F2F2]/60' : 'text-[#9A9A9F]/40'}`}>{opt.icon}</span>
                   </label>
                 )
               })}
@@ -240,23 +237,23 @@ export default function ContextFlowScreen() {
             <button 
               onClick={handleGenerate}
               disabled={isGenerating}
-              className={`relative w-full h-14 rounded-full bg-primary-container text-on-primary font-headline-sm text-[18px] font-bold flex items-center justify-center gap-2 shadow-[0_4px_24px_rgba(255,79,116,0.4)] transition-transform overflow-hidden ${isGenerating ? 'opacity-80' : 'active:scale-[0.98]'}`}
+              className={`relative w-full h-14 rounded-full bg-[#FF3E6C] text-white font-headline-sm text-[18px] font-bold flex items-center justify-center gap-2 shadow-[0_4px_24px_rgba(255,62,108,0.4)] transition-transform overflow-hidden ${isGenerating ? 'opacity-80' : 'active:scale-[0.98]'}`}
             >
               {isGenerating ? (
                 <>
-                  <span className="material-symbols-outlined text-[24px] animate-spin">progress_activity</span>
+                  <span className="material-symbols-outlined text-white text-[24px] animate-spin">progress_activity</span>
                   <span>Synthesizing Reviews...</span>
                 </>
               ) : (
                 <>
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></span>
-                  <span className="material-symbols-outlined text-[24px] animate-pulse">auto_awesome</span>
+                  <span className="material-symbols-outlined text-white text-[24px] animate-pulse">auto_awesome</span>
                   <span>Generate my Match Check</span>
                 </>
               )}
             </button>
             <div className="flex items-center justify-center gap-1.5 text-center mt-2 px-4">
-              <span className="material-symbols-outlined text-[16px] text-tertiary">lock_reset</span>
+              <span className="material-symbols-outlined text-[16px] text-[#9A9A9F]">lock_reset</span>
               <span className="font-label-sm text-[11px] leading-snug text-on-surface-variant font-bold">Synthesizes 1,420 fit reviews, returns history, and fabric specs</span>
             </div>
           </section>

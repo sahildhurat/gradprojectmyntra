@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Saved items - Wishlist</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0D0D0F;
+      color: #F2F2F2;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#0D0D0F] text-[#F2F2F2] flex justify-center selection:bg-[#FF3E6C] selection:text-white">
+<div class="w-full max-w-[430px] min-h-screen flex flex-col border-x border-[#1F1F24]/50 pb-12">
+<!-- Top Disclosure Strip -->
+<header class="w-full bg-[#0D0D0F] border-b border-[#1A1A1E] px-4 py-1.5 text-center">
+<p class="text-[10px] leading-tight text-[#71717A] tracking-wide font-normal">
+        Illustrative product and review data — built for prototype testing.
+      </p>
+</header>
+<!-- Header Row & Progress Tracking -->
+<div class="px-5 pt-6 pb-4 border-b border-[#1A1A1E]">
+<div class="flex items-start justify-between gap-3">
+<div>
+<h1 class="text-[22px] font-bold tracking-tight text-[#F2F2F2] leading-none">Saved items</h1>
+<p class="text-[12px] text-[#9A9A9F] mt-1.5">Personal evaluation queue</p>
+</div>
+<div class="flex flex-col items-end min-w-[130px] pt-0.5">
+<span class="text-[12px] text-[#9A9A9F] font-medium tracking-tight whitespace-nowrap">
+            2 of 6 checked <span class="text-[#5A5A60]">·</span> 1 resolved
+          </span>
+<!-- Slim Horizontal Progress Bar (2 of 6 ~ 33%) -->
+<div class="w-full h-1 bg-[#26262B] rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-[#F2F2F2] rounded-full w-[33.33%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Cards List -->
+<main class="flex-1 px-4 py-4 space-y-3.5">
+<!-- Card 1: Checked -->
+<article class="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-3.5 flex flex-col gap-3 transition-colors">
+<div class="flex gap-3.5 items-start">
+<!-- Square rounded image thumbnail -->
+<div class="w-[84px] h-[84px] rounded-[10px] bg-[#222228] border border-[#2C2C32] flex-shrink-0 overflow-hidden relative">
+<img alt="Chanderi Silk-Cotton Angrakha Kurta" class="w-full h-full object-cover grayscale-[15%] contrast-[1.05]" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+</div>
+<!-- Product Info -->
+<div class="flex-1 min-w-0 flex flex-col justify-between h-[84px]">
+<div>
+<span class="text-[11px] font-semibold text-[#9A9A9F] uppercase tracking-wider block">Fabindia</span>
+<h2 class="text-[15px] font-medium text-[#F2F2F2] leading-snug truncate mt-0.5">Chanderi Silk Angrakha Kurta</h2>
+</div>
+<div>
+<div class="text-[16px] font-bold text-[#F2F2F2]">₹1,899</div>
+<div class="flex items-center gap-1.5 text-[12px] text-[#9A9A9F] mt-0.5">
+<span class="text-[#D4D4D8] text-[13px] leading-none">★</span>
+<span class="font-medium text-[#D4D4D8]">4.3</span>
+<span class="text-[#71717A]">(142)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Status indicator: Checked -->
+<div class="pt-0.5">
+<div class="w-full py-2.5 px-3 rounded-[10px] bg-[#222227] border border-[#2C2C33] flex items-center justify-center gap-1.5 text-[#9A9A9F] text-[13px] font-medium select-none">
+<svg class="w-3.5 h-3.5 text-[#8E8E93]" fill="currentColor" viewBox="0 0 16 16">
+<path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+</svg>
+            Checked
+          </div>
+</div>
+</article>
+<!-- Card 2: Unchecked (Primary CTA) -->
+<article class="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-3.5 flex flex-col gap-3">
+<div class="flex gap-3.5 items-start">
+<div class="w-[84px] h-[84px] rounded-[10px] bg-[#222228] border border-[#2C2C32] flex-shrink-0 overflow-hidden">
+<img alt="Raw Silk Lapel Waistcoat" class="w-full h-full object-cover grayscale-[15%] contrast-[1.05]" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between h-[84px]">
+<div>
+<span class="text-[11px] font-semibold text-[#9A9A9F] uppercase tracking-wider block">Raw Mango</span>
+<h2 class="text-[15px] font-medium text-[#F2F2F2] leading-snug truncate mt-0.5">Raw Silk Lapel Waistcoat</h2>
+</div>
+<div>
+<div class="text-[16px] font-bold text-[#F2F2F2]">₹3,450</div>
+<div class="flex items-center gap-1.5 text-[12px] text-[#9A9A9F] mt-0.5">
+<span class="text-[#D4D4D8] text-[13px] leading-none">★</span>
+<span class="font-medium text-[#D4D4D8]">4.6</span>
+<span class="text-[#71717A]">(58)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Action Button -->
+<div class="pt-0.5">
+<button class="w-full min-h-[46px] py-2.5 px-4 rounded-[10px] bg-[#FF3E6C] active:bg-[#e0335e] text-white font-semibold text-[14px] tracking-wide flex items-center justify-center transition-colors" type="button">
+            Check if it's right for me
+          </button>
+</div>
+</article>
+<!-- Card 3: Checked -->
+<article class="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-3.5 flex flex-col gap-3">
+<div class="flex gap-3.5 items-start">
+<div class="w-[84px] h-[84px] rounded-[10px] bg-[#222228] border border-[#2C2C32] flex-shrink-0 overflow-hidden">
+<img alt="Handwoven Mulmul Anarkali" class="w-full h-full object-cover grayscale-[15%] contrast-[1.05]" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between h-[84px]">
+<div>
+<span class="text-[11px] font-semibold text-[#9A9A9F] uppercase tracking-wider block">Nicobar</span>
+<h2 class="text-[15px] font-medium text-[#F2F2F2] leading-snug truncate mt-0.5">Handwoven Mulmul Anarkali</h2>
+</div>
+<div>
+<div class="text-[16px] font-bold text-[#F2F2F2]">₹2,800</div>
+<div class="flex items-center gap-1.5 text-[12px] text-[#9A9A9F] mt-0.5">
+<span class="text-[#D4D4D8] text-[13px] leading-none">★</span>
+<span class="font-medium text-[#D4D4D8]">4.1</span>
+<span class="text-[#71717A]">(94)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Status indicator: Checked -->
+<div class="pt-0.5">
+<div class="w-full py-2.5 px-3 rounded-[10px] bg-[#222227] border border-[#2C2C33] flex items-center justify-center gap-1.5 text-[#9A9A9F] text-[13px] font-medium select-none">
+<svg class="w-3.5 h-3.5 text-[#8E8E93]" fill="currentColor" viewBox="0 0 16 16">
+<path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+</svg>
+            Checked
+          </div>
+</div>
+</article>
+<!-- Card 4: Unchecked -->
+<article class="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-3.5 flex flex-col gap-3">
+<div class="flex gap-3.5 items-start">
+<div class="w-[84px] h-[84px] rounded-[10px] bg-[#222228] border border-[#2C2C32] flex-shrink-0 overflow-hidden">
+<img alt="Textured Khadi Everyday Shirt" class="w-full h-full object-cover grayscale-[15%] contrast-[1.05]" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between h-[84px]">
+<div>
+<span class="text-[11px] font-semibold text-[#9A9A9F] uppercase tracking-wider block">Korra Jeans</span>
+<h2 class="text-[15px] font-medium text-[#F2F2F2] leading-snug truncate mt-0.5">Textured Khadi Everyday Shirt</h2>
+</div>
+<div>
+<div class="text-[16px] font-bold text-[#F2F2F2]">₹1,650</div>
+<div class="flex items-center gap-1.5 text-[12px] text-[#9A9A9F] mt-0.5">
+<span class="text-[#D4D4D8] text-[13px] leading-none">★</span>
+<span class="font-medium text-[#D4D4D8]">4.5</span>
+<span class="text-[#71717A]">(210)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Action Button -->
+<div class="pt-0.5">
+<button class="w-full min-h-[46px] py-2.5 px-4 rounded-[10px] bg-[#FF3E6C] active:bg-[#e0335e] text-white font-semibold text-[14px] tracking-wide flex items-center justify-center transition-colors" type="button">
+            Check if it's right for me
+          </button>
+</div>
+</article>
+<!-- Card 5: Unchecked -->
+<article class="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-3.5 flex flex-col gap-3">
+<div class="flex gap-3.5 items-start">
+<div class="w-[84px] h-[84px] rounded-[10px] bg-[#222228] border border-[#2C2C32] flex-shrink-0 overflow-hidden">
+<img alt="Indigo Block-Print Cotton Tunic" class="w-full h-full object-cover grayscale-[15%] contrast-[1.05]" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between h-[84px]">
+<div>
+<span class="text-[11px] font-semibold text-[#9A9A9F] uppercase tracking-wider block">Anokhi</span>
+<h2 class="text-[15px] font-medium text-[#F2F2F2] leading-snug truncate mt-0.5">Indigo Block-Print Cotton Tunic</h2>
+</div>
+<div>
+<div class="text-[16px] font-bold text-[#F2F2F2]">₹2,190</div>
+<div class="flex items-center gap-1.5 text-[12px] text-[#9A9A9F] mt-0.5">
+<span class="text-[#D4D4D8] text-[13px] leading-none">★</span>
+<span class="font-medium text-[#D4D4D8]">4.7</span>
+<span class="text-[#71717A]">(318)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Action Button -->
+<div class="pt-0.5">
+<button class="w-full min-h-[46px] py-2.5 px-4 rounded-[10px] bg-[#FF3E6C] active:bg-[#e0335e] text-white font-semibold text-[14px] tracking-wide flex items-center justify-center transition-colors" type="button">
+            Check if it's right for me
+          </button>
+</div>
+</article>
+<!-- Card 6: Unchecked -->
+<article class="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-3.5 flex flex-col gap-3">
+<div class="flex gap-3.5 items-start">
+<div class="w-[84px] h-[84px] rounded-[10px] bg-[#222228] border border-[#2C2C32] flex-shrink-0 overflow-hidden">
+<img alt="Linen Blend Pleated Trousers" class="w-full h-full object-cover grayscale-[15%] contrast-[1.05]" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between h-[84px]">
+<div>
+<span class="text-[11px] font-semibold text-[#9A9A9F] uppercase tracking-wider block">Bhaane</span>
+<h2 class="text-[15px] font-medium text-[#F2F2F2] leading-snug truncate mt-0.5">Linen Blend Pleated Trousers</h2>
+</div>
+<div>
+<div class="text-[16px] font-bold text-[#F2F2F2]">₹2,490</div>
+<div class="flex items-center gap-1.5 text-[12px] text-[#9A9A9F] mt-0.5">
+<span class="text-[#D4D4D8] text-[13px] leading-none">★</span>
+<span class="font-medium text-[#D4D4D8]">4.2</span>
+<span class="text-[#71717A]">(76)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Action Button -->
+<div class="pt-0.5">
+<button class="w-full min-h-[46px] py-2.5 px-4 rounded-[10px] bg-[#FF3E6C] active:bg-[#e0335e] text-white font-semibold text-[14px] tracking-wide flex items-center justify-center transition-colors" type="button">
+            Check if it's right for me
+          </button>
+</div>
+</article>
+</main>
+</div>
+
+
+
+
+</body></html>

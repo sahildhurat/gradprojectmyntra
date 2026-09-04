@@ -57,6 +57,7 @@ export interface Assessment {
   unknowns: Unknown[];
   question_to_resolve: string;
   evidence_completeness: "high" | "medium" | "low";
+  isFallback?: boolean;
 }
 
 export interface TrustBlockItem {
