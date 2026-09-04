@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><title>Myntra Match Check</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#131318;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary-container": "#5a001c", "outline": "#ab888b", "on-primary-fixed-variant": "#910031", "surface-container-highest": "#35343a", "inverse-primary": "#bd0043", "primary": "#ffb2ba", "tertiary-container": "#18a659", "surface-dim": "#131318", "surface": "#131318", "surface-container-low": "#1b1b20", "on-secondary-container": "#4f3100", "outline-variant": "#5b4042", "background": "#131318", "surface-tint": "#ffb2ba", "surface-bright": "#39383e", "on-tertiary-fixed": "#00210c", "tertiary-fixed-dim": "#61de8a", "on-error-container": "#ffdad6", "surface-container": "#1f1f25", "inverse-on-surface": "#303036", "on-tertiary-container": "#003115", "surface-variant": "#35343a", "secondary": "#ffb955", "secondary-fixed-dim": "#ffb955", "on-primary-fixed": "#400011", "secondary-fixed": "#ffddb4", "tertiary": "#61de8a", "inverse-surface": "#e4e1e9", "tertiary-fixed": "#7efba4", "on-surface-variant": "#e3bdc0", "on-secondary-fixed": "#291800", "on-background": "#e4e1e9", "primary-fixed": "#ffd9dc", "primary-fixed-dim": "#ffb2ba", "on-error": "#690005", "secondary-container": "#dc9100", "on-secondary-fixed-variant": "#633f00", "error": "#ffb4ab", "on-tertiary-fixed-variant": "#005228", "on-secondary": "#452b00", "on-primary": "#670021", "on-tertiary": "#00391a", "on-surface": "#e4e1e9", "surface-container-high": "#2a292f", "error-container": "#93000a", "surface-container-lowest": "#0e0e13", "primary-container": "#ff4f74" }, borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, spacing: { "space-4xl": "3rem", "space-xl": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-lg": "1.25rem", "space-3xl": "2.5rem", "space-2xl": "2rem", "margin-desktop": "2rem", "gutter-mobile": "1rem", "margin-mobile": "1rem", "gutter-desktop": "1.5rem", "space-xxs": "0.125rem", "space-base": "1rem", "space-md": "0.75rem" }, fontFamily: { "body-md": ["Inter"], "label-md": ["Inter"], "headline-sm": ["Inter"], "body-sm": ["Inter"], "headline-md": ["Inter"], "title-md": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "display-lg": ["Inter"], "label-lg": ["Inter"], "body-lg": ["Inter"], "display-lg-mobile": ["Inter"] }, fontSize: { "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.025em", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-surface-container-lowest/90 px-margin-mobile py-space-xxs flex items-center justify-center"><div class="inline-flex items-center gap-space-xs bg-secondary-container/20 px-space-sm py-space-xxs rounded-full"><span class="material-symbols-outlined text-secondary text-[14px]">info</span><span class="font-label-sm text-label-sm text-secondary tracking-wide uppercase">Illustrative product and review data — built for prototype testing.</span></div></div><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md text-primary-container tracking-tighter uppercase font-bold">M</span><div class="h-4 w-[1px] bg-outline-variant/40"></div><span class="font-title-md text-title-md text-on-surface tracking-tight">Discovery Hub</span></div><div class="inline-flex items-center gap-space-xxs bg-primary-container/15 px-space-sm py-space-xxs rounded-full"><span class="material-symbols-outlined text-primary text-[14px]">auto_awesome</span><span class="font-label-sm text-label-sm text-primary tracking-wider uppercase">Match Check</span></div></div><div class="flex items-center gap-space-sm"><button aria-label="Notifications" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-24 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin-mobile pb-space-3xl gap-space-lg">
+<!-- Interactive Filter Pill Strip -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-baseline gap-space-xs">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Saved Items</h2>
+<span class="font-label-md text-label-md text-primary font-bold">(4)</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Diagnostic Sort</span>
+</div>
+</div>
+<!-- Category Filters -->
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-space-xxs" id="filterPills">
+<button class="filter-btn active shrink-0 min-h-[44px] px-space-base rounded-full bg-primary-container/20 text-primary font-label-md text-label-md flex items-center justify-center transition-all shadow-sm">
+        All Items
+      </button>
+<button class="filter-btn shrink-0 min-h-[44px] px-space-base rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex items-center justify-center transition-all hover:bg-surface-container-highest">
+        Dresses
+      </button>
+<button class="filter-btn shrink-0 min-h-[44px] px-space-base rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex items-center justify-center transition-all hover:bg-surface-container-highest">
+        Kurtas
+      </button>
+<button class="filter-btn shrink-0 min-h-[44px] px-space-base rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex items-center justify-center transition-all hover:bg-surface-container-highest">
+        Jackets
+      </button>
+</div>
+</div>
+<!-- Product 1: High Hesitation Card -->
+<article class="flex flex-col bg-surface-container rounded-lg overflow-hidden shadow-xl relative" data-category="Dresses">
+<div class="relative w-full aspect-[4/3] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Haute couture structured sharp-shoulder tailored blazer dress in deep charcoal noir, worn by an elegant model in high-fashion studio editorial lighting, moody reflections, luxurious fabric texture with dark atmospheric shadows and subtle crimson background glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbQgHvQzi-Kh1sLEcG7muRSq1Z8i7_MANvu3-R1W0pZkeIgj4UmLOv7QQT_qy_82-zpTR_Z0o3yigKI_rd4iEja4GnHsN-qeqLM97X1bpuBHD4Ui4G-DD9Jrp3GQuRwJTm0vv1h6QPzxYug3r-FvPaaI7OwiUDlp31Hgu4MbmiNqWra41wkmjDcD_ACRZaI9WGV6p-aug71cY824ZW8fUpJT02sRQVjC7lGl-MqfJcWbiVldqEboym"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-90"></div>
+<!-- Top Badges -->
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<div class="inline-flex items-center gap-space-xxs bg-error-container/80 backdrop-blur-md px-space-sm py-space-xxs rounded-full text-error shadow-md">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">High Hesitation</span>
+</div>
+</div>
+<button aria-label="Favorite item" class="absolute top-space-sm right-space-sm w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest/70 backdrop-blur-md flex items-center justify-center text-primary transition-transform active:scale-95 shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<!-- Hesitation Micro-insight -->
+<div class="absolute bottom-space-xs left-space-sm right-space-sm bg-surface-container-highest/80 backdrop-blur-md rounded-DEFAULT px-space-sm py-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">sync_problem</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">38% buyers returned for shoulder fit</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold shrink-0">Review Fit</span>
+</div>
+</div>
+<div class="p-space-base flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="min-w-0 flex-1">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase block truncate">Roadster Atelier</span>
+<h3 class="font-title-md text-title-md text-on-surface truncate">Structured Blazer Dress</h3>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">₹2,499</span>
+<span class="font-label-sm text-label-sm text-outline line-through">₹4,999</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="inline-flex items-center gap-space-xxs bg-tertiary-container/20 px-space-xs py-space-xxs rounded-DEFAULT">
+<span class="font-label-sm text-label-sm text-tertiary font-bold">4.3</span>
+<span class="material-symbols-outlined text-tertiary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline-variant">·</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1,280 reviews</span>
+</div>
+<!-- Match Check Primary Glowing CTA -->
+<button class="match-check-btn w-full min-h-[48px] mt-space-xs rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-[0_0_24px_rgba(255,79,116,0.35)] hover:shadow-[0_0_28px_rgba(255,79,116,0.55)] transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>Check if it's right for me</span>
+</button>
+</div>
+</article>
+<!-- Product 2: Popular Kurta Set -->
+<article class="flex flex-col bg-surface-container rounded-lg overflow-hidden shadow-xl relative" data-category="Kurtas">
+<div class="relative w-full aspect-[4/3] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Opulent emerald green and golden woven raw silk blend kurta ensemble with intricate zardozi needlework, captured in dramatic mood-lit luxury setting, deep atmospheric dark aesthetic with soft metallic highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdBGMqJqsYDx5swtd7WEYPZcT7Tz1tpWIUGF0jpspz8GRrJhFuN1Muhp1DcoT9-mH2HN8DzbjnDCbo8bbFULzOzoHx7EaxInvytnt8vU79uzkKKetru5U-9rdABBz-XCxRgj7MpSkeyApe6jIKwo3zVDuSnZa2Ej_2JAKKf9cD_U_AYdr__LpK7pHI6T2nyBR5yDVL5nAodnG2ouWjjuaO0drSHyg_0B6kv3BK-18DrjXpyYLdtXbk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-90"></div>
+<!-- Top Badges -->
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<div class="inline-flex items-center gap-space-xxs bg-tertiary-container/30 backdrop-blur-md px-space-sm py-space-xxs rounded-full text-tertiary shadow-md">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Popular Match</span>
+</div>
+</div>
+<button aria-label="Favorite item" class="absolute top-space-sm right-space-sm w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest/70 backdrop-blur-md flex items-center justify-center text-primary transition-transform active:scale-95 shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<!-- Synergy Snapshot -->
+<div class="absolute bottom-space-xs left-space-sm right-space-sm bg-surface-container-highest/80 backdrop-blur-md rounded-DEFAULT px-space-sm py-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">Pairs with 3 shoes in your closet</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-bold shrink-0">94% Fit</span>
+</div>
+</div>
+<div class="p-space-base flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="min-w-0 flex-1">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase block truncate">Anouk Heritage</span>
+<h3 class="font-title-md text-title-md text-on-surface truncate">Embroidered Silk Blend Kurta Set</h3>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">₹1,899</span>
+<span class="font-label-sm text-label-sm text-outline line-through">₹3,499</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="inline-flex items-center gap-space-xxs bg-tertiary-container/20 px-space-xs py-space-xxs rounded-DEFAULT">
+<span class="font-label-sm text-label-sm text-tertiary font-bold">4.5</span>
+<span class="material-symbols-outlined text-tertiary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline-variant">·</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">3,420 reviews</span>
+</div>
+<!-- Match Check Secondary Glass CTA -->
+<button class="match-check-btn w-full min-h-[48px] mt-space-xs rounded-full bg-surface-container-highest/90 text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-md hover:bg-surface-bright transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary text-[18px]">auto_awesome</span>
+<span>Check if it's right for me</span>
+</button>
+</div>
+</article>
+<!-- Product 3: Tokyo Talkies Trench -->
+<article class="flex flex-col bg-surface-container rounded-lg overflow-hidden shadow-xl relative" data-category="Jackets">
+<div class="relative w-full aspect-[4/3] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Contemporary oversized beige-taupe flowing trench coat with storm flaps and horn buckle details, shot in minimalistic brutalist architecture background with moody dramatic low-key lighting and subtle dusk tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeD7oGn5JNemcmFtbmxI0TXHe3ZtirEQbfv-prPGbWYKnYvtqlZTXk7a0j5ao6iC6g-oMlD1XsPjCKM-r2UtLeydaDX4MU8_23qfFnxzf3fmJXY0a8Wyj1_7SD2A_CWk5svOUDMg2XxhcOghOFe3d0dKCySNOXmrmhHsrWY2-uKY5E6lKqqs8dArfAxwtmgK1kWXeApVnlAJJor2nOlyOEMSRRYLs4oktRMuvPf-tNE3v_TnFQSbZ_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-90"></div>
+<button aria-label="Favorite item" class="absolute top-space-sm right-space-sm w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest/70 backdrop-blur-md flex items-center justify-center text-primary transition-transform active:scale-95 shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<!-- Subtle Prompt -->
+<div class="absolute bottom-space-xs left-space-sm right-space-sm bg-surface-container-highest/80 backdrop-blur-md rounded-DEFAULT px-space-sm py-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">info</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">Over-sized profile · May run large</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold shrink-0">Check</span>
+</div>
+</div>
+<div class="p-space-base flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="min-w-0 flex-1">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase block truncate">Tokyo Talkies</span>
+<h3 class="font-title-md text-title-md text-on-surface truncate">Relaxed Fit Minimal Trench</h3>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">₹3,199</span>
+<span class="font-label-sm text-label-sm text-outline line-through">₹5,999</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="inline-flex items-center gap-space-xxs bg-tertiary-container/20 px-space-xs py-space-xxs rounded-DEFAULT">
+<span class="font-label-sm text-label-sm text-tertiary font-bold">4.1</span>
+<span class="material-symbols-outlined text-tertiary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline-variant">·</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">890 reviews</span>
+</div>
+<button class="match-check-btn w-full min-h-[48px] mt-space-xs rounded-full bg-surface-container-highest/90 text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-md hover:bg-surface-bright transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary text-[18px]">auto_awesome</span>
+<span>Check if it's right for me</span>
+</button>
+</div>
+</article>
+<!-- Product 4: Mango Satin Slip -->
+<article class="flex flex-col bg-surface-container rounded-lg overflow-hidden shadow-xl relative" data-category="Dresses">
+<div class="relative w-full aspect-[4/3] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Fluid liquid silk satin slip evening gown in deep midnight mulberry shade, bias cut drapes gracefully under dramatic cinema studio rim lighting with reflective dark water surfaces in background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmzDpNpFjfleppXH63wrdfA1jbnEQy57pJIkws7YxmJ61sCFa8qXSO2kWpcvqqwmtLU8akaGGouUaP0wtoVNFWIr69kj3vrTeSep_CxXvKP6fDscuuE64ncg3FURpOBpOUeOn_lgTaAEFVyvWJDNmv_ALnAp6AxwiUFHTF8l-aQo36381RWfYUxmf5FkmUCv7E3UG6-3ORfPx_ju5Lkd8AvlKWFeNCf4D7RBLdtau5s8V5L7rZZQI3"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-90"></div>
+<button aria-label="Favorite item" class="absolute top-space-sm right-space-sm w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest/70 backdrop-blur-md flex items-center justify-center text-primary transition-transform active:scale-95 shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<!-- Fit Metric Tag -->
+<div class="absolute bottom-space-xs left-space-sm right-space-sm bg-surface-container-highest/80 backdrop-blur-md rounded-DEFAULT px-space-sm py-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">92% Match with your verified measurements</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-bold shrink-0">Ideal</span>
+</div>
+</div>
+<div class="p-space-base flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="min-w-0 flex-1">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase block truncate">Mango Editorial</span>
+<h3 class="font-title-md text-title-md text-on-surface truncate">Satin Evening Slip Gown</h3>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">₹4,590</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="inline-flex items-center gap-space-xxs bg-tertiary-container/20 px-space-xs py-space-xxs rounded-DEFAULT">
+<span class="font-label-sm text-label-sm text-tertiary font-bold">4.6</span>
+<span class="material-symbols-outlined text-tertiary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline-variant">·</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2,150 reviews</span>
+</div>
+<button class="match-check-btn w-full min-h-[48px] mt-space-xs rounded-full bg-surface-container-highest/90 text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-md hover:bg-surface-bright transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary text-[18px]">auto_awesome</span>
+<span>Check if it's right for me</span>
+</button>
+</div>
+</article>
+<!-- Interactive AI Diagnosis Feedback Toast / Drawer Simulation -->
+<div class="fixed bottom-20 left-4 right-4 z-40 translate-y-32 opacity-0 pointer-events-none transition-all duration-300" id="aiToast">
+<div class="bg-surface-container-highest/95 backdrop-blur-xl p-space-base rounded-lg shadow-2xl flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary text-[20px]">auto_awesome</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate" id="toastTitle">Analyzing Roadster Blazer...</span>
+<span class="font-body-sm text-body-sm text-tertiary truncate">Running 3 wardrobe synergies</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary animate-spin text-[22px]">progress_activity</span>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for filters and Match Check diagnostic triggers
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('bg-primary-container/20', 'text-primary', 'shadow-sm');
+        b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+      });
+      btn.classList.add('bg-primary-container/20', 'text-primary', 'shadow-sm');
+      btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+
+      const filterText = btn.innerText.trim();
+      const articles = document.querySelectorAll('article[data-category]');
+      articles.forEach(art => {
+        if (filterText === 'All Items' || art.getAttribute('data-category') === filterText) {
+          art.style.display = 'flex';
+        } else {
+          art.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Diagnostic CTA Trigger feedback
+  const toast = document.getElementById('aiToast');
+  const toastTitle = document.getElementById('toastTitle');
+  let toastTimer = null;
+
+  document.querySelectorAll('.match-check-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parentCard = btn.closest('article');
+      const itemTitle = parentCard.querySelector('h3').innerText;
+      toastTitle.innerText = `Analyzing ${itemTitle}...`;
+      
+      toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 2400);
+    });
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-4px_16px_rgba(0,0,0,0.4)]" data-active-classes="text-primary font-bold"><div class="flex items-center justify-around h-16 px-gutter-mobile"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-space-sm py-space-xs transition-colors text-primary font-bold" data-path="discovery-hub" href="#"><span class="material-symbols-outlined text-[24px]">explore</span><span class="font-label-sm text-label-sm mt-space-xxs">Discover</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-space-sm py-space-xs text-on-surface-variant transition-colors" data-path="match-studio" href="#"><span class="material-symbols-outlined text-[24px]">auto_awesome</span><span class="font-label-sm text-label-sm mt-space-xxs">Check</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-space-sm py-space-xs text-on-surface-variant transition-colors" data-path="closet-synergy" href="#"><span class="material-symbols-outlined text-[24px]">checkroom</span><span class="font-label-sm text-label-sm mt-space-xxs">Closet</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-space-sm py-space-xs text-on-surface-variant transition-colors" data-path="bag-fit-review" href="#"><span class="material-symbols-outlined text-[24px]">shopping_bag</span><span class="font-label-sm text-label-sm mt-space-xxs">Bag</span></a></div></nav></body></html>

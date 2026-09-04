@@ -1,0 +1,626 @@
+[
+  {
+    "productId": "prod_dress_01",
+    "scenarioId": "A",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_dress_01",
+    "scenarioId": "B",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_dress_01",
+    "scenarioId": "C",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_dress_01",
+    "scenarioId": "D",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_shirt_01",
+    "scenarioId": "A",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_shirt_01",
+    "scenarioId": "B",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_shirt_01",
+    "scenarioId": "C",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_shirt_01",
+    "scenarioId": "D",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_lehenga_01",
+    "scenarioId": "A",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_lehenga_01",
+    "scenarioId": "B",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_lehenga_01",
+    "scenarioId": "C",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_lehenga_01",
+    "scenarioId": "D",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_sneakers_01",
+    "scenarioId": "A",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_sneakers_01",
+    "scenarioId": "B",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_sneakers_01",
+    "scenarioId": "C",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_sneakers_01",
+    "scenarioId": "D",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_top_01",
+    "scenarioId": "A",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_top_01",
+    "scenarioId": "B",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_top_01",
+    "scenarioId": "C",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_top_01",
+    "scenarioId": "D",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_trousers_01",
+    "scenarioId": "A",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_trousers_01",
+    "scenarioId": "B",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_trousers_01",
+    "scenarioId": "C",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  },
+  {
+    "productId": "prod_trousers_01",
+    "scenarioId": "D",
+    "assessment": {
+      "match_reasons": [
+        {
+          "statement": "This item generally aligns with your stated use case based on standard categorisation.",
+          "evidence_ids": []
+        }
+      ],
+      "considerations": [],
+      "unknowns": [
+        {
+          "statement": "Detailed fit analysis",
+          "missing_information": "Live AI generation timed out."
+        }
+      ],
+      "question_to_resolve": "Does this look like it could work for you?",
+      "evidence_completeness": "low"
+    },
+    "metrics": {
+      "objectionCount": 0,
+      "failedEvidenceIds": 0,
+      "completeness": "low"
+    }
+  }
+]

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><title>Myntra Match Check</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#131318;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary-container": "#5a001c", "outline": "#ab888b", "on-primary-fixed-variant": "#910031", "surface-container-highest": "#35343a", "inverse-primary": "#bd0043", "primary": "#ffb2ba", "tertiary-container": "#18a659", "surface-dim": "#131318", "surface": "#131318", "surface-container-low": "#1b1b20", "on-secondary-container": "#4f3100", "outline-variant": "#5b4042", "background": "#131318", "surface-tint": "#ffb2ba", "surface-bright": "#39383e", "on-tertiary-fixed": "#00210c", "tertiary-fixed-dim": "#61de8a", "on-error-container": "#ffdad6", "surface-container": "#1f1f25", "inverse-on-surface": "#303036", "on-tertiary-container": "#003115", "surface-variant": "#35343a", "secondary": "#ffb955", "secondary-fixed-dim": "#ffb955", "on-primary-fixed": "#400011", "secondary-fixed": "#ffddb4", "tertiary": "#61de8a", "inverse-surface": "#e4e1e9", "tertiary-fixed": "#7efba4", "on-surface-variant": "#e3bdc0", "on-secondary-fixed": "#291800", "on-background": "#e4e1e9", "primary-fixed": "#ffd9dc", "primary-fixed-dim": "#ffb2ba", "on-error": "#690005", "secondary-container": "#dc9100", "on-secondary-fixed-variant": "#633f00", "error": "#ffb4ab", "on-tertiary-fixed-variant": "#005228", "on-secondary": "#452b00", "on-primary": "#670021", "on-tertiary": "#00391a", "on-surface": "#e4e1e9", "surface-container-high": "#2a292f", "error-container": "#93000a", "surface-container-lowest": "#0e0e13", "primary-container": "#ff4f74" }, borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, spacing: { "space-4xl": "3rem", "space-xl": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-lg": "1.25rem", "space-3xl": "2.5rem", "space-2xl": "2rem", "margin-desktop": "2rem", "gutter-mobile": "1rem", "margin-mobile": "1rem", "gutter-desktop": "1.5rem", "space-xxs": "0.125rem", "space-base": "1rem", "space-md": "0.75rem" }, fontFamily: { "body-md": ["Inter"], "label-md": ["Inter"], "headline-sm": ["Inter"], "body-sm": ["Inter"], "headline-md": ["Inter"], "title-md": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "display-lg": ["Inter"], "label-lg": ["Inter"], "body-lg": ["Inter"], "display-lg-mobile": ["Inter"] }, fontSize: { "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.025em", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-surface-container-lowest/90 px-margin-mobile py-space-xxs flex items-center justify-center"><div class="inline-flex items-center gap-space-xs bg-secondary-container/20 px-space-sm py-space-xxs rounded-full"><span class="material-symbols-outlined text-secondary text-[14px]">info</span><span class="font-label-sm text-label-sm text-secondary tracking-wide uppercase">Illustrative product and review data — built for prototype testing.</span></div></div><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md text-primary-container tracking-tighter uppercase font-bold">M</span><div class="h-4 w-[1px] bg-outline-variant/40"></div><span class="font-title-md text-title-md text-on-surface tracking-tight">Closet Synergy</span></div><div class="inline-flex items-center gap-space-xxs bg-primary-container/15 px-space-sm py-space-xxs rounded-full"><span class="material-symbols-outlined text-primary text-[14px]">auto_awesome</span><span class="font-label-sm text-label-sm text-primary tracking-wider uppercase">Match Check</span></div></div><div class="flex items-center gap-space-sm"><button aria-label="Notifications" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-24 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin-mobile pb-space-3xl gap-space-lg">
+<!-- Header Title & Subtitle Intro -->
+<div class="flex flex-col gap-space-xs mt-space-sm">
+<div class="inline-flex items-center gap-space-xs self-start px-space-sm py-space-xxs rounded-full bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[14px]">diversity_1</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Social Gut-Check</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold tracking-tight">Ask Your Inner Circle</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Friends who know your style give the best gut-check before checkout.</p>
+</div>
+<!-- Central Glassmorphic Share Card Preview -->
+<div class="relative w-full rounded-lg bg-surface-container-low p-space-base shadow-xl overflow-hidden flex flex-col gap-space-md">
+<!-- Ambient glowing visual gradients behind glass card -->
+<div class="absolute -top-16 -right-16 w-44 h-44 rounded-full bg-primary-container/20 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-16 -left-16 w-40 h-40 rounded-full bg-tertiary/15 blur-3xl pointer-events-none"></div>
+<!-- Preview Framing Header -->
+<div class="flex items-center justify-between z-10">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">visibility</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Interactive Vote Card Preview</span>
+</div>
+<div class="flex items-center gap-space-xxs px-space-sm py-space-xxs rounded-full bg-surface-container-highest text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm">Live Sync</span>
+</div>
+</div>
+<!-- Product Showcase Sub-Card (Layered Glass L2) -->
+<div class="z-10 rounded bg-surface-container p-space-md flex gap-space-md items-center">
+<div class="relative w-20 h-24 rounded overflow-hidden shrink-0 bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Exquisite women's Anouk magenta silk blend straight kurta featuring intricate golden zari thread embroidery around the neckline, styled on a minimalist mannequin against deep moody charcoal backdrop with cinematic studio rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx7tEwMJsBR-wW9VxOFJL7I7mxonZPwi0tVMn6FzBfd8zyjgY3JzMHSC-sL6z813CGazlkZU8_0GfaaMR1xml31A9CPT2kqXsJ9hYjqz_ZhVsmKYcSKc1OT4cv-ihKO96p1c2xU5WvcYwJYq6_BXSjljFJbrFNnL91jwDiKbX-zRPc8yt5D7jLphp1kg8RyxonQq73hAUjRV2e4Uc0yZSS0kbLONaucmzKvQvcRYIaC4M0-RKiW7iV"/>
+<div class="absolute bottom-1 right-1 px-space-xxs py-space-xxs rounded bg-surface-container-lowest/80 backdrop-blur-md">
+<span class="font-label-sm text-label-sm text-on-surface">Size M</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0 flex-1 justify-center">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider truncate">Anouk Luxury Festive</span>
+<h2 class="font-title-md text-title-md text-on-surface truncate font-semibold">Silk Blend Kurta Set</h2>
+<div class="flex items-baseline gap-space-xs mt-space-xxs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">₹1,899</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">₹3,499</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">45% OFF</span>
+</div>
+</div>
+</div>
+<!-- Shopper's Intention & Context Pill -->
+<div class="z-10 rounded bg-surface-container-high px-space-md py-space-sm flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-secondary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[16px]">celebration</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wide">Shopper Goal</span>
+<p class="font-body-sm text-body-sm text-on-surface truncate">For: Diwali/Festive Puja • Target: 10 wears (₹189/wear)</p>
+</div>
+</div>
+<!-- Dilemma / Hesitation Callout -->
+<div class="z-10 rounded bg-surface-container-highest p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[16px]">help_center</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">My Main Hesitation</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic">"Concern: Bust fit &amp; whether I will realistically re-wear it after the Puja festivities."</p>
+</div>
+<!-- AI Diagnostic Suggestion Bubble -->
+<div class="z-10 rounded bg-secondary-container/15 p-space-md flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-space-xxs">insights</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Match Engine Diagnostic</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-secondary-container/30 text-on-surface">Fit Alert</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-space-xxs">Consider sizing up from M to L. Shoppers with similar bust dimensions report snug chest seam.</p>
+</div>
+</div>
+<!-- Friend Vote Action Micro-Bar Preview -->
+<div class="z-10 pt-space-xs flex gap-space-xs">
+<div class="flex-1 py-space-sm rounded-full bg-tertiary-container/20 flex items-center justify-center gap-space-xs text-tertiary">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+<span class="font-label-md text-label-md font-bold">Buy It! (78%)</span>
+</div>
+<div class="flex-1 py-space-sm rounded-full bg-primary-container/20 flex items-center justify-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+<span class="font-label-md text-label-md font-bold">Skip / Size L</span>
+</div>
+</div>
+</div>
+<!-- Sharing Options Section -->
+<div class="flex flex-col gap-space-md">
+<!-- WhatsApp Big CTA -->
+<button class="w-full py-space-md px-space-lg rounded-full bg-tertiary text-on-tertiary flex items-center justify-center gap-space-sm shadow-lg shadow-tertiary/20 active:scale-[0.98] transition-transform" id="whatsapp-btn">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.79.82 3.182 0 5.768-2.587 5.769-5.766.001-3.183-2.585-5.806-5.769-5.806zm3.374 8.204c-.146.415-.747.788-1.042.839-.27.047-.621.086-1.78-.394-1.481-.613-2.433-2.122-2.507-2.22-.074-.099-.601-.799-.601-1.523 0-.724.379-1.081.514-1.229.135-.148.295-.185.394-.185.099 0 .197.001.283.006.091.005.212-.034.331.253.123.296.42 1.026.456 1.101.037.074.062.161.013.259-.05.099-.074.16-.148.247-.074.086-.156.193-.223.259-.074.074-.152.155-.065.304.087.148.386.637.828 1.031.57.508 1.051.666 1.2.74.148.074.234.062.321-.037.086-.099.37-.432.469-.58.099-.148.197-.123.332-.074.136.049.863.407 1.011.481.148.074.247.111.284.173.037.062.037.358-.109.773zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.436 5.176L2 22l4.981-1.396A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"></path>
+</svg>
+<span class="font-label-lg text-label-lg font-bold">Share directly on WhatsApp</span>
+</button>
+<!-- Copy Voting Link Secondary CTA -->
+<button class="w-full py-space-md px-space-lg rounded-full bg-surface-container-high text-on-surface flex items-center justify-center gap-space-sm shadow-sm active:bg-surface-container-highest transition-colors" id="copy-btn">
+<span class="material-symbols-outlined text-[20px] text-primary" id="copy-icon">link</span>
+<span class="font-label-lg text-label-lg font-semibold" id="copy-text">Copy voting link</span>
+</button>
+<!-- Quick Channels Row -->
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-center">Or quick share via</span>
+<div class="grid grid-cols-3 gap-space-sm">
+<button class="py-space-sm px-space-xs rounded-full bg-surface-container-low text-on-surface flex items-center justify-center gap-space-xs hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-primary">send</span>
+<span class="font-label-md text-label-md">Insta DM</span>
+</button>
+<button class="py-space-sm px-space-xs rounded-full bg-surface-container-low text-on-surface flex items-center justify-center gap-space-xs hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-tertiary">chat</span>
+<span class="font-label-md text-label-md">iMessage</span>
+</button>
+<button class="py-space-sm px-space-xs rounded-full bg-surface-container-low text-on-surface flex items-center justify-center gap-space-xs hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary">flash_on</span>
+<span class="font-label-md text-label-md">Snapchat</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Privacy Security Lockout Footer -->
+<div class="rounded bg-surface-container-lowest/80 p-space-sm flex items-center justify-center gap-space-xs text-center">
+<span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+<span class="font-label-sm text-label-sm text-outline">Only friends with this secure link can view and vote. No account needed.</span>
+</div>
+<!-- Toast Notification Overlay (Micro-interaction) -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 px-space-base py-space-sm rounded-full bg-surface-container-highest text-on-surface shadow-2xl flex items-center gap-space-xs opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4" id="toast">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+<span class="font-label-md text-label-md font-semibold">Voting link copied to clipboard!</span>
+</div>
+</div>
+<script>
+  (function() {
+    const copyBtn = document.getElementById('copy-btn');
+    const copyIcon = document.getElementById('copy-icon');
+    const copyText = document.getElementById('copy-text');
+    const toast = document.getElementById('toast');
+    const whatsappBtn = document.getElementById('whatsapp-btn');
+
+    function triggerToast(message) {
+      if (message) {
+        toast.querySelector('span:last-child').textContent = message;
+      }
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+      }, 2600);
+    }
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const dummyLink = "https://myntra.com/match/gutcheck?poll=anouk-festive-491";
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(dummyLink).catch(() => {});
+        }
+        
+        copyIcon.textContent = 'check';
+        copyIcon.classList.remove('text-primary');
+        copyIcon.classList.add('text-tertiary');
+        copyText.textContent = 'Link copied!';
+
+        triggerToast('Voting link copied to clipboard!');
+
+        setTimeout(() => {
+          copyIcon.textContent = 'link';
+          copyIcon.classList.remove('text-tertiary');
+          copyIcon.classList.add('text-primary');
+          copyText.textContent = 'Copy voting link';
+        }, 2200);
+      });
+    }
+
+    if (whatsappBtn) {
+      whatsappBtn.addEventListener('click', () => {
+        triggerToast('Opening WhatsApp with your poll card...');
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-4px_16px_rgba(0,0,0,0.4)]" data-active-classes="text-primary font-bold"><div class="flex items-center justify-around h-16 px-gutter-mobile"><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-space-sm py-space-xs text-on-surface-variant transition-colors" data-path="discovery-hub" href="#"><span class="material-symbols-outlined text-[24px]">explore</span><span class="font-label-sm text-label-sm mt-space-xxs">Discover</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-space-sm py-space-xs text-on-surface-variant transition-colors" data-path="match-studio" href="#"><span class="material-symbols-outlined text-[24px]">auto_awesome</span><span class="font-label-sm text-label-sm mt-space-xxs">Check</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-space-sm py-space-xs transition-colors text-primary font-bold" data-path="closet-synergy" href="#"><span class="material-symbols-outlined text-[24px]">checkroom</span><span class="font-label-sm text-label-sm mt-space-xxs">Closet</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-space-sm py-space-xs text-on-surface-variant transition-colors" data-path="bag-fit-review" href="#"><span class="material-symbols-outlined text-[24px]">shopping_bag</span><span class="font-label-sm text-label-sm mt-space-xxs">Bag</span></a></div></nav></body></html>
