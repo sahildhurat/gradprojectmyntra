@@ -15,13 +15,13 @@ export const redis = new Redis({
 
 // Wrapper to intercept calls if missing
 const originalSet = redis.set.bind(redis);
-redis.set = async (...args: any[]) => {
+redis.set = async (key: string, value: any, options?: any) => {
   if (!url) throw new Error("Redis is not configured in this environment. Please set UPSTASH_REDIS_REST_URL.");
-  return originalSet(...args);
+  return originalSet(key, value, options);
 };
 
 const originalGet = redis.get.bind(redis);
-redis.get = async (...args: any[]) => {
+redis.get = async (key: string) => {
   if (!url) throw new Error("Redis is not configured in this environment. Please set UPSTASH_REDIS_REST_URL.");
-  return originalGet(...args);
+  return originalGet(key);
 };
