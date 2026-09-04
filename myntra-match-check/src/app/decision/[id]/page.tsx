@@ -20,6 +20,8 @@ export default function DecisionScreen() {
   const [isSharing, setIsSharing] = useState(false);
   const [showQuestionModal, setShowQuestionModal] = useState(false);
   const [shopperQuestion, setShopperQuestion] = useState("I'm not sure about this, what do you guys think?");
+  
+  const [doubtResolved, setDoubtResolved] = useState<string | null>(null);
 
   useEffect(() => {
     if (!checkId) {
@@ -37,11 +39,14 @@ export default function DecisionScreen() {
 
   if (!product || !check || !check.assessment) return null;
 
+  const cpw = Math.round(product.price / check.expectedWears);
+
   const handleBuy = () => {
-    trackEvent('decision_buy', product.id, { checkId });
+    trackEvent('decision_buy', product.id, { checkId, doubtResolved });
     markProductResolved(product.id);
     router.push('/confirm');
   };
+  
   const handleShareClick = () => {
     setShowQuestionModal(true);
   };
@@ -49,7 +54,7 @@ export default function DecisionScreen() {
   const handleConfirmShare = async () => {
     setShowQuestionModal(false);
     setIsSharing(true);
-    trackEvent('decision_share_initiated', product.id, { checkId, shopperQuestion });
+    trackEvent('decision_share_initiated', product.id, { checkId, shopperQuestion, doubtResolved });
     
     try {
       const res = await fetch('/api/share', {
@@ -62,8 +67,6 @@ export default function DecisionScreen() {
       });
       const data = await res.json();
       if (data.token) {
-        // In a real app, this would use navigator.share()
-        // For MVP, we route directly to the vote screen
         router.push(`/share/${data.token}`);
       } else {
         setIsSharing(false);
@@ -76,140 +79,148 @@ export default function DecisionScreen() {
   };
 
   const handleDismiss = () => {
-    trackEvent('decision_dismiss', product.id, { checkId });
+    trackEvent('decision_dismiss', product.id, { checkId, doubtResolved });
     markProductRemoved(product.id);
     router.push('/');
   };
 
   return (
     <>
-      <header className="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-        <div className="h-16 px-4 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-4">
-            <button onClick={() => router.back()} className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-on-surface hover:text-primary transition-colors">
-              <span className="material-symbols-outlined text-[24px]">arrow_back</span>
+      <main className="w-full max-w-[430px] mx-auto flex flex-col min-h-screen bg-[#0D0D0F] border-x border-[#26262B]/60 shadow-2xl relative pb-8">
+        <div>
+          {/* Top Navigation / Header */}
+          <header className="flex items-center justify-between py-3 mb-4 border-b border-[#1F1F24] px-4">
+            <button onClick={() => router.back()} type="button" className="text-[#9A9A9F] hover:text-[#F2F2F2] p-1.5 -ml-1.5 transition-colors" aria-label="Go back">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
             </button>
-            <div className="flex items-center gap-2">
-              <span className="font-headline-md text-headline-md tracking-tighter uppercase font-bold text-on-surface">MATCH CHECK</span>
+            <div className="text-center">
+              <span className="text-[11px] font-medium tracking-wider text-[#9A9A9F] uppercase block">Decision Support · Final Step</span>
+              <h1 className="text-sm font-semibold text-[#F2F2F2]">Your Decision</h1>
             </div>
+            <div className="w-6"></div> {/* spacer for balance */}
+          </header>
+
+          <div className="px-4">
+            {/* Compact Product Summary Bar */}
+            <section className="bg-[#1A1A1D] border border-[#26262B] rounded-xl p-3 flex items-center gap-3.5 mb-8" aria-label="Product summary">
+              {/* Thumbnail */}
+              <div className="w-14 h-14 rounded-lg bg-[#242429] border border-[#2E2E36] flex items-center justify-center flex-shrink-0 overflow-hidden relative">
+                <img alt={product.name} className="w-full h-full object-cover object-center brightness-90 contrast-105" loading="lazy" src={product.imageUrl} />
+              </div>
+              {/* Info */}
+              <div className="flex-1 min-w-0">
+                <div className="text-[10px] tracking-wider uppercase font-semibold text-[#9A9A9F] truncate">{product.brand}</div>
+                <div className="text-sm font-medium text-[#F2F2F2] truncate mt-0.5">
+                  {product.name}
+                </div>
+                <div className="text-xs font-semibold text-[#d4d4d8] mt-1">
+                  ₹{product.price.toLocaleString('en-IN')} <span className="text-[10px] font-normal text-[#9A9A9F]">· ₹{cpw.toLocaleString('en-IN')}/wear ({check.expectedWears} wears)</span>
+                </div>
+              </div>
+            </section>
+
+            {/* Question Block: Has your main doubt been resolved? */}
+            <section className="space-y-4" aria-labelledby="doubt-resolved-heading">
+              <h2 id="doubt-resolved-heading" className="text-base sm:text-lg font-semibold text-[#F2F2F2] tracking-tight">
+                Has your main doubt been resolved?
+              </h2>
+
+              {/* Three neutral pill options side by side */}
+              <div className="grid grid-cols-3 gap-2.5" role="group" aria-label="Doubt resolution options">
+                {['Yes', 'Partly', 'No'].map(opt => (
+                  <button 
+                    key={opt}
+                    onClick={() => setDoubtResolved(opt)}
+                    type="button" 
+                    className={`py-3 px-3 rounded-xl border text-sm font-medium text-center transition-colors focus:outline-none focus:ring-1 focus:ring-[#FF3E6C] ${doubtResolved === opt ? 'bg-[#3E3E48] text-white border-[#4E4E58]' : 'border-[#2E2E36] bg-[#161619] text-[#F2F2F2] hover:bg-[#202024] hover:border-[#3D3D46]'}`}
+                  >
+                    {opt}
+                  </button>
+                ))}
+              </div>
+
+              <p className="text-xs text-[#71717a] pt-1 leading-relaxed">
+                Initial hesitation noted: <span className="text-[#a1a1aa]">"{check.hesitation}"</span>
+              </p>
+            </section>
           </div>
         </div>
-      </header>
 
-      <main className="flex-1 flex flex-col relative w-full pt-24 pb-24 bg-surface min-h-screen">
-        <div className="flex flex-col w-full px-4 pb-12 space-y-6">
+        {/* Action Buttons: 4 stacked full-width buttons in descending visual weight */}
+        <section className="w-full space-y-3 pb-4 mt-8 px-4" aria-label="Decision actions">
           
-          <div className="pt-4 text-center">
-            <h2 className="font-headline-md text-[28px] text-on-surface tracking-tight font-bold">Did that resolve your doubt?</h2>
-          </div>
+          {/* Button 1: "Buy this" — filled coral */}
+          <button onClick={handleBuy} type="button" className="w-full py-3.5 px-4 bg-[#FF3E6C] hover:bg-[#E0345D] active:bg-[#C92C51] text-white font-semibold text-sm rounded-xl text-center shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#FF3E6C] focus:ring-offset-2 focus:ring-offset-[#0D0D0F] flex items-center justify-center gap-2">
+            <span className="">Buy this</span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </button>
 
-          <div className="bg-surface-container-low p-3 rounded-2xl flex items-center gap-4 border border-white/5 shadow-sm">
-            <img className="w-16 h-20 rounded-xl object-cover" src={product.imageUrl} alt={product.name}/>
-            <div className="flex-1 min-w-0">
-              <p className="font-label-sm text-[11px] text-secondary uppercase tracking-wider font-bold mb-1">{product.brand}</p>
-              <h3 className="font-title-md text-[16px] text-on-surface truncate font-semibold">{product.name}</h3>
-              <p className="font-body-md text-[15px] text-on-surface mt-1">₹{product.price.toLocaleString('en-IN')}</p>
-            </div>
-          </div>
+          {/* Button 2: "Ask my Inner Circle" — outlined, off-white border */}
+          <button disabled={isSharing} onClick={handleShareClick} type="button" className={`w-full py-3.5 px-4 bg-transparent hover:bg-[#1F1F24] active:bg-[#27272E] border border-[#F2F2F2] text-[#F2F2F2] font-semibold text-sm rounded-xl text-center transition-colors focus:outline-none focus:ring-1 focus:ring-[#F2F2F2] flex items-center justify-center gap-2 ${isSharing ? 'opacity-80' : ''}`}>
+            {isSharing ? (
+              <svg className="w-4 h-4 text-[#F2F2F2] animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            ) : (
+              <svg className="w-4 h-4 text-[#d4d4d8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            )}
+            <span className="">{isSharing ? 'Generating Link...' : 'Ask my Inner Circle'}</span>
+          </button>
 
-          <div className="flex flex-col space-y-4 pt-2">
-            {/* Buy This */}
-            <button onClick={handleBuy} className="group relative w-full text-left rounded-lg bg-primary-container p-4 transition-all duration-200 active:scale-[0.98] shadow-[0_0_28px_-4px_rgba(255,79,116,0.4)] flex items-center justify-between overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
-              <div className="flex items-center gap-4 z-10">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 text-white shadow-inner">
-                  <span className="material-symbols-outlined text-white text-[26px]" style={{ fontVariationSettings: "'FILL' 1" }}>shopping_bag</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-title-md text-title-md text-white font-bold flex items-center gap-2">
-                    Buy this now
-                    <span className="material-symbols-outlined text-white text-[18px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-                  </span>
-                  <span className="font-body-sm text-body-sm text-white/90">Add to cart</span>
-                </div>
-              </div>
-              <div className="z-10 bg-white/20 px-3 py-1 rounded-full text-white font-label-sm text-label-sm tracking-wide uppercase font-bold">
-                Ready
-              </div>
-            </button>
+          {/* Button 3: "Keep for later" — plain text button, off-white */}
+          <button onClick={() => router.push('/')} type="button" className="w-full py-3 px-4 bg-transparent hover:bg-[#161619] active:bg-[#1E1E22] text-[#F2F2F2] font-medium text-sm rounded-xl text-center transition-colors focus:outline-none">
+            Keep for later
+          </button>
 
-            {/* Ask Inner Circle */}
-            <button onClick={handleShareClick} disabled={isSharing} className={`group relative w-full text-left rounded-lg bg-surface-container-high p-4 transition-all duration-200 shadow-md flex items-center justify-between overflow-hidden backdrop-blur-xl ${isSharing ? 'opacity-80' : 'active:scale-[0.98]'}`}>
-              <div className="flex items-center gap-4 z-10">
-                <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0 shadow-sm">
-                  {isSharing ? (
-                    <span className="material-symbols-outlined text-[#9A9A9F] text-[24px] animate-spin">progress_activity</span>
-                  ) : (
-                    <span className="material-symbols-outlined text-[#9A9A9F] text-[24px]">diversity_1</span>
-                  )}
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-title-md text-title-md text-on-surface font-semibold flex items-center gap-2">
-                    {isSharing ? 'Generating Link...' : 'Ask my Inner Circle'}
-                    {!isSharing && <span className="material-symbols-outlined text-[#9A9A9F] text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>}
-                  </span>
-                  <span className="font-body-sm text-body-sm text-on-surface-variant">Get instant feedback from friends</span>
-                </div>
-              </div>
-            </button>
+          {/* Button 4: "Not right for me — remove" — plain text button, mid grey */}
+          <button onClick={handleDismiss} type="button" className="w-full py-2.5 px-4 bg-transparent hover:text-[#d4d4d8] text-[#9A9A9F] font-normal text-sm rounded-xl text-center transition-colors focus:outline-none">
+            Not right for me — remove
+          </button>
 
-            {/* Not Right */}
-            <button onClick={handleDismiss} className="group relative w-full text-left rounded-lg bg-surface-container-low p-4 transition-all duration-200 active:scale-[0.98] flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant">
-                  <span className="material-symbols-outlined text-[#9A9A9F] text-[24px]">bookmark_add</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-title-md text-title-md text-on-surface font-medium">Not right for me</span>
-                  <span className="font-body-sm text-body-sm text-on-surface-variant">Save insights & return to wishlist</span>
-                </div>
-              </div>
-              <span className="material-symbols-outlined text-[#9A9A9F] text-[20px] transition-transform group-hover:rotate-45">close</span>
-            </button>
-          </div>
-
-          <div className="rounded-xl bg-surface-container-lowest/80 p-4 flex items-center gap-3 shadow-inner mt-3">
-            <div className="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center flex-shrink-0">
-              <span className="material-symbols-outlined text-[#9A9A9F] text-[18px]">psychology</span>
-            </div>
-            <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              <span className="text-on-surface font-semibold">12,400 shoppers</span> found clarity before checkout this week using Match Check diagnostics.
-            </p>
-          </div>
-
-        </div>
+        </section>
       </main>
 
       {/* Question Modal Overlay */}
       {showQuestionModal && (
-        <div className="fixed inset-0 z-[100] flex items-end justify-center sm:items-center bg-black/60 backdrop-blur-sm" onClick={() => setShowQuestionModal(false)}>
+        <div className="fixed inset-0 z-[100] flex items-end justify-center sm:items-center bg-black/80 backdrop-blur-sm" onClick={() => setShowQuestionModal(false)}>
           <div 
-            className="w-full max-w-md bg-surface rounded-t-3xl sm:rounded-3xl p-6 shadow-2xl animate-in slide-in-from-bottom-full sm:zoom-in-95 duration-300"
+            className="w-full max-w-[430px] bg-[#1A1A1D] border border-[#26262B] rounded-t-[16px] sm:rounded-[16px] p-6 shadow-2xl animate-in slide-in-from-bottom-full sm:zoom-in-95 duration-300"
             onClick={e => e.stopPropagation()}
           >
             <div className="flex justify-between items-center mb-4">
-              <h3 className="font-title-lg text-[20px] font-bold text-on-surface">Ask Inner Circle</h3>
-              <button onClick={() => setShowQuestionModal(false)} className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
-                <span className="material-symbols-outlined text-[20px]">close</span>
+              <h3 className="font-bold text-[18px] text-[#F2F2F2]">Ask Inner Circle</h3>
+              <button onClick={() => setShowQuestionModal(false)} className="w-8 h-8 rounded-full bg-[#26262B] flex items-center justify-center text-[#9A9A9F] hover:text-[#F2F2F2]">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
               </button>
             </div>
             
-            <p className="font-body-md text-on-surface-variant mb-4">
+            <p className="text-[14px] text-[#9A9A9F] mb-4">
               Add a quick note so your friends know what you're worried about.
             </p>
             
             <textarea
-              className="w-full h-24 p-4 rounded-xl bg-surface-container-low border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md text-on-surface resize-none mb-3"
+              className="w-full h-24 p-4 rounded-xl bg-[#141416] border border-[#26262B] text-[#F2F2F2] focus:border-[#FF3E6C] focus:ring-1 focus:ring-[#FF3E6C] outline-none text-[14px] resize-none mb-4"
               value={shopperQuestion}
               onChange={(e) => setShopperQuestion(e.target.value)}
-              placeholder="e.g. Will this waistcoat look good with my navy trousers?"
+              placeholder="e.g. Will this look good with my navy trousers?"
             />
             
             <button 
               onClick={handleConfirmShare}
-              className="w-full h-12 rounded-full bg-[#FF3E6C] text-white font-title-md font-bold text-[16px] flex items-center justify-center gap-2 active:scale-[0.98] transition-transform shadow-md"
+              className="w-full h-12 rounded-xl bg-[#FF3E6C] hover:bg-[#E02E5A] text-white font-bold text-[15px] flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#FF3E6C]/20"
             >
-              <span className="material-symbols-outlined text-white text-[20px]">send</span>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+              </svg>
               Generate Share Link
             </button>
           </div>

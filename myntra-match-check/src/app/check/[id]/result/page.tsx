@@ -20,9 +20,6 @@ export default function ResultScreen() {
   const [check, setCheck] = useState<Check | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedFeeling, setSelectedFeeling] = useState<string | null>(null);
-  
-  // Drawer state
-  const [activeDrawer, setActiveDrawer] = useState<any>(null);
 
   useEffect(() => {
     if (!checkId) {
@@ -48,7 +45,7 @@ export default function ResultScreen() {
   }, [checkId, router]);
 
   if (loading) {
-    return <div className="min-h-screen bg-surface flex items-center justify-center text-primary">Loading assessment...</div>;
+    return <div className="min-h-screen bg-[#0D0D0F] flex items-center justify-center text-[#F2F2F2]">Loading assessment...</div>;
   }
 
   if (!product || !check || !check.assessment) return null;
@@ -68,214 +65,255 @@ export default function ResultScreen() {
 
   return (
     <>
-      <header className="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-        <div className="h-16 px-4 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <button aria-label="Back" className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-on-surface hover:text-primary transition-colors" onClick={() => router.back()}>
-              <span className="material-symbols-outlined text-[24px]">arrow_back</span>
-            </button>
-            <h1 className="font-title-md text-title-md text-on-surface tracking-tight">Diagnostic Detail</h1>
-          </div>
-          <div className="flex items-center gap-2">
-            {assessment.isFallback && (
-              <div className="inline-flex items-center gap-1 bg-surface-variant/50 border border-outline-variant/30 px-2.5 py-1 rounded-full">
-                <span className="material-symbols-outlined text-on-surface-variant text-[12px]">offline_bolt</span>
-                <span className="font-label-sm text-[10px] text-on-surface-variant tracking-wider uppercase font-bold">Cached</span>
-              </div>
-            )}
-            <div className="inline-flex items-center gap-1 bg-primary-container/15 px-3 py-1 rounded-full">
-              <span className="material-symbols-outlined text-primary text-[14px]">auto_awesome</span>
-              <span className="font-label-sm text-label-sm text-primary tracking-wider uppercase">AI Match</span>
-            </div>
+      <style dangerouslySetInnerHTML={{__html: `
+        input[type=range] {
+          -webkit-appearance: none;
+          width: 100%;
+          background: transparent;
+        }
+        input[type=range]:focus {
+          outline: none;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+          width: 100%;
+          height: 6px;
+          cursor: pointer;
+          background: #26262B;
+          border-radius: 9999px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+          height: 24px;
+          width: 24px;
+          border-radius: 50%;
+          background: #F2F2F2;
+          border: 3px solid #0D0D0F;
+          box-shadow: 0 0 0 2px #3E3E45;
+          cursor: pointer;
+          -webkit-appearance: none;
+          margin-top: -9px;
+        }
+      `}} />
+
+      {/* Top Navigation / Status Header */}
+      <header className="sticky top-0 z-30 bg-[#0D0D0F]/95 backdrop-blur-md px-5 pt-5 pb-3.5 flex items-center justify-between border-b border-[#26262B]">
+        <div className="flex items-center gap-3">
+          <button onClick={() => router.back()} type="button" aria-label="Go back" className="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-[#9A9A9F] hover:text-[#F2F2F2] hover:bg-[#1A1A1D] transition-colors">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <div>
+            <h1 className="text-[18px] font-bold text-[#F2F2F2] leading-tight">Match Check</h1>
           </div>
         </div>
+        <button type="button" aria-label="Reference options" className="w-10 h-10 rounded-full flex items-center justify-center text-[#9A9A9F] hover:text-[#F2F2F2] hover:bg-[#1A1A1D] transition-colors">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 6h18M7 12h10m-7 6h4"></path>
+          </svg>
+        </button>
       </header>
 
-      <main className="flex-1 flex flex-col relative w-full pt-20 bg-surface min-h-screen">
-        <div className="flex flex-col w-full pb-32">
-          
+      {/* Content Area */}
+      <div className="flex-1 px-4 pt-4 pb-28 space-y-10">
 
+        {/* Compact Product Summary Bar */}
+        <section className="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-3 flex items-center gap-3.5 shadow-sm">
+          <div className="w-14 h-14 rounded-lg bg-[#26262B] flex-shrink-0 flex items-center justify-center border border-[#34343B] overflow-hidden relative">
+            <img alt={product.name} className="w-full h-full object-cover object-center brightness-90 contrast-105" loading="lazy" src={product.imageUrl} />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="text-[11px] font-semibold text-[#9A9A9F] uppercase tracking-wider truncate">{product.brand}</div>
+            <div className="text-[14px] font-semibold text-[#F2F2F2] truncate mt-0.5">{product.name}</div>
+            <div className="text-[13px] font-medium text-[#9A9A9F] mt-0.5">₹{product.price.toLocaleString('en-IN')} <span className="text-[11px] font-normal text-[#9A9A9F]/80">· MRP Inclusive of taxes</span></div>
+          </div>
+        </section>
 
-          <section className="px-4 py-6">
-            <div className="relative overflow-hidden bg-surface-container rounded-3xl p-6 shadow-md border border-white/5 text-center">
-              <span className="font-body-md text-on-surface">Checked for: {check.occasion} · {check.expectedWears} expected wears</span>
+        {/* Quiet Context Line */}
+        <div className="px-2 py-1 flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#9A9A9F]/60"></span>
+          <p className="text-[13px] font-medium text-[#9A9A9F]">
+            Checked for: <span className="text-[#F2F2F2]">{check.occasion}</span> · <span className="text-[#F2F2F2]">{check.expectedWears} expected wears</span>
+          </p>
+        </div>
+
+        {/* Trust & Verification Card */}
+        {check.trustBlock && check.trustBlock.items.length > 0 && (
+          <section className="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-4 shadow-sm">
+            <div className="flex items-center gap-2 pb-3.5 border-b border-[#26262B]/80">
+              <svg className="w-[18px] h-[18px] text-[#9A9A9F] flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path>
+              </svg>
+              <h2 className="text-[15px] font-bold text-[#F2F2F2] tracking-tight">Trust & Verification</h2>
             </div>
+            <ul className="divide-y divide-[#26262B]/60 pt-1">
+              {check.trustBlock.items.map((item: any, idx: number) => (
+                <li key={idx} className="py-3 flex items-start gap-3">
+                  <svg className="w-4 h-4 text-[#9A9A9F] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                  </svg>
+                  <span className="text-[13.5px] leading-snug text-[#F2F2F2]">{item.text}</span>
+                </li>
+              ))}
+            </ul>
           </section>
+        )}
 
-          {/* Trust Block */}
-          {check.trustBlock && check.trustBlock.items.length > 0 && (
-            <section className="px-4 pt-4 pb-2">
-              <div className="bg-surface-container rounded-3xl p-5 shadow-sm border border-white/5">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="material-symbols-outlined text-on-surface text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>verified_user</span>
-                  <h3 className="font-title-md text-[18px] text-on-surface font-bold">Trust & Verification</h3>
-                </div>
-                <div className="space-y-3">
-                  {check.trustBlock.items.map((item: any, idx: number) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <span className={`material-symbols-outlined text-[18px] shrink-0 mt-0.5 text-on-surface`}>
-                        {item.icon === 'check' ? 'check_circle' : 'shield'}
-                      </span>
-                      <p className={`font-body-md text-[15px] leading-relaxed text-on-surface`}>
-                        {item.text}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-          )}
-
-          {/* Match Reasons */}
-          <section className="px-4 pt-6">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="material-symbols-outlined text-on-surface text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>spark</span>
-              <h3 className="font-title-md text-[18px] text-on-surface font-bold">Why it could work for you</h3>
+        {/* Why it could work for you */}
+        {assessment.match_reasons && assessment.match_reasons.length > 0 && (
+          <section className="space-y-3 pt-1">
+            <div className="px-1 flex items-center justify-between">
+              <h2 className="text-[16px] font-bold text-[#F2F2F2] tracking-tight">Why it could work for you</h2>
             </div>
-            <div className="space-y-4">
-              {assessment.match_reasons?.map((reason: any, idx: number) => (
-                <div 
-                  key={idx} 
-                  onClick={() => reason.evidence_ids?.length && setActiveDrawer({ type: 'reason', data: reason })}
-                  className="flex items-start gap-3 cursor-pointer group bg-[#1A1A1D] border border-[#26262B] p-4 rounded-xl"
-                >
-                  <span className="material-symbols-outlined text-[#9A9A9F] text-[20px] shrink-0 mt-0.5">add</span>
-                  <p className="font-body-md text-[15px] text-on-surface leading-relaxed group-hover:text-on-surface-variant transition-colors">{reason.statement}</p>
+            <div className="space-y-2.5">
+              {assessment.match_reasons.map((reason: any, idx: number) => (
+                <div key={idx} className="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-4 shadow-sm">
+                  <div className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full border border-[#9A9A9F]/40 flex items-center justify-center text-[#9A9A9F] flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#9A9A9F]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
+                      </svg>
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <p className="text-[15px] font-medium text-[#F2F2F2] leading-relaxed">{reason.statement}</p>
+                      <div>
+                        <a href="#" onClick={(e)=>e.preventDefault()} className="text-[12px] text-[#9A9A9F] underline underline-offset-4 decoration-[#9A9A9F]/60 hover:text-[#F2F2F2] transition-colors">
+                          Why am I seeing this?
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </section>
+        )}
 
-          {/* Considerations */}
-          {assessment.considerations && assessment.considerations.length > 0 && (
-            <section className="px-4 pt-8">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="material-symbols-outlined text-on-surface text-[20px]">radio_button_unchecked</span>
-                <h3 className="font-title-md text-[18px] text-on-surface font-bold">Things to consider</h3>
-              </div>
-              <div className="space-y-4">
-                {assessment.considerations.map((cons: any, idx: number) => (
-                  <div 
-                    key={idx} 
-                    onClick={() => cons.evidence_ids?.length && setActiveDrawer({ type: 'consideration', data: cons })}
-                    className="flex items-start gap-3 cursor-pointer group bg-[#1A1A1D] border border-[#26262B] p-4 rounded-xl"
-                  >
-                    <span className="material-symbols-outlined text-[#9A9A9F] text-[20px] shrink-0 mt-0.5">radio_button_unchecked</span>
-                    <div>
-                      <p className="font-body-md text-[15px] text-on-surface leading-relaxed font-medium group-hover:text-on-surface-variant transition-colors">{cons.condition}</p>
-                      <p className="font-body-sm text-[13px] text-on-surface-variant mt-1">{cons.implication}</p>
+        {/* Things to consider */}
+        {assessment.considerations && assessment.considerations.length > 0 && (
+          <section className="space-y-3 pt-2">
+            <div className="px-1 flex items-center justify-between">
+              <h2 className="text-[16px] font-bold text-[#F2F2F2] tracking-tight">Things to consider</h2>
+            </div>
+            <div className="space-y-2.5">
+              {assessment.considerations.map((cons: any, idx: number) => (
+                <div key={idx} className="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-4 shadow-sm">
+                  <div className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full border border-[#9A9A9F]/40 flex items-center justify-center text-[#9A9A9F] flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#9A9A9F]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9"></circle>
+                      </svg>
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <p className="text-[15px] font-medium text-[#F2F2F2] leading-relaxed">
+                        {cons.condition} {cons.implication}
+                      </p>
+                      <div>
+                        <a href="#" onClick={(e)=>e.preventDefault()} className="text-[12px] text-[#9A9A9F] underline underline-offset-4 decoration-[#9A9A9F]/60 hover:text-[#F2F2F2] transition-colors">
+                          Why am I seeing this?
+                        </a>
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Unknowns (What remains unclear) */}
-          {assessment.unknowns && assessment.unknowns.length > 0 && (
-            <section className="px-4 pt-8">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="material-symbols-outlined text-on-surface-variant text-[20px]">help_outline</span>
-                <h3 className="font-title-md text-[18px] text-on-surface-variant font-bold">What remains unclear</h3>
-              </div>
-              <div className="space-y-4">
-                {assessment.unknowns.map((unk: any, idx: number) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-on-surface-variant text-[20px] shrink-0 mt-0.5">help_outline</span>
-                    <div>
-                      <p className="font-body-md text-[15px] text-on-surface-variant leading-relaxed font-medium">{unk.statement}</p>
-                      <p className="font-body-sm text-[13px] text-on-surface-variant/80 mt-1">{unk.missing_information}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Value Diagnostic */}
-          <section className="px-4 pt-8">
-            <div className="bg-surface-container rounded-2xl p-5 shadow-sm border border-white/5 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-[20px]">calculate</span>
                 </div>
-                <div>
-                  <span className="font-label-sm text-[11px] uppercase tracking-wider text-on-surface-variant font-bold">Cost Per Wear</span>
-                  <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="font-headline-md text-[24px] text-on-surface tracking-tight font-bold">₹{cpw}</span>
-                    <span className="font-body-sm text-[13px] text-on-surface-variant">/ occasion</span>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </section>
+        )}
 
-          {/* Decision Question */}
-          <section className="px-4 pt-6 pb-4">
-            <div className="bg-surface-container-low rounded-3xl p-4 text-center shadow-sm">
-              <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface">Hesitation Check</span>
-              <h4 className="font-title-md text-title-md text-on-surface mt-1">Would this purchase feel worth it?</h4>
-              <div className="grid grid-cols-3 gap-2 mt-4">
+        {/* What remains unclear */}
+        {assessment.unknowns && assessment.unknowns.length > 0 && (
+          <section className="space-y-3 pt-2">
+            <div className="px-1">
+              <h2 className="text-[16px] font-bold text-[#F2F2F2] tracking-tight">What remains unclear</h2>
+            </div>
+            <div className="space-y-2.5">
+              {assessment.unknowns.map((unk: any, idx: number) => (
+                <div key={idx} className="bg-[#141416] border border-[#26262B]/80 rounded-[14px] p-4 shadow-sm">
+                  <div className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full border border-[#9A9A9F]/30 flex items-center justify-center text-[#9A9A9F]/80 flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#9A9A9F]/80" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18h.01"></path>
+                      </svg>
+                    </div>
+                    <p className="text-[14px] font-normal text-[#9A9A9F] leading-relaxed">
+                      {unk.statement} {unk.missing_information}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Cost per wear block */}
+        <section className="space-y-3 pt-2 pb-2">
+          <div className="px-1">
+            <h2 className="text-[16px] font-bold text-[#F2F2F2] tracking-tight">Cost per wear</h2>
+          </div>
+          <div className="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-4 shadow-sm space-y-4">
+            <div className="flex items-baseline justify-between">
+              <div>
+                <div className="text-[32px] font-bold text-[#F2F2F2] tracking-tight leading-none">₹{cpw.toLocaleString('en-IN')} <span className="text-[14px] font-medium text-[#9A9A9F]">/ wear</span></div>
+                <div className="text-[12px] text-[#9A9A9F] mt-0.5">at {check.expectedWears} wears</div>
+              </div>
+              <div className="text-[14px] font-semibold text-[#F2F2F2] bg-[#26262B] px-2.5 py-1 rounded-full border border-[#34343B]">
+                {check.expectedWears} wears
+              </div>
+            </div>
+            
+            {/* Using interactive elements but styling them to look like the static HTML */}
+            <div className="space-y-1.5 pointer-events-none">
+              <input type="range" min="1" max="30" value={check.expectedWears} readOnly className="w-full h-1.5 bg-[#26262B] rounded-lg appearance-none cursor-default accent-[#F2F2F2]" />
+              <div className="flex justify-between text-[11px] text-[#9A9A9F] px-0.5">
+                <span>1 wear</span>
+                <span>15 wears</span>
+                <span>30+ wears</span>
+              </div>
+            </div>
+
+            <p className="text-[12px] text-[#9A9A9F] italic leading-normal border-b border-[#26262B]/80 pb-3">
+              Occasion wear is typically worn 2–5 times.
+            </p>
+
+            {/* Reflection Question & Neutral Pill Buttons */}
+            <div className="space-y-2.5 pt-1">
+              <p className="text-[13.5px] font-medium text-[#F2F2F2]">
+                Would this feel worth it at ₹{cpw.toLocaleString('en-IN')} per wear?
+              </p>
+              <div className="grid grid-cols-3 gap-2">
                 {[
-                  { id: 'yes', icon: 'sentiment_satisfied', label: 'Yes', color: 'text-on-surface' },
-                  { id: 'notsure', icon: 'sentiment_neutral', label: 'Unsure', color: 'text-on-surface' },
-                  { id: 'no', icon: 'sentiment_dissatisfied', label: 'No', color: 'text-on-surface' }
-                ].map(f => (
+                  { id: 'yes', label: 'Yes' },
+                  { id: 'notsure', label: 'Not sure' },
+                  { id: 'no', label: 'No' }
+                ].map(opt => (
                   <button 
-                    key={f.id}
-                    onClick={() => handleFeeling(f.id)}
-                    className={`flex flex-col items-center justify-center p-3 rounded-2xl transition-all ${selectedFeeling === f.id ? 'bg-surface-container-highest ring-1 ring-outline' : 'bg-surface-container hover:bg-surface-container-high'}`}
+                    key={opt.id}
+                    onClick={() => handleFeeling(opt.id)}
+                    type="button" 
+                    className={`py-2 px-3 rounded-full border border-[#26262B] text-[13px] font-medium transition-colors text-center focus:outline-none ${selectedFeeling === opt.id ? 'bg-[#3E3E48] text-white border-[#4E4E58]' : 'bg-[#26262B]/60 text-[#F2F2F2] hover:bg-[#26262B]'}`}
                   >
-                    <span className={`material-symbols-outlined ${f.color} text-[24px]`}>{f.icon}</span>
-                    <span className="font-label-md text-label-md mt-1">{f.label}</span>
+                    {opt.label}
                   </button>
                 ))}
               </div>
-            </div>
-          </section>
-
-          {/* Sticky Decision Bar */}
-          <div className="fixed bottom-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-xl px-4 py-4 shadow-xl pb-safe">
-            <div className="max-w-md mx-auto flex items-center gap-3">
-              <button onClick={() => router.back()} className="w-12 h-12 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center shrink-0 active:scale-95 transition-transform">
-                <span className="material-symbols-outlined text-[20px]">refresh</span>
-              </button>
-              <button 
-                onClick={handleDecision}
-                className="flex-1 h-12 rounded-full bg-[#FF3E6C] text-white font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_0_24px_-2px_rgba(255,62,108,0.4)] hover:brightness-110 active:scale-[0.98] transition-all"
-              >
-                <span>Continue to my decision</span>
-                <span className="material-symbols-outlined text-white text-[20px]">arrow_forward</span>
-              </button>
             </div>
           </div>
+        </section>
+      </div>
 
-          {/* Evidence Drawer */}
-          {activeDrawer && (
-            <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-md flex flex-col justify-end" onClick={() => setActiveDrawer(null)}>
-              <div className="bg-surface-container-high rounded-t-3xl p-6 max-w-md w-full mx-auto shadow-2xl transition-transform transform translate-y-0" onClick={e => e.stopPropagation()}>
-                <div className="w-12 h-1.5 bg-surface-container-highest rounded-full mx-auto mb-4"></div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary text-[22px]">info</span>
-                    <h4 className="font-headline-sm text-headline-sm text-on-surface">AI Deep Insight</h4>
-                  </div>
-                  <button className="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center" onClick={() => setActiveDrawer(null)}>
-                    <span className="material-symbols-outlined text-[18px]">close</span>
-                  </button>
-                </div>
-                <p className="font-body-md text-body-md text-on-surface-variant">
-                  {product.evidence.find((e: any) => e.id === activeDrawer.data.evidence_ids?.[0])?.content}
-                </p>
-                <button className="w-full mt-6 h-11 rounded-full bg-surface-container-highest text-on-surface font-label-md text-label-md" onClick={() => setActiveDrawer(null)}>
-                  Got it
-                </button>
-              </div>
-            </div>
-          )}
-
-        </div>
-      </main>
+      {/* Sticky Bottom Primary Action */}
+      <footer className="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto p-4 bg-[#0D0D0F]/95 backdrop-blur-md border-t border-[#26262B] z-20">
+        <button 
+          onClick={handleDecision}
+          type="button" 
+          className="w-full h-12 rounded-[12px] bg-[#FF3E6C] text-white font-semibold text-[15px] flex items-center justify-center gap-2 hover:bg-[#e6355f] active:scale-[0.99] transition-all shadow-lg shadow-[#FF3E6C]/20 focus:outline-none focus:ring-2 focus:ring-[#FF3E6C]/50"
+        >
+          <span>Continue to my decision</span>
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+          </svg>
+        </button>
+      </footer>
     </>
   );
 }

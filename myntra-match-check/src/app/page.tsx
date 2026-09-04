@@ -3,188 +3,128 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { products } from '../data/products';
-import { Product } from '../data/types';
 import { trackEvent } from '../lib/events';
 import { getProgress, ProgressState } from '../lib/progress';
 
 export default function WishlistScreen() {
   const router = useRouter();
-  const [activeCategory, setActiveCategory] = useState("All");
   const [progress, setProgress] = useState<ProgressState>({ checkedProducts: [], resolvedProducts: [], removedProducts: [] });
 
   useEffect(() => {
-    // Initial load
     setProgress(getProgress());
-
-    // Listen for updates
     const handleProgressUpdate = () => {
       setProgress(getProgress());
     };
-    
     window.addEventListener('progress_updated', handleProgressUpdate);
     return () => window.removeEventListener('progress_updated', handleProgressUpdate);
   }, []);
-
-  // Filter out removed products first
-  const visibleProducts = products.filter(p => !progress.removedProducts.includes(p.id));
-
-  const categories = ["All", ...Array.from(new Set(visibleProducts.map(p => p.category)))];
-  
-  const filteredProducts = activeCategory === "All" 
-    ? visibleProducts 
-    : visibleProducts.filter(p => p.category === activeCategory);
 
   const handleCheckClick = (productId: string) => {
     trackEvent('match_check_started', productId);
     router.push(`/check/${productId}`);
   };
 
+  const totalItems = products.length;
+  const checkedCount = progress.checkedProducts.length;
+  const resolvedCount = progress.resolvedProducts.length;
+  const progressPercent = totalItems > 0 ? (checkedCount / totalItems) * 100 : 0;
+
   return (
     <>
-      <header className="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-        <div className="bg-surface-container-lowest/90 px-4 py-1 flex items-center justify-center">
-          <div className="inline-flex items-center gap-2 bg-secondary-container/20 px-3 py-1 rounded-full">
-            <span className="material-symbols-outlined text-[#9A9A9F] text-[14px]">info</span>
-            <span className="font-label-sm text-label-sm text-secondary tracking-wide uppercase">Illustrative product and review data — built for prototype testing.</span>
-          </div>
-        </div>
-        <div className="h-16 px-4 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <span className="font-headline-md text-headline-md tracking-tighter uppercase font-bold text-on-surface">MATCH CHECK</span>
-            </div>
-            <div className="inline-flex items-center gap-1 bg-[#222226] border border-[#F2F2F2] px-3 py-1 rounded-full">
-              <span className="material-symbols-outlined text-[#F2F2F2] text-[14px]">auto_awesome</span>
-              <span className="font-label-sm text-label-sm text-[#F2F2F2] tracking-wider uppercase">Match Check</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <button aria-label="Notifications" className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors">
-              <span className="material-symbols-outlined text-[#9A9A9F] text-[22px]">notifications</span>
-            </button>
-            <div className="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center border border-[#9A9A9F]">
-              <span className="material-symbols-outlined text-[#9A9A9F] text-[18px]">person</span>
-            </div>
-          </div>
-        </div>
+      {/* Top Disclosure Strip */}
+      <header className="w-full bg-[#0D0D0F] border-b border-[#1A1A1E] px-4 py-1.5 text-center">
+        <p className="text-[10px] leading-tight text-[#71717A] tracking-wide font-normal">
+          Illustrative product and review data — built for prototype testing.
+        </p>
       </header>
-      
-      <main className="flex-1 flex flex-col relative w-full pt-24 pb-24 bg-surface min-h-screen">
-        <div className="flex flex-col w-full px-4 pb-12 gap-6">
-          <div className="flex flex-col gap-3 pt-2">
-            <div className="flex flex-col gap-3">
-              <div className="flex items-baseline gap-2">
-                <h2 className="font-headline-md text-headline-md text-on-surface tracking-tight">Saved Items</h2>
-                <span className="font-label-md text-label-md text-primary font-bold">({visibleProducts.length})</span>
-              </div>
-              
-              {/* Progress Bar */}
-              {(progress.checkedProducts.length > 0 || progress.resolvedProducts.length > 0) && (
-                <div className="flex items-center gap-3 bg-surface-container-low p-3 rounded-xl border border-surface-container-high shadow-sm">
-                  <div className="flex-1 flex flex-col gap-1.5">
-                    <div className="flex justify-between items-center w-full">
-                      <span className="font-label-sm text-label-sm text-on-surface-variant font-medium">Match Check Progress</span>
-                      <span className="font-label-sm text-label-sm text-primary font-bold">
-                        {progress.resolvedProducts.length}/{visibleProducts.length + progress.resolvedProducts.length} Resolved
-                      </span>
-                    </div>
-                    <div className="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden flex">
-                      <div 
-                        className="h-full bg-secondary transition-all duration-500 ease-out" 
-                        style={{ width: `${(progress.resolvedProducts.length / Math.max(1, visibleProducts.length + progress.resolvedProducts.length)) * 100}%` }}
-                      />
-                      <div 
-                        className="h-full bg-primary/40 transition-all duration-500 ease-out" 
-                        style={{ width: `${((progress.checkedProducts.length - progress.resolvedProducts.length) / Math.max(1, visibleProducts.length + progress.resolvedProducts.length)) * 100}%` }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1" id="filterPills">
-              {categories.map(cat => (
-                <button 
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`filter-btn shrink-0 min-h-[44px] px-5 rounded-full font-label-md text-label-md flex items-center justify-center transition-all ${activeCategory === cat ? 'bg-[#222226] text-[#F2F2F2] border border-[#F2F2F2]' : 'bg-surface-container-high text-on-surface-variant border border-transparent hover:bg-surface-container-highest'}`}
-                >
-                  {cat === "All" ? "All Items" : cat.charAt(0).toUpperCase() + cat.slice(1)}
-                </button>
-              ))}
+
+      {/* Header Row & Progress Tracking */}
+      <div className="px-5 pt-6 pb-4 border-b border-[#1A1A1E]">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h1 className="text-[22px] font-bold tracking-tight text-[#F2F2F2] leading-none">Saved items</h1>
+            <p className="text-[12px] text-[#9A9A9F] mt-1.5">Personal evaluation queue</p>
+          </div>
+          <div className="flex flex-col items-end min-w-[130px] pt-0.5">
+            <span className="text-[12px] text-[#9A9A9F] font-medium tracking-tight whitespace-nowrap">
+              {checkedCount} of {totalItems} checked <span className="text-[#5A5A60]">·</span> {resolvedCount} resolved
+            </span>
+            {/* Slim Horizontal Progress Bar */}
+            <div className="w-full h-1 bg-[#26262B] rounded-full mt-2 overflow-hidden">
+              <div 
+                className="h-full bg-[#F2F2F2] rounded-full transition-all duration-500 ease-out" 
+                style={{ width: `${progressPercent}%` }}
+              ></div>
             </div>
           </div>
-          
-          <div className="grid grid-cols-1 gap-6 mt-4">
-            {filteredProducts.map((product) => (
-              <article key={product.id} className="flex flex-col bg-surface-container rounded-lg overflow-hidden shadow-xl relative" data-category={product.category}>
-                <div className="relative w-full aspect-[4/3] bg-surface-container-lowest overflow-hidden">
-                  {/* Using standard img to avoid Next.js Image config issues for external URLs or placeholders */}
-                  <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-90"></div>
-                  
-                  <button aria-label="Favorite item" className="absolute top-space-sm right-space-sm w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest/70 backdrop-blur-md flex items-center justify-center transition-transform active:scale-95 shadow-md">
-                    <span className="material-symbols-outlined text-[#9A9A9F] text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
-                  </button>
+        </div>
+      </div>
+
+      {/* Product Cards List */}
+      <main className="flex-1 px-4 py-4 space-y-3.5">
+        {products.map((product) => {
+          const isChecked = progress.checkedProducts.includes(product.id);
+          const isResolved = progress.resolvedProducts.includes(product.id);
+          const isRemoved = progress.removedProducts.includes(product.id);
+
+          // Skip completely removed items from wishlist view if desired.
+          // The HTML spec says "You closed 6 decisions" showing removed ones there. 
+          // But on Wishlist, maybe we still show them or filter them?
+          // Let's filter them if they are completely removed (like in previous implementation)
+          if (isRemoved) return null;
+
+          return (
+            <article key={product.id} className="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-3.5 flex flex-col gap-3 transition-colors">
+              <div className="flex gap-3.5 items-start">
+                {/* Square rounded image thumbnail */}
+                <div className="w-[84px] h-[84px] rounded-[10px] bg-[#222228] border border-[#2C2C32] flex-shrink-0 overflow-hidden relative">
+                  <img 
+                    alt={product.name} 
+                    className="w-full h-full object-cover" 
+                    src={product.imageUrl} 
+                  />
                 </div>
                 
-                <div className="p-5 flex flex-col gap-3">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="min-w-0 flex-1">
-                      <span className="font-label-sm text-label-sm text-outline tracking-wider uppercase block truncate">{product.brand}</span>
-                      <h3 className="font-title-md text-title-md text-on-surface truncate">{product.name}</h3>
-                    </div>
-                    <div className="flex flex-col items-end shrink-0">
-                      <span className="font-headline-sm text-headline-sm text-primary font-bold">₹{product.price.toLocaleString('en-IN')}</span>
-                      {product.originalPrice && (
-                        <span className="font-label-sm text-label-sm text-outline line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
-                      )}
+                {/* Product Info */}
+                <div className="flex-1 min-w-0 flex flex-col justify-between h-[84px]">
+                  <div>
+                    <span className="text-[11px] font-semibold text-[#9A9A9F] uppercase tracking-wider block">{product.brand}</span>
+                    <h2 className="text-[15px] font-medium text-[#F2F2F2] leading-snug truncate mt-0.5">{product.name}</h2>
+                  </div>
+                  <div>
+                    <div className="text-[16px] font-bold text-[#F2F2F2]">₹{product.price.toLocaleString('en-IN')}</div>
+                    <div className="flex items-center gap-1.5 text-[12px] text-[#9A9A9F] mt-0.5">
+                      <span className="text-[#D4D4D8] text-[13px] leading-none">★</span>
+                      <span className="font-medium text-[#D4D4D8]">{product.rating}</span>
+                      <span className="text-[#71717A]">({product.ratingCount})</span>
                     </div>
                   </div>
-                  
-                  <div className="flex items-center gap-2">
-                    <div className="inline-flex items-center gap-1 bg-tertiary-container/20 px-2 py-1 rounded-xl">
-                      <span className="font-label-sm text-label-sm text-tertiary font-bold">{product.rating}</span>
-                      <span className="material-symbols-outlined text-[#9A9A9F] text-[12px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                    </div>
-                    <span className="font-body-sm text-body-sm text-outline-variant">·</span>
-                    <span className="font-body-sm text-body-sm text-on-surface-variant">{product.ratingCount} reviews</span>
+                </div>
+              </div>
+              
+              {/* Status indicator or Action Button */}
+              <div className="pt-0.5">
+                {isChecked || isResolved ? (
+                  <div className="w-full py-2.5 px-3 rounded-[10px] bg-[#222227] border border-[#2C2C33] flex items-center justify-center gap-1.5 text-[#9A9A9F] text-[13px] font-medium select-none">
+                    <svg className="w-3.5 h-3.5 text-[#8E8E93]" fill="currentColor" viewBox="0 0 16 16">
+                      <path clipRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fillRule="evenodd"></path>
+                    </svg>
+                    {isResolved ? 'Resolved' : 'Checked'}
                   </div>
-                  
+                ) : (
                   <button 
                     onClick={() => handleCheckClick(product.id)}
-                    className="match-check-btn w-full min-h-[48px] mt-2 rounded-full bg-[#FF3E6C] text-white font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(255,62,108,0.35)] hover:shadow-[0_0_28px_rgba(255,62,108,0.55)] transition-all active:scale-[0.98]"
+                    className="w-full min-h-[46px] py-2.5 px-4 rounded-[10px] bg-[#FF3E6C] active:bg-[#e0335e] text-white font-semibold text-[14px] tracking-wide flex items-center justify-center transition-colors" 
+                    type="button"
                   >
-                    <span className="material-symbols-outlined text-white text-[18px]">auto_awesome</span>
-                    <span>Check if it&apos;s right for me</span>
+                    Check if it's right for me
                   </button>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
+                )}
+              </div>
+            </article>
+          );
+        })}
       </main>
-      
-      <nav className="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-4px_16px_rgba(0,0,0,0.4)]">
-        <div className="flex items-center justify-around h-16 px-4">
-          <a className="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-2 text-on-surface-variant transition-colors" href="#">
-            <span className="material-symbols-outlined text-[#9A9A9F] text-[24px]">explore</span>
-            <span className="font-label-sm text-label-sm mt-1">Discover</span>
-          </a>
-          <a aria-current="page" className="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-2 transition-colors text-primary font-bold" href="#">
-            <span className="material-symbols-outlined text-[#FF3E6C] text-[24px]">auto_awesome</span>
-            <span className="font-label-sm text-label-sm mt-1 text-[#FF3E6C]">Check</span>
-          </a>
-          <a className="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-2 text-on-surface-variant transition-colors" href="#">
-            <span className="material-symbols-outlined text-[#9A9A9F] text-[24px]">checkroom</span>
-            <span className="font-label-sm text-label-sm mt-1">Closet</span>
-          </a>
-          <a className="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-3 py-2 text-on-surface-variant transition-colors" href="#">
-            <span className="material-symbols-outlined text-[#9A9A9F] text-[24px]">shopping_bag</span>
-            <span className="font-label-sm text-label-sm mt-1">Bag</span>
-          </a>
-        </div>
-      </nav>
     </>
   );
 }

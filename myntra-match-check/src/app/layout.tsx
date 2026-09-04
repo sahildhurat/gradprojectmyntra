@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "../styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Myntra Match Check",
@@ -16,11 +16,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-      </head>
-      <body className={`${inter.className} bg-background min-h-screen sm:flex sm:items-center sm:justify-center sm:py-8`}>
-        <div className="w-full h-[100dvh] sm:h-[844px] sm:max-w-[390px] bg-surface relative overflow-x-hidden overflow-y-auto sm:rounded-[40px] sm:shadow-[0_0_0_12px_#1e1e24,0_20px_40px_rgba(0,0,0,0.4)] transform sm:transform-gpu">
+      <body className={`${plusJakartaSans.className} bg-[#0D0D0F] text-[#F2F2F2] min-h-screen flex justify-center selection:bg-[#FF3E6C]/30 selection:text-white pb-12`}>
+        <div className="w-full max-w-[430px] min-h-screen bg-[#0D0D0F] flex flex-col border-x border-[#26262B]/60 shadow-2xl relative">
           {children}
         </div>
       </body>

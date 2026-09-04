@@ -12,9 +12,9 @@ export default function ContextFlowScreen() {
   
   const product = products.find(p => p.id === productId);
   
-  const [occasion, setOccasion] = useState("Festive Puja");
+  const [occasion, setOccasion] = useState("Work");
   const [wears, setWears] = useState(10);
-  const [hesitation, setHesitation] = useState("Worth the price?");
+  const [hesitation, setHesitation] = useState("Will it fit?");
   const [isGenerating, setIsGenerating] = useState(false);
 
   useEffect(() => {
@@ -58,208 +58,238 @@ export default function ContextFlowScreen() {
   };
 
   const occasionsList = [
-    { label: "Everyday", icon: "routine" },
-    { label: "Work & Desk", icon: "business_center" },
-    { label: "Wedding Gala", icon: "celebration" },
-    { label: "Date Night", icon: "nightlife" },
-    { label: "Festive Puja", icon: "local_fire_department" },
-    { label: "Weekend Brunch", icon: "bakery_dining" }
+    "Everyday",
+    "College",
+    "Work",
+    "Date",
+    "Wedding or event",
+    "Travel"
   ];
 
   const hesitationsList = [
-    { id: "Worth the price?", icon: "monetization_on" },
-    { id: "Will it fit my body type?", icon: "straighten" },
-    { id: "Can I trust fabric & seller?", icon: "verified_user" },
-    { id: "Will I wear it more than once?", icon: "checkroom" }
+    { id: "Is it worth the price?" },
+    { id: "Will it fit?" },
+    { id: "Can I trust this listing?" },
+    { id: "Will I actually wear it?" },
+    { id: "Is it right for the occasion?" }
   ];
 
   return (
     <>
-      <header className="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-        <div className="h-16 px-4 flex items-center justify-between gap-2">
-          <div className="flex items-center gap-3">
-            <button onClick={() => router.back()} className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors">
-              <span className="material-symbols-outlined text-[#9A9A9F] text-[24px]">arrow_back</span>
-            </button>
-            <div className="flex items-center gap-1">
-              <span className="font-headline-md text-[22px] tracking-tighter uppercase font-bold text-on-surface">MATCH CHECK</span>
-            </div>
+      <style dangerouslySetInnerHTML={{__html: `
+        input[type=range] {
+          -webkit-appearance: none;
+          width: 100%;
+          background: transparent;
+        }
+        input[type=range]:focus {
+          outline: none;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+          width: 100%;
+          height: 6px;
+          cursor: pointer;
+          background: #26262B;
+          border-radius: 9999px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+          height: 24px;
+          width: 24px;
+          border-radius: 50%;
+          background: #F2F2F2;
+          border: 3px solid #0D0D0F;
+          box-shadow: 0 0 0 2px #3E3E45;
+          cursor: pointer;
+          -webkit-appearance: none;
+          margin-top: -9px;
+          transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        input[type=range]::-webkit-slider-thumb:active {
+          transform: scale(1.15);
+          box-shadow: 0 0 0 4px rgba(255, 62, 108, 0.4);
+        }
+      `}} />
+
+      {/* Top App Navigation / Header Bar */}
+      <header className="sticky top-0 z-30 bg-[#0D0D0F]/95 backdrop-blur-md px-4 py-3.5 border-b border-[#1A1A1D] flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <button onClick={() => router.back()} aria-label="Go back" className="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-[#9A9A9F] hover:text-[#F2F2F2] hover:bg-[#1A1A1D] transition-colors" type="button">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
+            </svg>
+          </button>
+          <div>
+            <span className="text-[11px] font-medium tracking-wider uppercase text-[#9A9A9F]">Decision Support · Step 1</span>
+            <h1 className="text-[17px] font-bold text-[#F2F2F2] leading-tight">What do you need this for?</h1>
           </div>
+        </div>
+        {/* Perspective icon representing evidence & scale */}
+        <div className="w-9 h-9 rounded-full bg-[#1A1A1D] border border-[#26262B] flex items-center justify-center text-[#9A9A9F]">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
+          </svg>
         </div>
       </header>
 
-      <main className="flex-1 flex flex-col relative w-full pt-24 pb-32 bg-surface min-h-screen">
-        <div className="flex flex-col w-full px-4 pb-12">
-          
-          <section className="flex flex-col gap-1 mb-5">
-            <div className="flex items-center justify-between">
-              <span className="font-label-sm text-[10px] text-primary uppercase tracking-widest font-bold">Diagnostic Setup</span>
-              <span className="font-label-sm text-[10px] text-on-surface-variant font-bold">Step 2 of 3</span>
-            </div>
-            <div className="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden flex gap-1">
-              <div className="h-full w-1/3 bg-primary rounded-full"></div>
-              <div className="h-full w-1/3 bg-primary-container rounded-full shadow-[0_0_8px_rgba(255,79,116,0.6)]"></div>
-              <div className="h-full w-1/3 bg-surface-variant rounded-full"></div>
-            </div>
-          </section>
+      {/* Compact Product Summary Bar */}
+      <section className="px-4 py-3 bg-[#141417] border-b border-[#1F1F24] flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3 min-w-0">
+          {/* Thumbnail */}
+          <div className="w-12 h-12 rounded-[10px] bg-[#1A1A1D] border border-[#26262B] overflow-hidden flex-shrink-0 relative">
+            <img alt={product.name} className="w-full h-full object-cover object-center brightness-90 contrast-105" loading="lazy" src={product.imageUrl} />
+          </div>
+          {/* Product Specs Summary */}
+          <div className="min-w-0">
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-[#9A9A9F] truncate">{product.brand}</p>
+            <h2 className="text-[14px] font-semibold text-[#F2F2F2] truncate">{product.name}</h2>
+            <span className="text-[12px] text-[#9A9A9F]">Ref: {product.id.slice(0,6).toUpperCase()}</span>
+          </div>
+        </div>
+        {/* Price */}
+        <div className="text-right flex-shrink-0">
+          <span className="text-[15px] font-bold text-[#F2F2F2]">₹{product.price.toLocaleString('en-IN')}</span>
+          <span className="block text-[11px] text-[#6B6B72]">Inclusive of tax</span>
+        </div>
+      </section>
 
-          <section className="relative bg-surface-container-high rounded-2xl p-4 mb-8 shadow-md overflow-hidden border border-white/5">
-            <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"></div>
-            <div className="flex items-center gap-4">
-              <div className="relative w-16 h-20 rounded-xl overflow-hidden bg-surface-container-lowest shrink-0 shadow-inner">
-                <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"></div>
-              </div>
-              <div className="flex flex-col min-w-0 flex-1">
-                <div className="inline-flex items-center gap-1">
-                  <span className="font-label-sm text-[10px] text-[#9A9A9F] uppercase tracking-wider font-bold">Selected for Audit</span>
-                  <span className="w-1 h-1 rounded-full bg-[#9A9A9F]"></span>
-                  <span className="font-label-sm text-[10px] text-on-surface-variant uppercase font-bold">In Bag</span>
-                </div>
-                <h2 className="font-title-md text-[16px] text-on-surface truncate mt-1">{product.name}</h2>
-                <div className="flex items-baseline gap-2 mt-1">
-                  <span className="font-headline-sm text-[20px] text-on-surface font-bold">₹{product.price.toLocaleString('en-IN')}</span>
-                  {product.originalPrice && (
-                    <>
-                      <span className="font-body-sm text-[13px] text-outline line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
-                      <span className="font-label-sm text-[10px] text-secondary bg-secondary-container/20 px-2 py-0.5 rounded-full font-bold">{Math.round((product.originalPrice - product.price) / product.originalPrice * 100)}% OFF</span>
-                    </>
-                  )}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Occasion Selection */}
-          <section className="flex flex-col mb-8">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <span className="w-6 h-6 rounded-full bg-surface-container-high text-[#9A9A9F] flex items-center justify-center font-label-sm text-label-sm font-bold">1</span>
-                <h3 className="font-title-md text-title-md text-on-surface">Target Occasion</h3>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              {occasionsList.map(opt => {
-                const isActive = occasion === opt.label;
+      {/* Main Content Container */}
+      <div className="p-4 space-y-4 pb-28">
+        {/* Block 1: What's the occasion? */}
+        <section className="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-4 sm:p-5 shadow-sm">
+          <div className="flex items-center justify-between mb-3.5">
+            <label className="text-[16px] sm:text-[17px] font-bold text-[#F2F2F2] tracking-tight block">
+              What's the occasion?
+            </label>
+            <span className="text-[12px] text-[#9A9A9F] font-medium">Select one</span>
+          </div>
+          {/* Wrapping Row of Selectable Chips */}
+          <div aria-label="What's the occasion?" className="flex flex-wrap gap-2.5" role="radiogroup">
+            {occasionsList.map((opt) => {
+              const isActive = occasion === opt;
+              if (isActive) {
                 return (
-                  <button 
-                    key={opt.label}
-                    onClick={() => setOccasion(opt.label)}
-                    className={`flex items-center gap-2 p-3 rounded-xl text-left transition-all ${isActive ? 'bg-[#222226] border border-[#F2F2F2]' : 'bg-surface-container hover:bg-surface-bright border border-transparent'}`}
-                  >
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${isActive ? 'bg-[#F2F2F2] text-[#222226]' : 'bg-surface-container-highest text-[#9A9A9F]'}`}>
-                      <span className="material-symbols-outlined text-[20px]">{opt.icon}</span>
-                    </div>
-                    <div className="flex flex-col flex-1">
-                      <span className={`font-label-md text-[13px] ${isActive ? 'text-[#F2F2F2] font-bold' : 'text-on-surface'}`}>{opt.label}</span>
-                      {isActive && <span className="text-[10px] text-[#F2F2F2]/80 uppercase tracking-wider font-bold mt-0.5">Active context</span>}
-                    </div>
-                    {isActive && <span className="material-symbols-outlined text-[#F2F2F2] text-[20px]">check_circle</span>}
+                  <button key={opt} aria-checked="true" className="h-11 px-4 rounded-full text-[14px] font-semibold border border-white bg-[#2a2a2e] text-white shadow-sm flex items-center gap-1.5 transition-all" role="radio" type="button">
+                    <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5"></path>
+                    </svg>
+                    <span>{opt}</span>
                   </button>
                 )
-              })}
-            </div>
-          </section>
+              }
+              return (
+                <button key={opt} onClick={() => setOccasion(opt)} aria-checked="false" className="h-11 px-4 rounded-full text-[14px] font-medium border border-[#26262B] bg-[#141416] text-[#9A9A9F] hover:text-[#F2F2F2] hover:border-[#38383F] transition-all flex items-center justify-center active:scale-95" role="radio" type="button">
+                  {opt}
+                </button>
+              )
+            })}
+          </div>
+        </section>
 
-          {/* Expected Wears */}
-          <section className="flex flex-col mb-8">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <span className="w-6 h-6 rounded-full bg-surface-container-high text-[#9A9A9F] flex items-center justify-center font-label-sm text-label-sm font-bold">2</span>
-                <h3 className="font-title-md text-title-md text-on-surface">Realistic Lifespan Wears</h3>
-              </div>
+        {/* Block 2: Wears slider & Cost-per-wear calculus */}
+        <section className="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-4 sm:p-5 shadow-sm">
+          <label className="text-[16px] sm:text-[17px] font-bold text-[#F2F2F2] tracking-tight block leading-snug mb-3" htmlFor="wear-slider">
+            Honestly, how many times can you see yourself wearing it?
+          </label>
+          {/* Current Value Display */}
+          <div className="py-2 flex items-baseline justify-between border-b border-[#26262B] mb-4">
+            <span className="text-[13px] text-[#9A9A9F] uppercase tracking-wider font-medium">Projected Usage</span>
+            <div className="text-right">
+              <span className="text-[28px] font-bold text-[#F2F2F2] tracking-tight leading-none">{wears}</span>
+              <span className="text-[17px] font-medium text-[#9A9A9F] ml-1">{wears === 1 ? 'wear' : 'wears'}</span>
             </div>
-            <div className="bg-surface-container rounded-2xl p-5 shadow-sm border border-white/5">
-              <div className="flex items-center justify-between mb-6">
-                <span className="font-body-sm text-body-sm text-on-surface-variant">Estimated usage over 18 mos:</span>
-                <span className="font-headline-sm text-[20px] text-on-surface font-bold tracking-tight">{wears} {wears === 1 ? 'wear' : 'wears'}</span>
-              </div>
-              <div className="relative w-full py-4 flex items-center">
-                <input 
-                  type="range" 
-                  min="1" max="50" 
-                  value={wears} 
-                  onChange={(e) => setWears(parseInt(e.target.value))}
-                  className="w-full h-2.5 bg-surface-container-highest rounded-full appearance-none cursor-pointer focus:outline-none" 
-                  style={{ accentColor: 'var(--color-primary-container)' }}
-                />
-              </div>
-              <div className="flex justify-between font-label-sm text-[11px] text-outline px-1 mb-6 font-medium">
-                <span>1 wear (Event only)</span>
-                <span>25 wears</span>
-                <span>50+ wears (Staple)</span>
-              </div>
-              
-              <div className="p-4 rounded-xl bg-surface-container-low flex flex-col gap-2 shadow-inner border border-black/20">
-                <div className="flex items-center justify-between">
-                  <span className="font-label-md text-label-md text-on-surface-variant">Cost per wear</span>
-                </div>
-                <div className="flex items-baseline gap-2 mt-1">
-                  <span className="font-headline-md text-[28px] text-on-surface font-bold tracking-tight">₹{cpw.toLocaleString('en-IN')}</span>
-                  <span className="font-body-sm text-body-sm text-on-surface-variant font-medium">per wear at {wears} wears</span>
-                </div>
-              </div>
+          </div>
+          {/* Slider Component */}
+          <div className="space-y-2 mb-5">
+            <div className="relative py-1 flex items-center">
+              <input 
+                aria-label="Expected wear frequency" 
+                className="w-full" 
+                id="wear-slider" 
+                max="30" 
+                min="1" 
+                step="1" 
+                type="range" 
+                value={wears} 
+                onChange={(e) => setWears(parseInt(e.target.value))}
+              />
             </div>
-          </section>
+            {/* Slider Track Labels */}
+            <div className="flex justify-between text-[12px] text-[#6B6B72] font-medium px-0.5">
+              <span>1 wear</span>
+              <span>15</span>
+              <span>30+ wears</span>
+            </div>
+          </div>
+          {/* Mathematical Calculation Line (Neutral, strictly factual) */}
+          <div className="bg-[#121214] border border-[#26262B] rounded-[10px] p-3.5 mb-3">
+            <div className="flex items-center justify-between">
+              <span className="text-[12px] uppercase tracking-wider text-[#9A9A9F] font-semibold">Cost per wear</span>
+              <span className="text-[15px] font-medium text-[#F2F2F2] tabular-nums">
+                ₹{product.price.toLocaleString('en-IN')} ÷ {wears} wears = <strong className="font-bold text-white">₹{cpw.toLocaleString('en-IN')}</strong> per wear
+              </span>
+            </div>
+          </div>
+          {/* Factual Reference Note (No qualitative judgment or rating badge) */}
+          <p className="text-[13px] text-[#9A9A9F] italic leading-relaxed">
+            Everyday and casual wear is typically worn 15–30 times.
+          </p>
+        </section>
 
-          {/* Hesitation Picker */}
-          <section className="flex flex-col mb-12">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <span className="w-6 h-6 rounded-full bg-surface-container-high text-[#9A9A9F] flex items-center justify-center font-label-sm text-label-sm font-bold">3</span>
-                <h3 className="font-title-md text-title-md text-on-surface">What's holding you back?</h3>
-              </div>
-            </div>
-            <div className="flex flex-col gap-3">
-              {hesitationsList.map(opt => {
-                const isActive = hesitation === opt.id;
-                return (
-                  <label 
-                    key={opt.id}
-                    onClick={() => setHesitation(opt.id)}
-                    className={`cursor-pointer p-4 rounded-2xl flex items-start gap-4 transition-all border ${isActive ? 'bg-[#222226] border-[#F2F2F2]' : 'bg-surface-container border-transparent hover:bg-surface-bright'}`}
-                  >
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 transition-colors ${isActive ? 'bg-[#F2F2F2] text-[#222226]' : 'bg-surface-container-highest text-transparent border border-white/10'}`}>
-                      <span className="material-symbols-outlined text-[16px]">check</span>
-                    </div>
-                    <div className="flex flex-col flex-1 justify-center">
-                      <span className={`font-title-md text-title-md ${isActive ? 'text-[#F2F2F2] font-bold' : 'text-on-surface'}`}>{opt.id}</span>
-                    </div>
-                    <span className={`material-symbols-outlined text-[24px] ${isActive ? 'text-[#F2F2F2]/60' : 'text-[#9A9A9F]/40'}`}>{opt.icon}</span>
-                  </label>
-                )
-              })}
-            </div>
-          </section>
+        {/* Block 3: What's your main hesitation? */}
+        <section className="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-4 sm:p-5 shadow-sm">
+          <label className="text-[16px] sm:text-[17px] font-bold text-[#F2F2F2] tracking-tight block mb-3.5">
+            What's your main hesitation?
+          </label>
+          {/* Vertical list of tappable rows with radio indicators */}
+          <div aria-label="What's your main hesitation?" className="space-y-2" role="radiogroup">
+            {hesitationsList.map(opt => {
+              const isActive = hesitation === opt.id;
+              return (
+                <label 
+                  key={opt.id}
+                  onClick={() => setHesitation(opt.id)}
+                  className={`flex items-center justify-between p-3.5 rounded-[10px] cursor-pointer transition-colors min-h-[48px] ${isActive ? 'bg-[#1E1E22] border border-[#3E3E45]' : 'bg-[#141416] border border-[#26262B] hover:border-[#38383F]'}`}
+                >
+                  <span className={`text-[15px] ${isActive ? 'text-white font-semibold' : 'text-[#F2F2F2] font-medium'}`}>{opt.id}</span>
+                  <input checked={isActive} onChange={()=>{}} className="sr-only" name="hesitation" type="radio" value={opt.id} />
+                  <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${isActive ? 'border-2 border-[#F2F2F2]' : 'border border-[#9A9A9F]/60'}`}>
+                    <div className={`w-2.5 h-2.5 rounded-full ${isActive ? 'bg-[#F2F2F2]' : 'bg-transparent'}`}></div>
+                  </div>
+                </label>
+              );
+            })}
+          </div>
+        </section>
+      </div>
 
-          <section className="relative flex flex-col gap-3 pt-2">
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-4/5 h-12 bg-primary-container/20 blur-xl pointer-events-none"></div>
-            <button 
-              onClick={handleGenerate}
-              disabled={isGenerating}
-              className={`relative w-full h-14 rounded-full bg-[#FF3E6C] text-white font-headline-sm text-[18px] font-bold flex items-center justify-center gap-2 shadow-[0_4px_24px_rgba(255,62,108,0.4)] transition-transform overflow-hidden ${isGenerating ? 'opacity-80' : 'active:scale-[0.98]'}`}
-            >
-              {isGenerating ? (
-                <>
-                  <span className="material-symbols-outlined text-white text-[24px] animate-spin">progress_activity</span>
-                  <span>Synthesizing Reviews...</span>
-                </>
-              ) : (
-                <>
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></span>
-                  <span className="material-symbols-outlined text-white text-[24px] animate-pulse">auto_awesome</span>
-                  <span>Generate my Match Check</span>
-                </>
-              )}
-            </button>
-            <div className="flex items-center justify-center gap-1.5 text-center mt-2 px-4">
-              <span className="material-symbols-outlined text-[16px] text-[#9A9A9F]">lock_reset</span>
-              <span className="font-label-sm text-[11px] leading-snug text-on-surface-variant font-bold">Synthesizes 1,420 fit reviews, returns history, and fabric specs</span>
-            </div>
-          </section>
-
+      {/* Sticky Bottom CTA Area with Coral Button */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 flex justify-center pointer-events-none">
+        <div className="w-full max-w-[430px] p-4 bg-gradient-to-t from-[#0D0D0F] via-[#0D0D0F]/95 to-transparent pt-6 pointer-events-auto border-t border-[#1A1A1D]/80">
+          <button 
+            onClick={handleGenerate}
+            disabled={isGenerating}
+            className={`w-full h-12 ${isGenerating ? 'bg-[#E02E5A] opacity-80' : 'bg-[#FF3E6C] hover:bg-[#E02E5A] active:scale-[0.99]'} text-white font-bold text-[15px] rounded-[12px] flex items-center justify-center gap-2 shadow-lg shadow-[#FF3E6C]/20 transition-all focus:outline-none focus:ring-2 focus:ring-[#FF3E6C] focus:ring-offset-2 focus:ring-offset-[#0D0D0F]`} 
+            type="button"
+          >
+            {isGenerating ? (
+              <>
+                <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>Synthesizing...</span>
+              </>
+            ) : (
+              <>
+                <span>Generate my Match Check</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5"></path>
+                </svg>
+              </>
+            )}
+          </button>
         </div>
-      </main>
+      </div>
     </>
   );
 }
