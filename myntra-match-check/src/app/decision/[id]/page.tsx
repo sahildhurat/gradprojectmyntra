@@ -18,6 +18,8 @@ export default function DecisionScreen() {
   const product = products.find(p => p.id === productId);
   const [check, setCheck] = useState<Check | null>(null);
   const [isSharing, setIsSharing] = useState(false);
+  const [showQuestionModal, setShowQuestionModal] = useState(false);
+  const [shopperQuestion, setShopperQuestion] = useState("I'm not sure about this, what do you guys think?");
 
   useEffect(() => {
     if (!checkId) {
@@ -41,11 +43,6 @@ export default function DecisionScreen() {
     alert('Item added to cart!');
     router.push('/');
   };
-
-  const [showQuestionModal, setShowQuestionModal] = useState(false);
-  const [shopperQuestion, setShopperQuestion] = useState("I'm not sure about this, what do you guys think?");
-
-  const handleShareClick = () => {
     setShowQuestionModal(true);
   };
 
