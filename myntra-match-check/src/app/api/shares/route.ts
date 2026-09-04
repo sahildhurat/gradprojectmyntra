@@ -23,7 +23,10 @@ export async function POST(req: Request) {
     const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(); // 24h
     
     // First consideration if exists
-    const consideration = check.assessment?.considerations?.[0];
+    const firstConsideration = check.assessment?.considerations?.[0];
+    const consideration = firstConsideration 
+      ? `${firstConsideration.condition} ${firstConsideration.implication}` 
+      : undefined;
 
     const shareUrl = buildShareUrl(token);
 

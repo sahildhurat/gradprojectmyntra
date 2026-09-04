@@ -24,7 +24,7 @@ export async function POST(req: Request) {
       createdAt: new Date().toISOString()
     };
 
-    await votesStore.add(shareToken, vote);
+    await votesStore.addVote(shareToken, vote);
 
     return NextResponse.json({ success: true, voteId: vote.id });
   } catch (error) {
@@ -41,6 +41,6 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "Token required" }, { status: 400 });
   }
 
-  const votes = await votesStore.get(token);
+  const votes = await votesStore.getByToken(token);
   return NextResponse.json({ votes });
 }

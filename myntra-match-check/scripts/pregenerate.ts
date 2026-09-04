@@ -17,14 +17,9 @@ async function runPregenerate() {
     console.log(`Generating fallback for ${product.id}...`);
     // Neutral context
     const ctx = { occasion: "everyday", expectedWears: 15, hesitation: "worth_the_price" };
-    const { assessment, fallback } = await generateAssessment(product, ctx as any);
+    const assessment = await generateAssessment(product, ctx as any);
     
-    if (fallback) {
-       console.error(`Failed to generate fallback for ${product.id} - using empty defaults instead`);
-       fallbacks[product.id] = product.fallbackAssessment;
-    } else {
-       fallbacks[product.id] = assessment;
-    }
+    fallbacks[product.id] = assessment;
     await new Promise(r => setTimeout(r, 2000));
   }
 

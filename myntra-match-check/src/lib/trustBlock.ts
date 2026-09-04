@@ -7,9 +7,9 @@ export function assembleTrustBlock(product: Product): TrustBlock {
   // 1. Brand Authorization
   if (verification.brandAuthorised) {
     items.push({
-      iconType: "check",
+      icon: "check",
       text: "Brand-authorised seller",
-      isVerification: true
+      type: "verification"
     });
   }
 
@@ -17,43 +17,43 @@ export function assembleTrustBlock(product: Product): TrustBlock {
   if (verification.verifiedPurchaseShare >= 0.5) {
     const percentage = Math.round(verification.verifiedPurchaseShare * 100);
     items.push({
-      iconType: "check",
+      icon: "check",
       text: `${percentage}% of reviews from verified purchases`,
-      isVerification: true
+      type: "verification"
     });
   }
 
   // 3. Style Code
   if (verification.styleCode !== null) {
     items.push({
-      iconType: "check",
+      icon: "check",
       text: "Style code matches brand catalogue",
-      isVerification: true
+      type: "verification"
     });
   }
 
   // 4. Platform Protection Floor (Always present)
   if (verification.returnsWindow) {
     items.push({
-      iconType: "shield",
+      icon: "shield",
       text: `${verification.returnsWindow} returns`,
-      isVerification: false
+      type: "platform"
     });
   }
   
   if (verification.refundProtection) {
     items.push({
-      iconType: "shield",
+      icon: "shield",
       text: "Myntra refund protection",
-      isVerification: false
+      type: "platform"
     });
   }
 
   if (verification.exchangePolicy) {
     items.push({
-      iconType: "shield",
+      icon: "shield",
       text: "Exchange policy available",
-      isVerification: false
+      type: "platform"
     });
   }
 

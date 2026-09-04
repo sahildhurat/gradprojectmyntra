@@ -71,7 +71,7 @@ export const assessmentSchema: Schema = {
       type: SchemaType.STRING,
       description: "High, medium, or low based on how much of the required context was found in the evidence.",
       enum: ["high", "medium", "low"]
-    }
+    } as any
   },
   required: ["match_reasons", "considerations", "unknowns", "question_to_resolve", "evidence_completeness"]
 };
