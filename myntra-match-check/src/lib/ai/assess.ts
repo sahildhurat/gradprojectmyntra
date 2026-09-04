@@ -26,7 +26,7 @@ export async function generateAssessment(product: Product, context: Partial<Chec
 
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
+    model: "gemini-1.5-flash-latest",
     systemInstruction: SYSTEM_PROMPT,
     generationConfig: {
       temperature: 0.2, // Low temperature for high factual adherence

@@ -112,6 +112,30 @@ export default function ResultScreen() {
             </div>
           </section>
 
+          {/* Trust Block */}
+          {check.trustBlock && check.trustBlock.items.length > 0 && (
+            <section className="px-4 pt-4 pb-2">
+              <div className="bg-surface-container rounded-3xl p-5 shadow-sm border border-white/5">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="material-symbols-outlined text-tertiary text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>verified_user</span>
+                  <h3 className="font-title-md text-[18px] text-on-surface font-bold">Trust & Verification</h3>
+                </div>
+                <div className="space-y-3">
+                  {check.trustBlock.items.map((item: any, idx: number) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <span className={`material-symbols-outlined text-[18px] shrink-0 mt-0.5 ${item.type === 'verification' ? 'text-tertiary' : 'text-on-surface-variant'}`}>
+                        {item.icon === 'check' ? 'check_circle' : 'shield'}
+                      </span>
+                      <p className={`font-body-md text-[15px] leading-relaxed ${item.type === 'verification' ? 'text-tertiary font-medium' : 'text-on-surface'}`}>
+                        {item.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
           {/* Match Reasons */}
           <section className="px-4 pt-6">
             <div className="flex items-center gap-2 mb-4">

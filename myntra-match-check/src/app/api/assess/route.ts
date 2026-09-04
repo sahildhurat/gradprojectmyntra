@@ -43,8 +43,11 @@ export async function POST(request: Request) {
       usualSize,
       priorFitIssue,
       assessment,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     };
+
+    const { assembleTrustBlock } = await import("../../../lib/trustBlock");
+    newCheck.trustBlock = assembleTrustBlock(product);
 
     await checksStore.set(checkId, newCheck);
 
