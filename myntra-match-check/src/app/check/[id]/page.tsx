@@ -47,7 +47,7 @@ export default function ContextFlowScreen() {
       if (data.checkId) {
         router.push(`/check/${product.id}/result?checkId=${data.checkId}`);
       } else {
-        alert("Failed to generate assessment. Falling back to default.");
+        alert("Failed: " + (data.error || "Unknown error"));
         setIsGenerating(false);
       }
     } catch (e) {
