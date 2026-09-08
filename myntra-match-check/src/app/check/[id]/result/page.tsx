@@ -302,7 +302,7 @@ export default function ResultScreen() {
       </div>
 
       {/* Sticky Bottom Primary Action */}
-      <footer className="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto p-4 bg-[#0D0D0F]/95 backdrop-blur-md border-t border-[#26262B] z-20">
+      <footer className="sticky bottom-0 p-4 bg-[#0D0D0F]/95 backdrop-blur-md border-t border-[#26262B] z-20">
         <button 
           onClick={handleDecision}
           type="button" 
