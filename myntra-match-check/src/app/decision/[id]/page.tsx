@@ -146,6 +146,8 @@ export default function DecisionScreen() {
               </p>
             </section>
           </div>
+        </div>
+
         {/* Action Buttons: 4 stacked full-width buttons in descending visual weight */}
         <section className="w-full flex-1 flex flex-col justify-end space-y-4 pb-8 mt-12 px-4" aria-label="Decision actions">
           
