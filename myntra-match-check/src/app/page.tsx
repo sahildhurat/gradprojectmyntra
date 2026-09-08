@@ -114,7 +114,7 @@ export default function WishlistScreen() {
                 ) : (
                   <button 
                     onClick={() => handleCheckClick(product.id)}
-                    className="w-full min-h-[46px] py-2.5 px-4 rounded-[10px] bg-[#FF3E6C] active:bg-[#e0335e] text-white font-semibold text-[14px] tracking-wide flex items-center justify-center transition-colors" 
+                    className="w-full min-h-[50px] py-3.5 px-4 rounded-[12px] bg-[#FF3E6C] active:bg-[#e0335e] text-white font-semibold text-[15px] tracking-wide flex items-center justify-center transition-colors" 
                     type="button"
                   >
                     Check if it's right for me

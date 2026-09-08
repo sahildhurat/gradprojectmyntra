@@ -132,8 +132,8 @@ export default function VoteScreen() {
               <fieldset className="flex flex-col gap-2.5">
                 <legend className="sr-only">Choose your advice for the shopper</legend>
                 {voteOptions.map(opt => (
-                  <label key={opt.id} className={`relative flex items-center justify-between py-3.5 px-4 rounded-xl border cursor-pointer transition-all active:scale-[0.99] select-none ${selectedVote === opt.value ? 'bg-[#1E1E23] border-[#3A3A42]' : 'bg-[#18181C] border-[#2A2A30] hover:bg-[#1E1E23]'}`}>
-                    <span className={`text-sm font-medium ${selectedVote === opt.value ? 'text-[#F2F2F2]' : 'text-[#F2F2F2]/90'}`}>{opt.id}</span>
+                  <label key={opt.id} className={`relative flex items-center justify-between py-4 px-4 rounded-xl border cursor-pointer transition-all active:scale-[0.99] select-none ${selectedVote === opt.value ? 'bg-[#1E1E23] border-[#3A3A42]' : 'bg-[#18181C] border-[#2A2A30] hover:bg-[#1E1E23]'}`}>
+                    <span className={`text-[15px] font-medium ${selectedVote === opt.value ? 'text-[#F2F2F2]' : 'text-[#F2F2F2]/90'}`}>{opt.id}</span>
                     <input 
                       className="sr-only peer" 
                       name="verdict" 
@@ -167,7 +167,7 @@ export default function VoteScreen() {
                 <button 
                   onClick={handleVote}
                   disabled={!selectedVote || isSubmitting}
-                  className={`w-full py-4 rounded-xl text-white font-medium text-[15px] flex items-center justify-center transition-all ${selectedVote && !isSubmitting ? 'bg-[#FF3E6C] shadow-lg shadow-[#FF3E6C]/20 hover:brightness-105 active:scale-[0.99]' : 'bg-[#FF3E6C]/50 cursor-not-allowed'}`} 
+                  className={`w-full py-4 rounded-xl text-white font-medium text-[16px] flex items-center justify-center transition-all ${selectedVote && !isSubmitting ? 'bg-[#FF3E6C] shadow-lg shadow-[#FF3E6C]/20 hover:brightness-105 active:scale-[0.99]' : 'bg-[#FF3E6C]/50 cursor-not-allowed'}`} 
                   type="button"
                 >
                   {isSubmitting ? 'Sending...' : 'Send my answer'}

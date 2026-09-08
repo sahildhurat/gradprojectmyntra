@@ -111,8 +111,8 @@ export default function ContextFlowScreen() {
       `}} />
 
       {/* Top App Navigation / Header Bar */}
-      <header className="sticky top-0 z-30 bg-[#0D0D0F]/95 backdrop-blur-md px-4 py-3.5 border-b border-[#1A1A1D] flex items-center justify-between">
-        <div className="flex items-center gap-3">
+      <header className="sticky top-0 z-30 bg-[#0D0D0F]/95 backdrop-blur-md px-4 py-5 border-b border-[#1A1A1D] flex items-center justify-between">
+        <div className="flex items-center gap-4">
           <button onClick={() => router.back()} aria-label="Go back" className="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-[#9A9A9F] hover:text-[#F2F2F2] hover:bg-[#1A1A1D] transition-colors" type="button">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
@@ -132,10 +132,10 @@ export default function ContextFlowScreen() {
       </header>
 
       {/* Compact Product Summary Bar */}
-      <section className="px-4 py-3 bg-[#141417] border-b border-[#1F1F24] flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3 min-w-0">
+      <section className="px-4 py-5 bg-[#141417] border-b border-[#1F1F24] flex items-center justify-between gap-4">
+        <div className="flex items-center gap-4 min-w-0">
           {/* Thumbnail */}
-          <div className="w-12 h-12 rounded-[10px] bg-[#1A1A1D] border border-[#26262B] overflow-hidden flex-shrink-0 relative">
+          <div className="w-14 h-14 rounded-[10px] bg-[#1A1A1D] border border-[#26262B] overflow-hidden flex-shrink-0 relative">
             <img alt={product.name} className="w-full h-full object-cover object-center brightness-90 contrast-105" loading="lazy" src={product.imageUrl} />
           </div>
           {/* Product Specs Summary */}
@@ -153,7 +153,7 @@ export default function ContextFlowScreen() {
       </section>
 
       {/* Main Content Container */}
-      <div className="p-4 space-y-4 pb-28">
+      <div className="px-4 py-6 space-y-6 pb-32">
         {/* Block 1: What's the occasion? */}
         <section className="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-4 sm:p-5 shadow-sm">
           <div className="flex items-center justify-between mb-3.5">

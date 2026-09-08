@@ -290,7 +290,7 @@ export default function ResultScreen() {
                     key={opt.id}
                     onClick={() => handleFeeling(opt.id)}
                     type="button" 
-                    className={`py-2 px-3 rounded-full border border-[#26262B] text-[13px] font-medium transition-colors text-center focus:outline-none ${selectedFeeling === opt.id ? 'bg-[#3E3E48] text-white border-[#4E4E58]' : 'bg-[#26262B]/60 text-[#F2F2F2] hover:bg-[#26262B]'}`}
+                    className={`py-3.5 px-4 rounded-full border border-[#26262B] text-[15px] font-medium transition-colors text-center focus:outline-none ${selectedFeeling === opt.id ? 'bg-[#3E3E48] text-white border-[#4E4E58]' : 'bg-[#26262B]/60 text-[#F2F2F2] hover:bg-[#26262B]'}`}
                   >
                     {opt.label}
                   </button>
@@ -306,7 +306,7 @@ export default function ResultScreen() {
         <button 
           onClick={handleDecision}
           type="button" 
-          className="w-full h-12 rounded-[12px] bg-[#FF3E6C] text-white font-semibold text-[15px] flex items-center justify-center gap-2 hover:bg-[#e6355f] active:scale-[0.99] transition-all shadow-lg shadow-[#FF3E6C]/20 focus:outline-none focus:ring-2 focus:ring-[#FF3E6C]/50"
+          className="w-full h-14 rounded-[12px] bg-[#FF3E6C] text-white font-semibold text-base flex items-center justify-center gap-2 hover:bg-[#e6355f] active:scale-[0.99] transition-all shadow-lg shadow-[#FF3E6C]/20 focus:outline-none focus:ring-2 focus:ring-[#FF3E6C]/50"
         >
           <span>Continue to my decision</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">

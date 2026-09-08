@@ -134,7 +134,7 @@ export default function DecisionScreen() {
                     key={opt}
                     onClick={() => setDoubtResolved(opt)}
                     type="button" 
-                    className={`py-3 px-3 rounded-xl border text-sm font-medium text-center transition-colors focus:outline-none focus:ring-1 focus:ring-[#FF3E6C] ${doubtResolved === opt ? 'bg-[#3E3E48] text-white border-[#4E4E58]' : 'border-[#2E2E36] bg-[#161619] text-[#F2F2F2] hover:bg-[#202024] hover:border-[#3D3D46]'}`}
+                    className={`py-4 px-3 rounded-xl border text-base font-medium text-center transition-colors focus:outline-none focus:ring-1 focus:ring-[#FF3E6C] ${doubtResolved === opt ? 'bg-[#3E3E48] text-white border-[#4E4E58]' : 'border-[#2E2E36] bg-[#161619] text-[#F2F2F2] hover:bg-[#202024] hover:border-[#3D3D46]'}`}
                   >
                     {opt}
                   </button>
@@ -149,10 +149,10 @@ export default function DecisionScreen() {
         </div>
 
         {/* Action Buttons: 4 stacked full-width buttons in descending visual weight */}
-        <section className="w-full space-y-3 pb-4 mt-8 px-4" aria-label="Decision actions">
+        <section className="w-full space-y-4 pb-6 mt-10 px-4" aria-label="Decision actions">
           
           {/* Button 1: "Buy this" — filled coral */}
-          <button onClick={handleBuy} type="button" className="w-full py-3.5 px-4 bg-[#FF3E6C] hover:bg-[#E0345D] active:bg-[#C92C51] text-white font-semibold text-sm rounded-xl text-center shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#FF3E6C] focus:ring-offset-2 focus:ring-offset-[#0D0D0F] flex items-center justify-center gap-2">
+          <button onClick={handleBuy} type="button" className="w-full py-4 px-4 bg-[#FF3E6C] hover:bg-[#E0345D] active:bg-[#C92C51] text-white font-semibold text-base rounded-xl text-center shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#FF3E6C] focus:ring-offset-2 focus:ring-offset-[#0D0D0F] flex items-center justify-center gap-2">
             <span className="">Buy this</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -160,7 +160,7 @@ export default function DecisionScreen() {
           </button>
 
           {/* Button 2: "Ask my Inner Circle" — outlined, off-white border */}
-          <button disabled={isSharing} onClick={handleShareClick} type="button" className={`w-full py-3.5 px-4 bg-transparent hover:bg-[#1F1F24] active:bg-[#27272E] border border-[#F2F2F2] text-[#F2F2F2] font-semibold text-sm rounded-xl text-center transition-colors focus:outline-none focus:ring-1 focus:ring-[#F2F2F2] flex items-center justify-center gap-2 ${isSharing ? 'opacity-80' : ''}`}>
+          <button disabled={isSharing} onClick={handleShareClick} type="button" className={`w-full py-4 px-4 bg-transparent hover:bg-[#1F1F24] active:bg-[#27272E] border border-[#F2F2F2] text-[#F2F2F2] font-semibold text-base rounded-xl text-center transition-colors focus:outline-none focus:ring-1 focus:ring-[#F2F2F2] flex items-center justify-center gap-2 ${isSharing ? 'opacity-80' : ''}`}>
             {isSharing ? (
               <svg className="w-4 h-4 text-[#F2F2F2] animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -175,12 +175,12 @@ export default function DecisionScreen() {
           </button>
 
           {/* Button 3: "Keep for later" — plain text button, off-white */}
-          <button onClick={() => router.push('/')} type="button" className="w-full py-3 px-4 bg-transparent hover:bg-[#161619] active:bg-[#1E1E22] text-[#F2F2F2] font-medium text-sm rounded-xl text-center transition-colors focus:outline-none">
+          <button onClick={() => router.push('/')} type="button" className="w-full py-4 px-4 bg-transparent hover:bg-[#161619] active:bg-[#1E1E22] text-[#F2F2F2] font-medium text-base rounded-xl text-center transition-colors focus:outline-none">
             Keep for later
           </button>
 
           {/* Button 4: "Not right for me — remove" — plain text button, mid grey */}
-          <button onClick={handleDismiss} type="button" className="w-full py-2.5 px-4 bg-transparent hover:text-[#d4d4d8] text-[#9A9A9F] font-normal text-sm rounded-xl text-center transition-colors focus:outline-none">
+          <button onClick={handleDismiss} type="button" className="w-full py-3.5 px-4 bg-transparent hover:text-[#d4d4d8] text-[#9A9A9F] font-normal text-base rounded-xl text-center transition-colors focus:outline-none">
             Not right for me — remove
           </button>
 

@@ -197,7 +197,7 @@ export default function ShareScreen() {
                 router.back();
               }}
               type="button" 
-              className="w-full py-3.5 px-6 rounded-xl bg-[#ff3e6c] hover:bg-[#e0355e] active:scale-[0.99] text-white font-semibold text-sm tracking-wide shadow-lg shadow-[#ff3e6c]/20 transition-all flex items-center justify-center gap-2"
+              className="w-full py-4 px-6 rounded-xl bg-[#ff3e6c] hover:bg-[#e0355e] active:scale-[0.99] text-white font-semibold text-[15px] tracking-wide shadow-lg shadow-[#ff3e6c]/20 transition-all flex items-center justify-center gap-2"
             >
               <span>Return to my decision</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -294,14 +294,14 @@ export default function ShareScreen() {
           </div>
 
           <div className="w-full grid grid-cols-2 gap-2.5 mt-1">
-            <button onClick={handleWhatsApp} className="flex items-center justify-center gap-2 bg-[#1b1b1d] hover:bg-[#222226] border border-[#2c2c31] active:scale-[0.98] transition-all rounded-xl py-3 px-2 text-xs font-medium text-[#f2f2f4]">
+            <button onClick={handleWhatsApp} className="flex items-center justify-center gap-2 bg-[#1b1b1d] hover:bg-[#222226] border border-[#2c2c31] active:scale-[0.98] transition-all rounded-xl py-4 px-3 text-sm font-medium text-[#f2f2f4]">
               <svg className="w-4 h-4 text-[#25D366] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
               </svg>
               <span className="">WhatsApp</span>
             </button>
 
-            <button onClick={handleCopy} className="flex items-center justify-center gap-2 bg-[#1b1b1d] hover:bg-[#222226] border border-[#2c2c31] active:scale-[0.98] transition-all rounded-xl py-3 px-2 text-xs font-medium text-[#f2f2f4]">
+            <button onClick={handleCopy} className="flex items-center justify-center gap-2 bg-[#1b1b1d] hover:bg-[#222226] border border-[#2c2c31] active:scale-[0.98] transition-all rounded-xl py-4 px-3 text-sm font-medium text-[#f2f2f4]">
               {copied ? (
                 <svg className="w-4 h-4 text-[#9a9a9f] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>

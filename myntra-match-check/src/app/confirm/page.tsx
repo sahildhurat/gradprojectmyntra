@@ -100,7 +100,7 @@ export default function ConfirmScreen() {
 
         {/* Bottom Actions & Audit Line */}
         <footer className="flex flex-col items-center gap-3 pt-4 pb-8 mt-auto">
-          <button onClick={() => router.push('/')} className="w-full py-3.5 px-6 rounded-xl border border-neutral-600/80 hover:border-neutral-400 text-neutral-200 text-sm font-medium tracking-normal transition-all hover:bg-neutral-800/30 active:scale-[0.99] flex items-center justify-center gap-2">
+          <button onClick={() => router.push('/')} className="w-full py-4 px-6 rounded-xl border border-neutral-600/80 hover:border-neutral-400 text-neutral-200 text-[15px] font-medium tracking-normal transition-all hover:bg-neutral-800/30 active:scale-[0.99] flex items-center justify-center gap-2">
             <svg className="w-4 h-4 text-neutral-400" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
             </svg>
