@@ -132,10 +132,10 @@ export default function ContextFlowScreen() {
       </header>
 
       {/* Compact Product Summary Bar */}
-      <section className="px-4 py-5 bg-[#141417] border-b border-[#1F1F24] flex items-center justify-between gap-4">
-        <div className="flex items-center gap-4 min-w-0">
+      <section className="px-5 py-6 bg-[#141417] border-b border-[#1F1F24] flex items-center justify-between gap-5">
+        <div className="flex items-center gap-5 min-w-0">
           {/* Thumbnail */}
-          <div className="w-14 h-14 rounded-[10px] bg-[#1A1A1D] border border-[#26262B] overflow-hidden flex-shrink-0 relative">
+          <div className="w-16 h-16 rounded-[10px] bg-[#1A1A1D] border border-[#26262B] overflow-hidden flex-shrink-0 relative">
             <img alt={product.name} className="w-full h-full object-cover object-center brightness-90 contrast-105" loading="lazy" src={product.imageUrl} />
           </div>
           {/* Product Specs Summary */}
@@ -153,7 +153,7 @@ export default function ContextFlowScreen() {
       </section>
 
       {/* Main Content Container */}
-      <div className="px-4 py-6 space-y-6 pb-32">
+      <div className="px-5 py-8 flex flex-col space-y-10 pb-40">
         {/* Block 1: What's the occasion? */}
         <section className="bg-[#1A1A1D] border border-[#26262B] rounded-[14px] p-4 sm:p-5 shadow-sm">
           <div className="flex items-center justify-between mb-3.5">
@@ -168,8 +168,8 @@ export default function ContextFlowScreen() {
               const isActive = occasion === opt;
               if (isActive) {
                 return (
-                  <button key={opt} aria-checked="true" className="h-11 px-4 rounded-full text-[14px] font-semibold border border-white bg-[#2a2a2e] text-white shadow-sm flex items-center gap-1.5 transition-all" role="radio" type="button">
-                    <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <button key={opt} aria-checked="true" className="h-14 px-6 rounded-full text-base font-semibold border border-white bg-[#2a2a2e] text-white shadow-sm flex items-center gap-2 transition-all" role="radio" type="button">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5"></path>
                     </svg>
                     <span>{opt}</span>
@@ -177,7 +177,7 @@ export default function ContextFlowScreen() {
                 )
               }
               return (
-                <button key={opt} onClick={() => setOccasion(opt)} aria-checked="false" className="h-11 px-4 rounded-full text-[14px] font-medium border border-[#26262B] bg-[#141416] text-[#9A9A9F] hover:text-[#F2F2F2] hover:border-[#38383F] transition-all flex items-center justify-center active:scale-95" role="radio" type="button">
+                <button key={opt} onClick={() => setOccasion(opt)} aria-checked="false" className="h-14 px-6 rounded-full text-base font-medium border border-[#26262B] bg-[#141416] text-[#9A9A9F] hover:text-[#F2F2F2] hover:border-[#38383F] transition-all flex items-center justify-center active:scale-95" role="radio" type="button">
                   {opt}
                 </button>
               )
@@ -248,12 +248,12 @@ export default function ContextFlowScreen() {
                 <label 
                   key={opt.id}
                   onClick={() => setHesitation(opt.id)}
-                  className={`flex items-center justify-between p-3.5 rounded-[10px] cursor-pointer transition-colors min-h-[48px] ${isActive ? 'bg-[#1E1E22] border border-[#3E3E45]' : 'bg-[#141416] border border-[#26262B] hover:border-[#38383F]'}`}
+                  className={`flex items-center justify-between p-5 rounded-xl cursor-pointer transition-colors min-h-[56px] ${isActive ? 'bg-[#1E1E22] border border-[#3E3E45]' : 'bg-[#141416] border border-[#26262B] hover:border-[#38383F]'}`}
                 >
-                  <span className={`text-[15px] ${isActive ? 'text-white font-semibold' : 'text-[#F2F2F2] font-medium'}`}>{opt.id}</span>
+                  <span className={`text-base ${isActive ? 'text-white font-semibold' : 'text-[#F2F2F2] font-medium'}`}>{opt.id}</span>
                   <input checked={isActive} onChange={()=>{}} className="sr-only" name="hesitation" type="radio" value={opt.id} />
-                  <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${isActive ? 'border-2 border-[#F2F2F2]' : 'border border-[#9A9A9F]/60'}`}>
-                    <div className={`w-2.5 h-2.5 rounded-full ${isActive ? 'bg-[#F2F2F2]' : 'bg-transparent'}`}></div>
+                  <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${isActive ? 'border-2 border-[#F2F2F2]' : 'border border-[#9A9A9F]/60'}`}>
+                    <div className={`w-3 h-3 rounded-full ${isActive ? 'bg-[#F2F2F2]' : 'bg-transparent'}`}></div>
                   </div>
                 </label>
               );
@@ -264,11 +264,11 @@ export default function ContextFlowScreen() {
 
       {/* Sticky Bottom CTA Area with Coral Button */}
       <div className="fixed bottom-0 left-0 right-0 z-40 flex justify-center pointer-events-none">
-        <div className="w-full max-w-[430px] p-4 bg-gradient-to-t from-[#0D0D0F] via-[#0D0D0F]/95 to-transparent pt-6 pointer-events-auto border-t border-[#1A1A1D]/80">
+        <div className="w-full max-w-[430px] p-5 bg-gradient-to-t from-[#0D0D0F] via-[#0D0D0F]/95 to-transparent pt-8 pointer-events-auto border-t border-[#1A1A1D]/80">
           <button 
             onClick={handleGenerate}
             disabled={isGenerating}
-            className={`w-full h-12 ${isGenerating ? 'bg-[#E02E5A] opacity-80' : 'bg-[#FF3E6C] hover:bg-[#E02E5A] active:scale-[0.99]'} text-white font-bold text-[15px] rounded-[12px] flex items-center justify-center gap-2 shadow-lg shadow-[#FF3E6C]/20 transition-all focus:outline-none focus:ring-2 focus:ring-[#FF3E6C] focus:ring-offset-2 focus:ring-offset-[#0D0D0F]`} 
+            className={`w-full h-16 ${isGenerating ? 'bg-[#E02E5A] opacity-80' : 'bg-[#FF3E6C] hover:bg-[#E02E5A] active:scale-[0.99]'} text-white font-bold text-lg rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-[#FF3E6C]/20 transition-all focus:outline-none focus:ring-2 focus:ring-[#FF3E6C] focus:ring-offset-2 focus:ring-offset-[#0D0D0F]`} 
             type="button"
           >
             {isGenerating ? (
