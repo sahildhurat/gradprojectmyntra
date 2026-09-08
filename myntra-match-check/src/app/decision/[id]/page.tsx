@@ -104,19 +104,19 @@ export default function DecisionScreen() {
 
           <div className="px-4">
             {/* Compact Product Summary Bar */}
-            <section className="bg-[#1A1A1D] border border-[#26262B] rounded-xl p-3 flex items-center gap-3.5 mb-8" aria-label="Product summary">
+            <section className="bg-[#1A1A1D] border border-[#26262B] rounded-xl p-5 flex items-center gap-4 mb-8" aria-label="Product summary">
               {/* Thumbnail */}
-              <div className="w-14 h-14 rounded-lg bg-[#242429] border border-[#2E2E36] flex items-center justify-center flex-shrink-0 overflow-hidden relative">
+              <div className="w-20 h-20 rounded-lg bg-[#242429] border border-[#2E2E36] flex items-center justify-center flex-shrink-0 overflow-hidden relative">
                 <img alt={product.name} className="w-full h-full object-cover object-center brightness-90 contrast-105" loading="lazy" src={product.imageUrl} />
               </div>
               {/* Info */}
               <div className="flex-1 min-w-0">
-                <div className="text-[10px] tracking-wider uppercase font-semibold text-[#9A9A9F] truncate">{product.brand}</div>
-                <div className="text-sm font-medium text-[#F2F2F2] truncate mt-0.5">
+                <div className="text-xs tracking-wider uppercase font-semibold text-[#9A9A9F] truncate">{product.brand}</div>
+                <div className="text-lg font-medium text-[#F2F2F2] truncate mt-0.5">
                   {product.name}
                 </div>
-                <div className="text-xs font-semibold text-[#d4d4d8] mt-1">
-                  ₹{product.price.toLocaleString('en-IN')} <span className="text-[10px] font-normal text-[#9A9A9F]">· ₹{cpw.toLocaleString('en-IN')}/wear ({check.expectedWears} wears)</span>
+                <div className="text-sm font-semibold text-[#d4d4d8] mt-1.5">
+                  ₹{product.price.toLocaleString('en-IN')} <span className="text-xs font-normal text-[#9A9A9F]">· ₹{cpw.toLocaleString('en-IN')}/wear ({check.expectedWears} wears)</span>
                 </div>
               </div>
             </section>
@@ -149,7 +149,7 @@ export default function DecisionScreen() {
         </div>
 
         {/* Action Buttons: 4 stacked full-width buttons in descending visual weight */}
-        <section className="w-full flex-1 flex flex-col justify-end space-y-4 pb-8 mt-12 px-4" aria-label="Decision actions">
+        <section className="w-full flex-1 flex flex-col justify-end space-y-6 pb-8 mt-12 px-4" aria-label="Decision actions">
           
           {/* Button 1: "Buy this" — filled coral */}
           <button onClick={handleBuy} type="button" className="w-full py-5 px-4 bg-[#FF3E6C] hover:bg-[#E0345D] active:bg-[#C92C51] text-white font-bold text-lg rounded-xl text-center shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#FF3E6C] focus:ring-offset-2 focus:ring-offset-[#0D0D0F] flex items-center justify-center gap-2">

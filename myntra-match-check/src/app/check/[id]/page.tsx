@@ -135,20 +135,20 @@ export default function ContextFlowScreen() {
       <section className="px-5 py-6 bg-[#141417] border-b border-[#1F1F24] flex items-center justify-between gap-5">
         <div className="flex items-center gap-5 min-w-0">
           {/* Thumbnail */}
-          <div className="w-16 h-16 rounded-[10px] bg-[#1A1A1D] border border-[#26262B] overflow-hidden flex-shrink-0 relative">
+          <div className="w-20 h-20 rounded-[10px] bg-[#1A1A1D] border border-[#26262B] overflow-hidden flex-shrink-0 relative">
             <img alt={product.name} className="w-full h-full object-cover object-center brightness-90 contrast-105" loading="lazy" src={product.imageUrl} />
           </div>
           {/* Product Specs Summary */}
           <div className="min-w-0">
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-[#9A9A9F] truncate">{product.brand}</p>
-            <h2 className="text-[14px] font-semibold text-[#F2F2F2] truncate">{product.name}</h2>
-            <span className="text-[12px] text-[#9A9A9F]">Ref: {product.id.slice(0,6).toUpperCase()}</span>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#9A9A9F] truncate">{product.brand}</p>
+            <h2 className="text-lg font-semibold text-[#F2F2F2] truncate mt-0.5">{product.name}</h2>
+            <span className="text-sm text-[#9A9A9F] mt-1 block">Ref: {product.id.slice(0,6).toUpperCase()}</span>
           </div>
         </div>
         {/* Price */}
         <div className="text-right flex-shrink-0">
-          <span className="text-[15px] font-bold text-[#F2F2F2]">₹{product.price.toLocaleString('en-IN')}</span>
-          <span className="block text-[11px] text-[#6B6B72]">Inclusive of tax</span>
+          <span className="text-lg font-bold text-[#F2F2F2]">₹{product.price.toLocaleString('en-IN')}</span>
+          <span className="block text-xs text-[#6B6B72] mt-0.5">Inclusive of tax</span>
         </div>
       </section>
 
